@@ -1,3 +1,2 @@
 # G.A.S. 
-#
-# Games and Stuff 
+Games and Stuff 
