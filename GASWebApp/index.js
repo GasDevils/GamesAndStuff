@@ -21,3 +21,15 @@ app.get('/users', db.getUsers)
 
 app.get('/', (req, res) => res.send('this is an update'));
 app.listen(port);
+
+<html>
+    <head>
+        <title>G.A.S.</title>
+        <link rel="stylesheet" href="style.css"></link>
+    </head>
+    <body>
+        <div class="main">
+            
+        </div>
+    </body>
+</html>
