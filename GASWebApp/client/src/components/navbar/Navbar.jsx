@@ -1,11 +1,13 @@
 import React from 'react'
-import { RiMenu3Line, RiCloseLin } from 'react-icons/ri';
+//import { RiMenu3Line, RiCloseLin } from 'react-icons/ri';
 
 import logo from '../../assets/logo.png'
 
 import './navbar.css';
 
 /*BEM naming convention, block element modifier*/
+
+/*note: change #home to point to things like "feature" and etc so they can go to correct places*/
 
 const Navbar = () => {
   return (
@@ -15,7 +17,7 @@ const Navbar = () => {
             <img src= {logo} alt= "logo" />
           </div>
 
-/*note: change #home to point to things like "feature" and etc so they can go to correct places*/
+          
 
           <div className="gpt3_navbar-links_container">
             <p><a href="#home">Home</a></p>
@@ -27,7 +29,7 @@ const Navbar = () => {
 
         </div>
 
-        /*formatted properly in navbar.css*/
+        
         <div className="gpt3__navbar-sign">
         <p>Sign in</p>
         <button type="button">Sign up</button>
@@ -36,5 +38,7 @@ const Navbar = () => {
     </div>
   )
 }
+
+/*formatted sign up/sign in properly in navbar.css*/
 
 export default Navbar
