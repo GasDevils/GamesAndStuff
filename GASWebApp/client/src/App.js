@@ -1,23 +1,31 @@
 import './App.css';
 
+//to import container folder and component folder
+import {Footer, Blog, Possibility, Features, WhatGAS, Header} from './containers'
+import {CTA, Brand, Navbar} from './components';
+
 function App() {
   return (
 	<div className="App">
-      <header className="App-header">
-        
-        <p>
-		Website not responding, click the link below to reload.   
-        </p>
-        <a
-          className="App-link"
-          href="https://www.youtube.com/watch?v=z4JJ270xx98"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Reload
-        </a>
-      </header>
-    </div>
+     <div className="gradient__bg">
+      <Navbar />
+
+      <Header />
+
+      <Brand />
+
+      <WhatGAS />
+
+      <Possibility />
+
+      <CTA />
+
+      <Blog />
+
+      <Footer />
+
+     </div>
+  </div>
 );
 }
 
