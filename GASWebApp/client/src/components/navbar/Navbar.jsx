@@ -2,13 +2,14 @@ import React from 'react'
 //import { RiMenu3Line, RiCloseLin } from 'react-icons/ri';
 
 import logo from '../../assets/logo.png'
-
-import './navbar.css';
+import {Route,Link} from 'react-router-dom'
 
 
 const Navbar = ()=>
 {
+
   return(
+
     <body>
         <nav>
           <div class="container">
