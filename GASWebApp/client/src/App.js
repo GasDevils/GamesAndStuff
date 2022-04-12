@@ -1,5 +1,7 @@
 import './App.css';
 
+import React from 'react';
+
 //to import container folder and component folder
 import {Footer, Blog, Possibility, Features, WhatGAS, Header} from './containers'
 import {CTA, Brand, Navbar} from './components';
