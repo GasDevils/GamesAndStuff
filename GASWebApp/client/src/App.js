@@ -7,6 +7,7 @@ import {CTA, Brand, Navbar} from './components';
 
 import './navbar.css';
 import Login from './Login';
+import App from './App';
 import Friends from './Friends';
 import MyAccount from './MyAccount';
 import GameGallery from './GameGallery';
