@@ -7,11 +7,13 @@
     list-style: none;
   }
   
-  body {
-    background-color: beige;
+  body 
+  {
+    background-color: rgb(228, 228, 228);
   }
   
-  .container {
+  .container 
+  {
     max-width: 1280px;
     margin: 0 auto;
     display: flex;

@@ -5,32 +5,52 @@ import logo from '../../assets/logo.png'
 
 import './navbar.css';
 
-<body>
-  <nav>
-    <div class="container">
-      <h1 class="gradient shimmer"><a href="">G.A.S.</a></h1>
-    
-      <div class="nav-list">
-      <a href="#" class="active">Home</a>
-      <a href="#">Game Gallery</a>
-      <a href="#">My Account</a>
-      <a href="#">Friends</a>
-      </div>
+const Navbar = ()=>
+{
+  return(
+    <body>
+        <nav>
+          <div class="container">
+            <h1 class="gradient shimmer"><a href="">G.A.S.</a></h1>
+          
+            <div class="nav-list">
+              <a href="#" class="active">Home</a>
+              <a href="#">Game Gallery</a>
+              <a href="#">My Account</a>
+              <a href="#">Friends</a>
+            </div>
+        
+          </div>
+        </nav>
+        <p class="display-text"> DISCOVER GREAT GAMES! WIP </p>
+        
+      </body>
+  );
   
-    </div>
-  </nav>
-  
-  
-  <p class="display-text"> DISCOVER GREAT GAMES! WIP </p>
-  
-</body>
+}
 
 export default Navbar
 
 /*BEM naming convention, block element modifier
 
 note: change #home to point to things like "feature" and etc so they can go to correct places
-
+  <body>
+    <nav>
+      <div class="container">
+        <h1 class="gradient shimmer"><a href="">G.A.S.</a></h1>
+      
+        <div class="nav-list">
+          <a href="#" class="active">Home</a>
+          <a href="#">Game Gallery</a>
+          <a href="#">My Account</a>
+          <a href="#">Friends</a>
+        </div>
+    
+      </div>
+    </nav>
+    <p class="display-text"> DISCOVER GREAT GAMES! WIP </p>
+    
+  </body>
 
 const Navbar = () => {
   return (
