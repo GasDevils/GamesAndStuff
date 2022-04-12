@@ -10,16 +10,9 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 function App() {
   return (
-    <Router>
-
-    
     <div className="App">
       <Navbar />
-      <Route path="/">
-        <Home />
-      </Route>
     </div>
-    </Router>
 );
 }
 
@@ -36,15 +29,5 @@ export default App;
      </div>
   </div>
 
-  <Router>
-
-    
-    <div className="App">
-      <Navbar />
-      <Switch> 
-
-      </Switch>
-
-    </div>
-    </Router>
+  
 */
