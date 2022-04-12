@@ -13,9 +13,7 @@ import MyAccount from './MyAccount';
 import GameGallery from './GameGallery';
 import {Route, Link} from 'react-router-dom';
 
-function App()
-{
-
+function App(){
   return(
     <div className="AppHome">
 
