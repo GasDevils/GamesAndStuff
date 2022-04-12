@@ -24,6 +24,9 @@ import './navbar.css';
   <p class="display-text"> DISCOVER GREAT GAMES! WIP </p>
   
 </body>
+
+export default Navbar
+
 /*BEM naming convention, block element modifier
 
 note: change #home to point to things like "feature" and etc so they can go to correct places
