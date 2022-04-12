@@ -19,11 +19,7 @@ function App(){
         <div>
           <Navbar />
         </div>
-        <Route exact path="/" component={App} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/gamegallery" component={GameGallery} />
-        <Route exact path="/myaccount" component={MyAccount} />
-        <Route exact path="/friends" component={Friends} />
+
 
 
       </div>
