@@ -2,12 +2,14 @@ import React from 'react'
 //import { RiMenu3Line, RiCloseLin } from 'react-icons/ri';
 
 import logo from '../../assets/logo.png'
+import {Route,Link} from 'react-router-dom'
 
-import './navbar.css';
 
 const Navbar = ()=>
 {
+
   return(
+
     <body>
         <nav>
           <div class="container">
@@ -20,16 +22,16 @@ const Navbar = ()=>
             </h1>
           
             <div class="nav-list">
-              <a href="#" class="active">Home</a>
-              <a href="#">Game Gallery</a>
-              <a href="#">My Account</a>
-              <a href="#">Friends</a>
-              <a href="#">Login</a>
+              <a href="/">Home</a>
+              <a href="/gamegallery">Game Gallery</a>
+              <a href="/myaccount">My Account</a>
+              <a href="/friends">Friends</a>
+              <a href="/login" class="active">Login</a>
             </div>
         
           </div>
         </nav>
-        <p class="display-text"> DISCOVER GREAT GAMES! WIP </p>
+        
         
       </body>
   );
