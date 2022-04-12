@@ -3,8 +3,7 @@ import React from 'react'
 
 import logo from '../../assets/logo.png'
 import {Route,Link} from 'react-router-dom'
-
-
+import './navbar.css';
 const Navbar = ()=>
 {
 
