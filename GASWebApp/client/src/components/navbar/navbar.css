@@ -22,10 +22,22 @@
     justify-content: space-between;
   }
   
-  h1 {
-    text-transform: uppercase;
-    font-size: 32px;
+  img 
+  {
+    height: 55px;
+    position: relative;
+    top: 15px;
   }
+  
+    h1 
+    {
+      text-transform: uppercase;
+      font-size: 32px;
+  
+      position: relative;
+      top: -10px;
+      
+    }
   
   .gradient {
   background-color: #8a40ff;
@@ -44,16 +56,7 @@
     padding-left: 10px;
   }
 
-  .gpt3__navbar-links_logo
-{
-    margin-right: 2rem;
-}
 
-.gpt3__navbar-links_logo img
-{
-    width: 16px;
-    height: 16px;
-}
   
   nav {
     position:fixed;
