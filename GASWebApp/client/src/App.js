@@ -14,21 +14,19 @@ import {Route, Link} from 'react-router-dom';
 
 function App(){
   return(
-    <div>
-      <div className="App">
+    <div className="AppHome">
 
-        <Route exact path="/" component={App} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/gamegallery" component={GameGallery} />
-        <Route exact path="/myaccount" component={MyAccount} />
-        <Route exact path="/friends" component={Friends} />
+    <Route exact path="/" component={App} />
+    <Route exact path="/login" component={Login} />
+    <Route exact path="/gamegallery" component={GameGallery} />
+    <Route exact path="/myaccount" component={MyAccount} />
+    <Route exact path="/friends" component={Friends} />
 
-        <div className="gradient__bg">
-          <Navbar />
-        </div>
-      </div>
+    <div className="gradient__bg">
+    <Navbar />
+
     </div>
-
+    </div>
   );
   
 }
