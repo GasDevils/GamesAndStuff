@@ -6,24 +6,21 @@ import {CTA, Brand, Navbar} from './components';
 import Home from './Home';
 import Link1 from './Link1';
 import Link2 from './Link2';
-import BrowserRouter from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 function App() {
   return (
+    <Router>
+
+    
     <div className="App">
-      <App />
-      <BrowserRouter>
-      
-    <Navbar />
-  </BrowserRouter>
-  <BrowserRouter>
-    <Route exact path='/' element={<Home />} />
-    <Route path ='link1' element={<Link1 />} />
-    <Route path ='link2' element={<Link2 />} />
-  </BrowserRouter>
+      <Navbar />
+      <Switch> 
+
+      </Switch>
 
     </div>
-
+    </Router>
 );
 }
 
