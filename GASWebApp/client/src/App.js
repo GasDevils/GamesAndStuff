@@ -15,6 +15,9 @@ function App() {
     
     <div className="App">
       <Navbar />
+      <Route path="/">
+        <Home />
+      </Route>
     </div>
     </Router>
 );
