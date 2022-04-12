@@ -12,7 +12,6 @@ function App() {
   return (
 	<div className="App">
      <div className="gradient__bg">
-       <Route exact path="navbar" component={Navbar} />
        <Route exact path="/" component={Home} />
        <Route exact path="/link1" component={Link1} />
        <Route exact path="/link2" component={Link2} />
