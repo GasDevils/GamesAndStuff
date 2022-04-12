@@ -22,7 +22,7 @@ const Navbar = ()=>
             </h1>
           
             <div class="nav-list">
-              <a href="/">Home</a>
+              <a href="/#">Home</a>
               <a href="/gamegallery">Game Gallery</a>
               <a href="/myaccount">My Account</a>
               <a href="/friends">Friends</a>
