@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react';
 
 //to import container folder and component folder
 import {Footer, Blog, Possibility, Features, WhatGAS, Header} from './containers'
@@ -12,22 +13,25 @@ import MyAccount from './MyAccount';
 import GameGallery from './GameGallery';
 import {Route, Link} from 'react-router-dom';
 
-function App() {
-  return (
-	<div className="App">
+function App()
+{
 
-        <Route exact path="/#" component={App} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/gamegallery" component={GameGallery} />
-        <Route exact path="/myaccount" component={MyAccount} />
-        <Route exact path="/friends" component={Friends} />
+  return(
+    <div className="App">
 
-      <div className="gradient__bg">
-      <Navbar />
+    <Route exact path="/" component={App} />
+    <Route exact path="/login" component={Login} />
+    <Route exact path="/gamegallery" component={GameGallery} />
+    <Route exact path="/myaccount" component={MyAccount} />
+    <Route exact path="/friends" component={Friends} />
 
-     </div>
-  </div>
-);
+    <div className="gradient__bg">
+    <Navbar />
+
+    </div>
+    </div>
+  );
+  
 }
 
 export default App;
