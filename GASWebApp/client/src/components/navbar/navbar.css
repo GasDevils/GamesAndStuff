@@ -43,6 +43,17 @@
   .logo-txt {
     padding-left: 10px;
   }
+
+  .gpt3__navbar-links_logo
+{
+    margin-right: 2rem;
+}
+
+.gpt3__navbar-links_logo img
+{
+    width: 16px;
+    height: 16px;
+}
   
   nav {
     position:fixed;

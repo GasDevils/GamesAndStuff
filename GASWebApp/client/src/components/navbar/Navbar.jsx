@@ -11,13 +11,21 @@ const Navbar = ()=>
     <body>
         <nav>
           <div class="container">
-            <h1 class="gradient shimmer"><a href="">G.A.S.</a></h1>
+            <h1 class="gradient shimmer">
+              
+              <d className="gpt3__navbar-links_logo">
+              <img src= {logo} alt= "" />
+              </d>
+              <a href="">G.A.S.</a>
+              
+            </h1>
           
             <div class="nav-list">
               <a href="#" class="active">Home</a>
               <a href="#">Game Gallery</a>
               <a href="#">My Account</a>
               <a href="#">Friends</a>
+              <a href="#">Login</a>
             </div>
         
           </div>
