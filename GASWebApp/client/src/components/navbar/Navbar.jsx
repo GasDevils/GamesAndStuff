@@ -5,9 +5,29 @@ import logo from '../../assets/logo.png'
 
 import './navbar.css';
 
-/*BEM naming convention, block element modifier*/
+<body>
+  <nav>
+    <div class="container">
+      <h1 class="gradient shimmer"><a href="">G.A.S.</a></h1>
+    
+      <div class="nav-list">
+      <a href="#" class="active">Home</a>
+      <a href="#">Game Gallery</a>
+      <a href="#">My Account</a>
+      <a href="#">Friends</a>
+      </div>
+  
+    </div>
+  </nav>
+  
+  
+  <p class="display-text"> DISCOVER GREAT GAMES! WIP </p>
+  
+</body>
+/*BEM naming convention, block element modifier
 
-/*note: change #home to point to things like "feature" and etc so they can go to correct places*/
+note: change #home to point to things like "feature" and etc so they can go to correct places
+
 
 const Navbar = () => {
   return (
@@ -39,6 +59,7 @@ const Navbar = () => {
   )
 }
 
-/*formatted sign up/sign in properly in navbar.css*/
+/*formatted sign up/sign in properly in navbar.css
 
 export default Navbar
+*/
