@@ -5,7 +5,7 @@ import React from 'react';
 import {Footer, Blog, Possibility, Features, WhatGAS, Header} from './containers'
 import {CTA, Brand, Navbar} from './components';
 
-import './navbar.css';
+
 import Login from './Login';
 import Friends from './Friends';
 import MyAccount from './MyAccount';
