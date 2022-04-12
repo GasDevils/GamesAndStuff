@@ -17,7 +17,7 @@ function App()
 {
 
   return(
-    <div className="AppHome">
+    <div className="App">
 
     <Route exact path="/" component={App} />
     <Route exact path="/login" component={Login} />
