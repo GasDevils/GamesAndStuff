@@ -9,39 +9,29 @@ import {NavLink} from 'react-router-dom';
 const Navbar = ()=>{
   return(
     <div className="navbar">
+      <Nav>
+        <NavMenu>
           <div class="container">
             <h1 class="gradient shimmer">
-              
+                
               <img src="https://media.discordapp.net/attachments/287073823608668163/962829511701962833/412ProjectLogo.png?width=437&height=437"></img>
 
               <a href="">G.A.S.</a>
-              
+                
             </h1>
+            <NavLink exact to="/" activeStyle>Home</NavLink>
+            <NavLink to="/gameGallery" activeStyle>Game Gallery</NavLink>
+            <NavLink to="/Friends" activeStyle>Friends</NavLink>
+            <NavLink to="/Account" activeStyle>Account</NavLink>
           
-            <div class="nav-list">
-              <ul className='nav-list-items'>
-                <li>
-                  <NavLink exact to="/" className='nav-link' activeClassName='nav-link-active'>Home</NavLink>
-                </li> 
-                <li>
-                  <NavLink to="/game-gallery" className='nav-link' activeClassName='nav-link-active'>Game Gallery</NavLink>
-                </li>
-                <li>
-                  <NavLink exact to="/account" className='nav-link' activeClassName='nav-link-active'>My Account</NavLink>
-                </li> 
-                <li>
-                  <NavLink exact to="/friends" className='nav-link' activeClassName='nav-link-active'>Friends</NavLink>
-                </li> 
-              </ul>
-              
-            </div>
-        
           </div>
-      </div>
+        </NavMenu>
+      </Nav>
+    </div>
   );
 }
 
-export default Navbar
+export default Navbar;
 
 /*
               <a href="/" class="active">Home</a>
