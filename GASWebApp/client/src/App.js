@@ -5,7 +5,7 @@ import React from 'react';
 //to import container folder and component folder
 import {Footer, Blog, Possibility, Features, WhatGAS, Header} from './containers'
 import {CTA, Brand, Navbar} from './components';
-import Home from './Home';
+import Home from './components/home/Home';
 import Link1 from './Link1';
 import Link2 from './Link2';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
