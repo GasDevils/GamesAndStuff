@@ -6,8 +6,6 @@ import React from 'react';
 import {Footer, Blog, Possibility, Features, WhatGAS, Header} from './containers'
 import Navbar from './components/navbar/Navbar';
 import Home from './components/home/Home';
-import Link1 from './Link1';
-import Link2 from './Link2';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 const App = () => {
