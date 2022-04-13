@@ -76,7 +76,7 @@
     color:white;
   }
   
-  .nav-list nav-link {
+  .nav-list a.nav-link {
     color: white;
     margin: 0 16px;
     font-weight: 600;
