@@ -9,16 +9,14 @@ import {Routes, Route, Link} from 'react-router-dom';
 const App = () => {
   return (
       <div className="App">
-        <Navbar />
-        <Home />
+        <Routes>
+          <Route exact path ='/'>
+            <Navbar />
+            <Home />
+          </Route>
+        </Routes>
       </div>
 );
 }
 
 export default App;
-/*<Routes>
-          <Route exact path ='/'>
-            <Navbar />
-            <Home />
-          </Route>
-        </Routes> */
