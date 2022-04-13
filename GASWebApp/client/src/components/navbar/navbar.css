@@ -74,6 +74,7 @@
     justify-content: flex-end;
     margin: 0 -16px;
     color:white;
+    display: inline;
   }
   
   .nav-list a.nav-link {
