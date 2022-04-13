@@ -4,7 +4,7 @@ import Navbar from './components/navbar/Navbar';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'; //BrowserRouter is the router for the entire application 
 
 import Home from './components/home/Home';
-import GameGallery from './components/gameGallery/GameGallery';
+import GameGallery from './components/gamegallery/GameGallery';
 import Friends from './components/friends/Friends';
 import Account from './components/account/Account';
 
