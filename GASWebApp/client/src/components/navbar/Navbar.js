@@ -9,8 +9,7 @@ import {NavLink} from 'react-router-dom';
 const Navbar = ()=>{
   return(
     <div className="navbar">
-      <Nav>
-        <NavMenu>
+
           <div class="container">
             <h1 class="gradient shimmer">
                 
@@ -25,8 +24,7 @@ const Navbar = ()=>{
             <NavLink to="/Account" activeStyle>Account</NavLink>
           
           </div>
-        </NavMenu>
-      </Nav>
+
     </div>
   );
 }
