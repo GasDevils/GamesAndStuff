@@ -10,11 +10,24 @@ import Link1 from './Link1';
 import Link2 from './Link2';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
+    <Router>
+      <div className="App">
       <Navbar />
-    </div>
+        <Switch>
+          <Route exact path ='/'>
+            <Home />
+          </Route>
+          <Route exact path ='/link1'>
+            <Link1 />
+          </Route>
+          <Route exact path ='/link2'>
+            <Link2 />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
 );
 }
 
