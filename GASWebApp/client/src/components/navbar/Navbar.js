@@ -21,10 +21,10 @@ const Navbar = ()=>{
               
           </h1>
           <div class="nav-list">
-            <NavLink exact to="/" className="nav-link">Home</NavLink>
-            <NavLink to="/gameGallery" className="nav-link">Game Gallery</NavLink>
-            <NavLink to="/Friends" className="nav-link">Friends</NavLink>
-            <NavLink to="/Account" className="nav-link">Account</NavLink>
+            <li><NavLink exact to="/" className="nav-link">Home</NavLink></li>
+            <li><NavLink to="/gameGallery" className="nav-link">Game Gallery</NavLink></li>
+            <li><NavLink to="/Friends" className="nav-link">Friends</NavLink></li>
+            <li><NavLink to="/Account" className="nav-link">Account</NavLink></li>
           </div>
           
 
