@@ -76,7 +76,7 @@
     color:white;
   }
   
-  .nav-list a {
+  .nav-list NavLink {
     color: white;
     margin: 0 16px;
     font-weight: 600;
@@ -85,7 +85,7 @@
     padding: 8px 16px;
   }
   
-  .nav-list a.active, .nav-list a:hover {
+  .nav-list NavLink.active, .nav-list Navlink:hover {
     background-color: #8a40ff;
     border-radius: 5px;
   }
