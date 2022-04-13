@@ -76,7 +76,7 @@
     color:white;
   }
   
-  .nav-list NavLink {
+  .nav-list nav-link {
     color: white;
     margin: 0 16px;
     font-weight: 600;
@@ -84,8 +84,8 @@
     transition: 0.4s;
     padding: 8px 16px;
   }
-  
-  .nav-list NavLink.active, .nav-list NavLink:hover {
+
+  .nav-list a.nav-link.active, .nav-list a.nav-link:hover {
     background-color: #8a40ff;
     border-radius: 5px;
   }
