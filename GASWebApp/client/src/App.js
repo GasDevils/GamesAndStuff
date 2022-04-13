@@ -7,7 +7,7 @@ import Home from './components/home/Home';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 const App = () => {
-  return (
+  return (  
     <Router>
       <div className='App'>
         <Navbar />
