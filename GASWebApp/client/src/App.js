@@ -11,9 +11,9 @@ const App = () => {
   return (
     <Router>
       <div className="App">
-      <Navbar />
         <Switch>
           <Route exact path ='/'>
+            <Navbar />
             <Home />
           </Route>
         </Switch>
