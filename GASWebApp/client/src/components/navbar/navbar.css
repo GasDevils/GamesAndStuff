@@ -85,7 +85,7 @@
     padding: 8px 16px;
   }
   
-  .nav-list NavLink.active, .nav-list Navlink:hover {
+  .nav-list NavLink.active, .nav-list NavLink:hover {
     background-color: #8a40ff;
     border-radius: 5px;
   }
