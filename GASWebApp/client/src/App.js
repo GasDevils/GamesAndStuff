@@ -2,7 +2,6 @@ import './App.css';
 
 import React from 'react';
 
-//to import container folder and component folder
 import {Footer, Blog, Possibility, Features, WhatGAS, Header} from './containers'
 import Navbar from './components/navbar/Navbar';
 import Home from './components/home/Home';
@@ -24,17 +23,3 @@ const App = () => {
 }
 
 export default App;
-
-/*
-<div className="App">
-     <div className="gradient__bg">
-       <Navbar />
-      <Home />
-      <Link1 />
-      <Link2 />
-
-     </div>
-  </div>
-
-  
-*/
