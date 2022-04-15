@@ -34,10 +34,10 @@ const Login = ()=>{
                     </center>
                 </a>
 
-                <p>Don't have an account?</p>
-                <li><NavLink exact to="/" className="nav-link">Home</NavLink>Sign up here</li>
-
             </center>
+            
+            <p>Don't have an account?</p>
+            <li><NavLink exact to="/" className="nav-link">Sign up here</NavLink></li>
 
             
 
