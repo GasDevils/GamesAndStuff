@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 
 import './account.css';
 
-const Login = ()=>{
+const Account = ()=>{
     
     return(
 <div class="user-wrap">
