@@ -4,16 +4,16 @@ import './login.css';
 
 const Login = ()=>{
     return(
-    <div class="login-box">
+    <div className="login-box">
     <h2>Welcome G.A.S. User!</h2>
     <h2>Sign in to your account.</h2>
         <form>
-        <div class="user-box">
+        <div className="user-box">
             <input type="text" name="" required="">
             </input>
             <label>Username</label>
         </div>
-        <div class="user-box">
+        <div className="user-box">
             <input type="password" name="" required="">
             </input>
             <label>Password</label>
