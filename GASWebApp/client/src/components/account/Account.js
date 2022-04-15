@@ -16,9 +16,14 @@ const Account = () => {
                         <h1>Username</h1>
                     </div> 
                         
-                    <div class="description-profile">I am an Arizona State University student. I love board games, tabletop games, and pizza!</div>
+                    <div class="description-profile">I am an Arizona State University student. I love board games, tabletop games, and pizza!
+                    </div>
                     
-
+                    <ul class="data-user">
+                        <li><a><strong>Games</strong><span>3390</span></a></li>
+                        <li><a><strong>Wishlist</strong><span>718</span></a></li>
+                        <li><a><strong>Friends</strong><span>239</span></a></li>
+                    </ul>
                 </div>
             </div>
         </div>
