@@ -3,6 +3,7 @@ import React from 'react'
 import './login.css';
 
 const Login = ()=>{
+    
     return(
     <div className="login-box">
     <h2>Welcome G.A.S. User!</h2>
@@ -20,6 +21,8 @@ const Login = ()=>{
                 </input>
             </div>
 
+            
+            <center>
             <a href="#">
                 <center>
                 <span></span>
@@ -29,6 +32,7 @@ const Login = ()=>{
                 Login
                 </center>
             </a>
+            </center>
 
 
         </form>
