@@ -32,8 +32,12 @@ const Login = ()=>{
                 Login
                 </center>
             </a>
+            
+            <p style="color:white">Don't have an account?</p>
+            <p style="color:white"><u>Sign up here</u> </p>
             </center>
 
+            
 
         </form>
 
