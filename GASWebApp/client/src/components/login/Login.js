@@ -11,14 +11,16 @@ const Login = ()=>{
         <form>
             <div className="user-box">
                 <input type="text" name="" required="">
-                </input>
                 <label>Username</label>
+                </input>
+                
             </div>
 
             <div className="user-box">
                 <input type="password" name="" required="">
-                </input>
                 <label>Password</label>
+                </input>
+                
             </div>
 
             <a href="#">
