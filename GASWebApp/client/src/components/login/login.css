@@ -78,8 +78,7 @@ html {
     margin-top: -20px;
     letter-spacing: 4px;
 
-    margin-left: auto;
-    margin-right:auto;
+    text-align: center;
   }
   
   .login-box a:hover {
