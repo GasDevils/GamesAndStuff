@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: helvetica;
+    text-decoration: none;
+    list-style: none;
+  }
+  
+  body 
+  {
+    background-color: #1f1e23;
+  }
+  
+  .container 
+  {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    width: auto;
+    align-items:center;
+    justify-content: space-between;
+  }
+  
+  img 
+  {
+    height: 55px;
+    position: relative;
+    
+  }
+  
+    h1 
+    {
+      text-transform: uppercase;
+      font-size: 32px;
+  
+      position: relative;
+      top: 5px;
+      
+    }
+  
+  .gradient {
+  background-color: #8a40ff;
+  background-image: linear-gradient(315deg, #8a40ff 35%, #03e9f4 74%);
+  
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  
+  }
+  
+  .logo-txt {
+    padding-left: 10px;
+  }
+
+
+  
+  nav {
+    position:fixed;
+    top:0px;
+    left:0px;
+    right:0px;
+    z-index: 99px;
+    background-color: black;
+    padding: 16px 32px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+  }
+  
+  .nav-list {
+    /*flex: 1 1 0%;*/
+    justify-content: flex-end;
+    margin: 0 -16px;
+    color:white;
+  }
+
+  li{
+    display: inline-block;
+  }
+  
+  .nav-list a.nav-link {
+    color: white;
+    margin: 0 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.4s;
+    padding: 8px 16px;
+  }
+
+  .nav-list a.nav-link.active, .nav-list a.nav-link:hover {
+    background-color: #8a40ff;
+    border-radius: 5px;
+  }
+  
+  
+  .gradient.shimmer:hover {
+    color: grey;
+    -webkit-mask: linear-gradient(-60deg, #000 30%, #0005, #000 70%) right/300%
+      100%;
+    background-repeat: no-repeat;
+    animation: shimmer 2.5s infinite;
+  }
+  
+  
+  
+  
+  .display-text {
+    font-size: 32px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 auto;
+    display: relative;
+    margin-top: 20%;
+    margin-left: 20%;
+    margin-right: 15%;
+  }
+
+/*
+
+.gpt3__navbar
+{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 2rem 6rem;
+}
+
+.gpt3__navbar-links
+{
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.gpt3__navbar-links_logo
+{
+    margin-right: 2rem;
+}
+
+.gpt3__navbar-links_logo img
+{
+    width: 62.56px;
+    height: 16.02px;
+}
+
+/* where we're linking at the top of the page
+.gpt3__navbar-links_container
+{
+    display: flex;
+    flex-direction: row;
+}
+
+/*this is the sign in button
+.gpt3__navbar-sign
+{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.gpt3__navbar-links_container p,
+.gpt3__navbar-sign p,
+.gpt3__navbar-menu_container p
+{
+    color: #fff;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    text-transform: capitalize;
+
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    /* box height
+
+    margin: 0 1rem;
+    cursor: pointer;
+}
+
+/*we are formatting the TOP RIGHT sign in and sign up
+.gpt3__navbar-sign button,
+.gpt3__navbar-menu_container button
+{
+    /*#8a40ffff is my purple
+    padding: 0.5rem 1rem;
+    color: #fff;
+    background: #8a40ff;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+
+    cursor: pointer;
+
+}
+
+*/
