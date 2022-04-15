@@ -19,13 +19,13 @@ const Login = ()=>{
             <label>Password</label>
         </div>
         <a href="#">
-            <Center>
+            <center>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
             Login
-            </Center>
+            </center>
         </a>
             <p style="color:white">Don't have an account?</p>
             <p style="color:white"><u>Sign up here</u> </p>
