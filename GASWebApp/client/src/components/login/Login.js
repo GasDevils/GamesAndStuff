@@ -1,4 +1,5 @@
 import React from 'react'
+import {NavLink} from 'react-router-dom';
 
 import './login.css';
 
@@ -23,18 +24,19 @@ const Login = ()=>{
 
             
             <center>
-            <a href="#">
-                <center>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                Login
-                </center>
-            </a>
-            
-            <p style="color:white">Don't have an account?</p>
-            <p style="color:white"><u>Sign up here</u> </p>
+                <a href="#">
+                    <center>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Login
+                    </center>
+                </a>
+
+                <p>Don't have an account?</p>
+                <li><NavLink exact to="/" className="nav-link">Home</NavLink>Sign up here</li>
+
             </center>
 
             
