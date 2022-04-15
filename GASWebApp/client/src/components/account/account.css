@@ -39,7 +39,7 @@ body {
     box-shadow: 0 0 .1em rgba(0, 0, 0, 0.35);
   }
   .profile-user-page button {
-      position: absolute;
+    position: absolute;
     font-size: 13px;
     font-weight: bold;
     cursor: pointer;
