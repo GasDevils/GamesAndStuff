@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Navbar from './components/navbar/Navbar';
+import Login from './components/login/Login';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'; //BrowserRouter is the router for the entire application 
 
 import Home from './components/home/Home';
@@ -14,14 +15,17 @@ const App = () => {
       <Navbar />
       <div className='App'>
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route exact path="/" element={<Login />} />
           <Route path="/gameGallery" element={<GameGallery />} />
           <Route path="/Friends" element={<Friends />} />
           <Route path="/Account" element={<Account />} />
         </Routes>
+        
+
       </div>
     </Router>
 );
 }
+
 
 export default App;
