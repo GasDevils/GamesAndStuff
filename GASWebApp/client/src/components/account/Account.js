@@ -11,7 +11,7 @@ const Account = () => {
                     
                     </div>
 
-                    <button>+ Friend</button>
+
 
                     <div class="user-profile-data">
                         <h1>Username</h1>
