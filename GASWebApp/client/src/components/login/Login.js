@@ -10,17 +10,14 @@ const Login = ()=>{
         
         <form>
             <div className="user-box">
-                <input type="text" name="" required="">
-                <label>Username</label>
+                <input type="text" name="" required="" placeholder="Username">
                 </input>
-                
+
             </div>
 
             <div className="user-box">
-                <input type="password" name="" required="">
-                <label>Password</label>
+                <input type="password" name="" required="" placeholder="Password">
                 </input>
-                
             </div>
 
             <a href="#">
