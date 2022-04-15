@@ -79,33 +79,7 @@ const Account = ()=>{
           </ul>
         </div>
       </div>
-      <div class="rightBarBottom">
-              <div class="media  tab-content">
-
-              //tab
-                <div role="tabpanel" class="tab-pane active" id="home">
-                 
-                My List
-                  
-                </div>
-                //tab
-
-                //tab
-                <div role="tabpanel" class="tab-pane" id="profile">Profile Content</div>
-                //tab
-
-                //tab
-                <div role="tabpanel" class="tab-pane" id="messages">Messages Content</div>
-                //tab
-
-
-                //tab
-                <div role="tabpanel" class="tab-pane" id="settings">Settings Content</div>
-                //tab
-
-              </div>
-      </div>
-
+      
     </div>
   </div>
 </div>
