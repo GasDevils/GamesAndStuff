@@ -64,10 +64,37 @@ const deleteUser = (request, response) => {
   })
 }
 
+
+const addFriend = (request, response) => {
+    const id1 = parseInt(request.params.id1)
+    const id2 = parseInt(request.params.id2)
+
+    pool.query('INSERT INTO friendswith (id1, id2) values ($1, $2, (select current_date))', [id1, id2], (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).send(`User deleted with ID: ${id}`)
+    })
+}
+
+const removeFriend = (request, response) => {
+    const id1 = parseInt(request.params.id1)
+    const id2 = parseInt(request.params.id2)
+
+    pool.query('DELETE FROM friendswith where userid1 = $1 AND userid2 = $2', [id1, id2], (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).send(`User deleted with ID: ${id}`)
+    })
+}
+
 module.exports = {
   getUsers,
   getUserById,
   createUser,
   updateUser,
   deleteUser,
+  addFriend,
+  removeFriend,
 }
