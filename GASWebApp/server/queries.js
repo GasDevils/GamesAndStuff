@@ -73,7 +73,7 @@ const addFriend = (request, response) => {
         if (error) {
             throw error
         }
-        response.status(200).send(`User deleted with ID: ${id}`)
+        response.status(200).send(`User added to friends with ID: ${id2}`)
     })
 }
 
@@ -85,7 +85,78 @@ const removeFriend = (request, response) => {
         if (error) {
             throw error
         }
-        response.status(200).send(`User deleted with ID: ${id}`)
+        response.status(200).send(`User deleted from friends ID: ${id2}`)
+    })
+}
+
+const addWishlist = (request, response) => {
+    const id1 = parseInt(request.params.id1)
+    const gameid = parseInt(request.params.gameid)
+
+    pool.query('INSERT INTO wishlist (id1, gameid) values ($1, $2, (select current_date))', [id1, gameid], (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).send(`Game added to wishlist with ID: ${id1}`)
+    })
+}
+
+const removeWishlist = (request, response) => {
+    const id1 = parseInt(request.params.id1)
+    const gameid = parseInt(request.params.gameid)
+
+    pool.query('DELETE FROM wishlist where userid = $1 AND gameid = $2', [id1, gameid], (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).send(`Game deleted from wishlist with ID: ${gameid}`)
+    })
+}
+
+const getFriendWishlist = (request, response) => {
+    const id = parseInt(request.params.id)
+
+    pool.query('SELECT * FROM wishlist WHERE userid = $1', [id], (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).json(results.rows)
+    })
+}
+
+const getFriendCollection = (request, response) => {
+    const id = parseInt(request.params.id)
+
+    pool.query('SELECT * FROM owns WHERE userid = $1', [id], (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).json(results.rows)
+    })
+}
+
+const addToCollection = (request, response) => {
+    const id = parseInt(request.params.id)
+    const gameid = parseInt(request.params.gameid)
+    const numcopies = parseInt(request.params.gameid)
+
+    pool.query('INSERT INTO owns (id, gameid, numcopies) VALUES ($1, $2, (select current_date), $3)', [id, gameid, numcopies], (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).send(`Game added to collection with ID: ${gameid}`)
+    })
+}
+
+const removeFromCollection = (request, response) => {
+    const id = parseInt(request.params.id)
+    const gameid = parseInt(request.params.gameid)
+
+    pool.query('DELETE FROM owns where userid = $1 and gameid = $2', [id, gameid], (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).send(`Game deleted from collection with ID: ${gameid}`)
     })
 }
 
@@ -97,4 +168,10 @@ module.exports = {
   deleteUser,
   addFriend,
   removeFriend,
+  addWishlist,
+  removeWishlist,
+  getFriendWishlist,
+  getFriendCollection,
+  addToCollection,
+  removeFromCollection,
 }
