@@ -3,11 +3,11 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const db = require('./queries')
-const port = 3000
+const port = 5000
 
 // middleware
-app.use(cors());
-app.use(express.json());
+// app.use(cors());
+// app.use(express.json());
 /*
 app.use(bodyParser.json())
 app.use(
@@ -16,8 +16,8 @@ app.use(
   })
 )
 */
-app.post('/users', db.getUsers)
-app.post('/games', db.getGames)
+app.get('/api/users', db.getUsers)
+app.post('/api/games', db.getGames)
 // app.post('/users/getById', db.getUserById)
 // app.post('/users/create/', db.createUser)
 // app.post('/users/delete', db.deleteUser)
