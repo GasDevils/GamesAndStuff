@@ -1,6 +1,11 @@
-body {
+  html {
+    height: 100%;
+  }
+  body {
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
     background: linear-gradient(#1f1e23, #8a40ff);
-    font-family: "Open sans", sans-serif;
   }
   a {
     text-decoration: none;
@@ -11,6 +16,9 @@ body {
     width: 44.23em;
   }
   
+
+
+
   .card {
     background: #000000;
     border-radius: 0.3rem;
