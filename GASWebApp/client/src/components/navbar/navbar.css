@@ -12,6 +12,13 @@
     background-color: #1f1e23;
   }
   
+  body, html {
+    height: 100%;
+    overflow: hidden;
+  	padding-top: 44px;
+  	padding-bottom: 25px;
+}
+  
   .container 
   {
     max-width: 1280px;
@@ -21,10 +28,7 @@
     align-items:center;
     justify-content: space-between;
     
-    height: 100%;
-    overflow: hidden;
-  	padding-top: 44px;
-  	padding-bottom: 25px;
+    
   }
   
   img 
