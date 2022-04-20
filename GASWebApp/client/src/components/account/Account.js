@@ -1,12 +1,15 @@
 import React from 'react'
 import Navbar from '../navbar/Navbar'
+import './account.css'
 
 const Account = () => {
 
     return(
         
         <div>
+        
         <Navbar></Navbar>
+        
             <div class="content-profile-page">
                 <div class="profile-user-page card">
                     <div class="img-user-profile">
