@@ -162,7 +162,7 @@ const removeFromCollection = (request, response) => {
 
 const getGame = (request, response) => {
     const gameid = parseInt(request.params.gameid)
-    pool.query('SELECT * FROM game WHERE gameid = $1 limit 50', [gameid], (error, results) => {
+    pool.query('SELECT * FROM game WHERE gameid = $1', [gameid], (error, results) => {
         if (error) {
             throw error
         }
@@ -173,6 +173,27 @@ const getGame = (request, response) => {
 const getGameByRating = (request, response) => {
     const rating = parseInt(request.params.gameid)
     pool.query('SELECT * FROM game WHERE rating < $1 limit 50', [rating], (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).json(results.rows)
+    })
+}
+
+const getSpecificGameType = (request, response) => {
+    const gameType = request.body
+    pool.query('SELECT * FROM $1 limit 50', [gameType], (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).json(results.rows)
+    })
+}
+
+const getGameKeyword = (request, response) => {
+    const table = request.body
+    const keyword = request.body
+    pool.query('SELECT * FROM $1 where title like \'%$2%\' limit 50', [table, keyword], (error, results) => {
         if (error) {
             throw error
         }
@@ -197,4 +218,6 @@ module.exports = {
   removeFromCollection,
   getGame,
   getGameByRating,
+  getSpecificGameType,
+  getGameKeyword,
 }
