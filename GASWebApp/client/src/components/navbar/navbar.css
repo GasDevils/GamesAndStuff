@@ -21,6 +21,10 @@
     align-items:center;
     justify-content: space-between;
     
+    height: 100%;
+    overflow: hidden;
+  	padding-top: 44px;
+  	padding-bottom: 25px;
   }
   
   img 
