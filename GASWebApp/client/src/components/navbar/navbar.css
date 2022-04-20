@@ -7,9 +7,14 @@
     list-style: none;
   }
   
-  body 
-  {
-    background-color: #1f1e23;
+  html {
+    height: 100%;
+  }
+  body {
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+    background: linear-gradient(#1f1e23, #8a40ff);
   }
   
   .container 
