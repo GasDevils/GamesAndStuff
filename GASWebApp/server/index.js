@@ -17,6 +17,7 @@ app.use(
 )
 */
 app.get('/users', db.getUsers)
+app.post('/games', db.getGames)
 //app.get('/users/:id', db.getUserById)
 //app.post('/users', db.createUser)
 //app.put('/users/:id', db.updateUser)
