@@ -159,10 +159,18 @@ const removeFromCollection = (request, response) => {
         response.status(200).send(`Game deleted from collection with ID: ${gameid}`)
     })
 }
+const getAllGames = (request, response) => {
+  pool.query('SELECT * FROM game', (error, results) => {
+      if (error) {
+          throw error
+      }
+      response.status(200).json(results.rows)
+  })
+}
 
 const getGame = (request, response) => {
     const gameid = parseInt(request.params.gameid)
-    pool.query('SELECT * FROM game WHERE gameid = $1 limit 50', [gameid], (error, results) => {
+    pool.query('SELECT * FROM game WHERE gameid = $1', [gameid], (error, results) => {
         if (error) {
             throw error
         }
@@ -195,6 +203,7 @@ module.exports = {
   getFriendCollection,
   addToCollection,
   removeFromCollection,
+  getAllGames,
   getGame,
   getGameByRating,
 }
