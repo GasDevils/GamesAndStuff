@@ -188,6 +188,27 @@ const getGameByRating = (request, response) => {
     })
 }
 
+const getSpecificGameType = (request, response) => {
+    const gameType = request.body
+    pool.query('SELECT * FROM $1 limit 50', [gameType], (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).json(results.rows)
+    })
+}
+
+const getGameKeyword = (request, response) => {
+    const table = request.body
+    const keyword = request.body
+    pool.query('SELECT * FROM $1 where title like \'%$2%\' limit 50', [table, keyword], (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).json(results.rows)
+    })
+}
+
 
 module.exports = {
   getUsers,
@@ -206,4 +227,6 @@ module.exports = {
   getAllGames,
   getGame,
   getGameByRating,
+  getSpecificGameType,
+  getGameKeyword,
 }
