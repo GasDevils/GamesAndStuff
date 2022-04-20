@@ -160,6 +160,27 @@ const removeFromCollection = (request, response) => {
     })
 }
 
+const getGame = (request, response) => {
+    const gameid = parseInt(request.params.gameid)
+    pool.query('SELECT * FROM game WHERE gameid = $1 limit 50', [gameid], (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).json(results.rows)
+    })
+}
+
+const getGameByRating = (request, response) => {
+    const rating = parseInt(request.params.gameid)
+    pool.query('SELECT * FROM game WHERE rating < $1 limit 50', [rating], (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).json(results.rows)
+    })
+}
+
+
 module.exports = {
   getUsers,
   getUserById,
@@ -174,4 +195,6 @@ module.exports = {
   getFriendCollection,
   addToCollection,
   removeFromCollection,
+  getGame,
+  getGameByRating,
 }
