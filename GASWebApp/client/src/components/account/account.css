@@ -51,8 +51,6 @@
     border-radius: .4em;
     margin-top: -10em;
 
-    position: center;
-
     box-shadow: 0 0 .1em rgba(0, 0, 0, 0.35);
   }
   .profile-user-page button {
