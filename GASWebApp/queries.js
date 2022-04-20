@@ -7,7 +7,7 @@ const pool = new Pool({
 })
 
 const getUsers = (request, response) => {
-  pool.query('SELECT name, userID, dateCreated FROM gamers ORDER BY userid ASC', (error, results) => {
+  pool.query('SELECT username, userID, dateCreated FROM gamers ORDER BY userid ASC', (error, results) => {
     if (error) {
       throw error
     }

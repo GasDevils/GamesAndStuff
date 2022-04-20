@@ -16,7 +16,9 @@ app.use(
   })
 )
 */
+
 app.get('/api/users', db.getUsers)
+
 app.post('/api/games', db.getGames)
 // app.post('/users/getById', db.getUserById)
 // app.post('/users/create/', db.createUser)
