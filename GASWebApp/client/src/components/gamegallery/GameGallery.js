@@ -6,7 +6,6 @@ const GameGallery = () => {
 
     return(
         <div>
-            <html>
   <head>
     <card>
       <table>
@@ -24,9 +23,7 @@ const GameGallery = () => {
         </table>
       </div>
       </table>
-      <div id="showErrorsContainer">
-        <div class="showErrors"></div>
-      </div>
+
       <div id="searchFiltersDisplay">
         <table>
           <tr>
@@ -95,7 +92,6 @@ const GameGallery = () => {
 
     </card>
     </head>
-</html>
         </div>
     );
 }
