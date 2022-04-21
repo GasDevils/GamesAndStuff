@@ -16,6 +16,7 @@
     width: 44.23em;
   }
   
+
   .card {
     position: absolute;
     top: 50%;
@@ -38,9 +39,6 @@
       border-bottom: .2em solid #03e9f4;
     width: 44.23em;
     height: 16em;
-
-    position: center;
-
     }
   .profile-user-page .img-user-profile .avatar {
       margin: 0 auto;
@@ -50,7 +48,6 @@
     padding: 0.25em;
     border-radius: .4em;
     margin-top: -10em;
-
     box-shadow: 0 0 .1em rgba(0, 0, 0, 0.35);
   }
   .profile-user-page button {
