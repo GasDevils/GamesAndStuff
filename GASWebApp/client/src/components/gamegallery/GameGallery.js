@@ -7,7 +7,6 @@ const GameGallery = () => {
 
 
     return(
-      <div>
         <div className="list-group">
         <table className="table table-hover table-dark">
           <thead>
@@ -25,9 +24,7 @@ const GameGallery = () => {
             </tr>
           </tbody>
         </table> 
-      </div>
-      </div>
-      
+      </div>      
     );
 }
 
