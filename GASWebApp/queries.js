@@ -263,6 +263,94 @@ const getVideoGameByGreaterRatingAndTag = (request, response) => {
     })
 }
 
+const getVideoGameByLessRatingAndTag = (request, response) => {
+    const rating = parseInt(request.params.gameid)
+    const tag = parseInt(request.params.gameid)
+
+    pool.query('SELECT * FROM videogame, tags where rating < $1 AND tags.tag LIKE \'%$2%\' limit 50', [rating, tag], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.status(200).json(results.rows);
+    })
+}
+
+
+const getTabletopGameByGreaterRatingAndTag = (request, response) => {
+    const rating = parseInt(request.params.gameid)
+    const tag = parseInt(request.params.gameid)
+
+    pool.query('SELECT * FROM tabletopgame, tags where rating > $1 AND tags.tag LIKE \'%$2%\' limit 50', [rating, tag], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.status(200).json(results.rows);
+    })
+}
+
+const getTabletopGameByLessRatingAndTag = (request, response) => {
+    const rating = parseInt(request.params.gameid)
+    const tag = parseInt(request.params.gameid)
+
+    pool.query('SELECT * FROM tabletopgame, tags where rating < $1 AND tags.tag LIKE \'%$2%\' limit 50', [rating, tag], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.status(200).json(results.rows);
+    })
+}
+
+
+const getVideoGameByGreaterRatingAndTitle = (request, response) => {
+    const rating = parseInt(request.params.gameid)
+    const title = parseInt(request.params.gameid)
+
+    pool.query('SELECT * FROM videogame where rating > $1 AND title LIKE \'%$2%\' limit 50', [rating, title], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.status(200).json(results.rows);
+    })
+}
+
+const getVideoGameByLessRatingAndTitle = (request, response) => {
+    const rating = parseInt(request.params.gameid)
+    const title = parseInt(request.params.gameid)
+
+    pool.query('SELECT * FROM videogame where rating > $1 AND title LIKE \'%$2%\' limit 50', [rating, title], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.status(200).json(results.rows);
+    })
+}
+
+
+const getTabletopGameByGreaterRatingAndTitle = (request, response) => {
+    const rating = parseInt(request.params.gameid)
+    const title = parseInt(request.params.gameid)
+
+    pool.query('SELECT * FROM tabletopgame where rating > $1 AND title LIKE \'%$2%\' limit 50', [rating, title], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.status(200).json(results.rows);
+    })
+}
+
+const getTabletopGameByLessRatingAndTitle = (request, response) => {
+    const rating = parseInt(request.params.gameid)
+    const title = parseInt(request.params.gameid)
+
+    pool.query('SELECT * FROM tabletopgame where rating < $1 AND title LIKE \'%$2%\' limit 50', [rating, title], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.status(200).json(results.rows);
+    })
+}
+
+
 
 module.exports = {
   getUsers,
@@ -288,5 +376,12 @@ module.exports = {
   getGameKeyword,
   getVideoGameInfoByID,
   getTableTopGameInfoByID,
-  getVideoGameByGreaterRatingAndTag
+  getVideoGameByGreaterRatingAndTag,
+  getVideoGameByLessRatingAndTag,
+  getTabletopGameByGreaterRatingAndTag,
+  getTabletopGameByLessRatingAndTag,
+  getVideoGameByGreaterRatingAndTitle,
+  getVideoGameByLessRatingAndTitle,
+  getTabletopGameByGreaterRatingAndTitle,
+  getTabletopGameByLessRatingAndTitle
 }
