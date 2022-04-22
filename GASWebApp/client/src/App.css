@@ -5,12 +5,8 @@
   scroll-behavior: smooth;
 }
 
-.App{
+body {
   background: var(--color-bg);
-  min-height:100%;
-  position: relative;
-  z-index: 1;
-  box-shadow: 0 2rem 4rem #000;
 }
 
 a{
