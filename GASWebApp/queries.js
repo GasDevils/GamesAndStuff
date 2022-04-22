@@ -251,6 +251,18 @@ const getVideoGameInfoByID = (request, response) => {
   })
 }
 
+const getVideoGameByGreaterRatingAndTag = (request, response) => {
+    const rating = parseInt(request.params.gameid)
+    const tag = parseInt(request.params.gameid)
+
+    pool.query('SELECT * FROM videogame, tags where rating > $1 AND tags.tag LIKE \'%$2%\' limit 50', [rating, tag], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.status(200).json(results.rows);
+    })
+}
+
 
 module.exports = {
   getUsers,
@@ -275,5 +287,6 @@ module.exports = {
   getSpecificGameType,
   getGameKeyword,
   getVideoGameInfoByID,
-  getTableTopGameInfoByID
+  getTableTopGameInfoByID,
+  getVideoGameByGreaterRatingAndTag
 }
