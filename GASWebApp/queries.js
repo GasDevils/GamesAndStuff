@@ -24,7 +24,7 @@ const getGames = (request, response) => {
 }
 
 const getUserById = (request, response) => {
-  const id = parseInt(request.params.id)
+  const id = parseInt(request.body.id)
 
   pool.query('SELECT username, userID, dateCreated FROM gamers WHERE userid = $1', [id], (error, results) => {
     if (error) {
@@ -56,7 +56,7 @@ const loginUser = (request, response) => {
 }
 
 const deleteUser = (request, response) => {
-  const id = parseInt(request.params.id)
+  const id = parseInt(request.body.id)
 
   pool.query('DELETE FROM gamers WHERE id = $1', [id], (error, results) => {
     if (error) {
@@ -68,8 +68,8 @@ const deleteUser = (request, response) => {
 
 
 const addFriend = (request, response) => {
-    const id1 = parseInt(request.params.id1)
-    const id2 = parseInt(request.params.id2)
+    const id1 = parseInt(request.body.id1)
+    const id2 = parseInt(request.body.id2)
 
     pool.query('INSERT INTO friendswith (id1, id2) values ($1, $2)', [id1, id2], (error, results) => {
         if (error) {
@@ -80,8 +80,8 @@ const addFriend = (request, response) => {
 }
 
 const removeFriend = (request, response) => {
-    const id1 = parseInt(request.params.id1)
-    const id2 = parseInt(request.params.id2)
+    const id1 = parseInt(request.body.id1)
+    const id2 = parseInt(request.body.id2)
 
     pool.query('DELETE FROM friendswith where userid1 = $1 AND userid2 = $2', [id1, id2], (error, results) => {
         if (error) {
@@ -92,8 +92,8 @@ const removeFriend = (request, response) => {
 }
 
 const addWishlist = (request, response) => {
-    const id1 = parseInt(request.params.userid)
-    const gameid = parseInt(request.params.gameid)
+    const id1 = parseInt(request.body.userid)
+    const gameid = parseInt(request.body.gameid)
 
     pool.query('INSERT INTO wishlist (userID, gameid) values ($1, $2)', [id1, gameid], (error, results) => {
         if (error) {
@@ -104,8 +104,8 @@ const addWishlist = (request, response) => {
 }
 
 const removeWishlist = (request, response) => {
-    const id1 = parseInt(request.params.userid)
-    const gameid = parseInt(request.params.gameid)
+    const id1 = parseInt(request.body.userid)
+    const gameid = parseInt(request.body.gameid)
 
     pool.query('DELETE FROM wishlist where userid = $1 AND gameid = $2', [id1, gameid], (error, results) => {
         if (error) {
@@ -116,7 +116,7 @@ const removeWishlist = (request, response) => {
 }
 
 const getWishlist = (request, response) => {
-    const id = parseInt(request.params.id)
+    const id = parseInt(request.body.id)
     pool.query('SELECT * FROM wishlist w , game g WHERE userid = $1 AND w.gameID = g.gameID', [id], (error, results) => {
         if (error) {
             throw error
@@ -126,7 +126,7 @@ const getWishlist = (request, response) => {
 }
 
 const getCollection = (request, response) => {
-    const id = parseInt(request.params.id)
+    const id = parseInt(request.body.id)
 
     pool.query('SELECT * FROM owns w , game g WHERE userid = $1 AND w.gameID = g.gameID', [id], (error, results) => {
         if (error) {
@@ -137,9 +137,9 @@ const getCollection = (request, response) => {
 }
 
 const addToCollection = (request, response) => {
-    const id = parseInt(request.params.id)
-    const gameid = parseInt(request.params.gameid)
-    const numcopies = parseInt(request.params.gameid)
+    const id = parseInt(request.body.id)
+    const gameid = parseInt(request.body.gameid)
+    const numcopies = parseInt(request.body.gameid)
 
     pool.query('INSERT INTO owns (id, gameid, numcopies) VALUES ($1, $2, $3)', [id, gameid, numcopies], (error, results) => {
         if (error) {
@@ -150,8 +150,8 @@ const addToCollection = (request, response) => {
 }
 
 const removeFromCollection = (request, response) => {
-    const id = parseInt(request.params.id)
-    const gameid = parseInt(request.params.gameid)
+    const id = parseInt(request.body.id)
+    const gameid = parseInt(request.body.gameid)
 
     pool.query('DELETE FROM owns where userid = $1 and gameid = $2', [id, gameid], (error, results) => {
         if (error) {
@@ -162,7 +162,7 @@ const removeFromCollection = (request, response) => {
 }
 
 const getGame = (request, response) => {
-    const gameid = parseInt(request.params.gameid)
+    const gameid = parseInt(request.body.gameid)
     pool.query('SELECT * FROM game WHERE gameid = $1 limit 50', [gameid], (error, results) => {
         if (error) {
             throw error
@@ -172,7 +172,7 @@ const getGame = (request, response) => {
 }
 
 const getGameByRatingLessThan = (request, response) => {
-    const rating = parseInt(request.params.gameid)
+    const rating = parseInt(request.body.gameid)
     pool.query('SELECT * FROM game WHERE rating < $1 limit 50', [rating], (error, results) => {
         if (error) {
             throw error
@@ -181,7 +181,7 @@ const getGameByRatingLessThan = (request, response) => {
     })
 }
 const getGameByRatingGreaterThan = (request, response) => {
-  const rating = parseInt(request.params.gameid)
+  const rating = parseInt(request.body.gameid)
   pool.query('SELECT * FROM game WHERE rating > $1 limit 50', [rating], (error, results) => {
       if (error) {
           throw error
@@ -191,7 +191,7 @@ const getGameByRatingGreaterThan = (request, response) => {
 }
 
 const getFriends = (request, response) => {
-    const id = parseInt(request.params.id)
+    const id = parseInt(request.body.id)
     pool.query('SELECT * FROM friendswith WHERE id1 = $1', [id], (error, results) => {
         if (error) {
             throw error
@@ -201,7 +201,7 @@ const getFriends = (request, response) => {
 }
 
 const getGameInfoByID = (request, response) => {
-    const gameid = parseInt(request.params.gameid)
+    const gameid = parseInt(request.body.gameid)
     pool.query('SELECT * FROM videogame, tabletopgame where gameid = $1', [gameid], (error, results) => {
         if (error) {
             throw error
@@ -232,7 +232,7 @@ const getGameKeyword = (request, response) => {
 }
 
 const getTableTopGameInfoByID = (request, response) => {
-    const gameid = parseInt(request.params.gameid)
+    const gameid = parseInt(request.body.gameid)
     pool.query('SELECT * FROM tabletopgame where gameid = $1', [gameid], (error, results) => {
         if (error) {
             throw error;
@@ -242,7 +242,7 @@ const getTableTopGameInfoByID = (request, response) => {
 }
 
 const getVideoGameInfoByID = (request, response) => {
-  const gameid = parseInt(request.params.gameid)
+  const gameid = parseInt(request.body.gameid)
   pool.query('SELECT * FROM videogame where gameid = $1', [gameid], (error, results) => {
       if (error) {
           throw error;
@@ -252,8 +252,8 @@ const getVideoGameInfoByID = (request, response) => {
 }
 
 const getVideoGameByGreaterRatingAndTag = (request, response) => {
-    const rating = parseInt(request.params.gameid)
-    const tag = parseInt(request.params.gameid)
+    const rating = parseInt(request.body.gameid)
+    const tag = parseInt(request.body.gameid)
 
     pool.query('SELECT * FROM videogame, tags where rating > $1 AND tags.tag LIKE \'%$2%\' limit 50', [rating, tag], (error, results) => {
         if (error) {
@@ -264,8 +264,8 @@ const getVideoGameByGreaterRatingAndTag = (request, response) => {
 }
 
 const getVideoGameByLessRatingAndTag = (request, response) => {
-    const rating = parseInt(request.params.gameid)
-    const tag = parseInt(request.params.gameid)
+    const rating = parseInt(request.body.gameid)
+    const tag = parseInt(request.body.gameid)
 
     pool.query('SELECT * FROM videogame, tags where rating < $1 AND tags.tag LIKE \'%$2%\' limit 50', [rating, tag], (error, results) => {
         if (error) {
@@ -277,8 +277,8 @@ const getVideoGameByLessRatingAndTag = (request, response) => {
 
 
 const getTabletopGameByGreaterRatingAndTag = (request, response) => {
-    const rating = parseInt(request.params.gameid)
-    const tag = parseInt(request.params.gameid)
+    const rating = parseInt(request.body.gameid)
+    const tag = parseInt(request.body.gameid)
 
     pool.query('SELECT * FROM tabletopgame, tags where rating > $1 AND tags.tag LIKE \'%$2%\' limit 50', [rating, tag], (error, results) => {
         if (error) {
@@ -289,8 +289,8 @@ const getTabletopGameByGreaterRatingAndTag = (request, response) => {
 }
 
 const getTabletopGameByLessRatingAndTag = (request, response) => {
-    const rating = parseInt(request.params.gameid)
-    const tag = parseInt(request.params.gameid)
+    const rating = parseInt(request.body.gameid)
+    const tag = parseInt(request.body.gameid)
 
     pool.query('SELECT * FROM tabletopgame, tags where rating < $1 AND tags.tag LIKE \'%$2%\' limit 50', [rating, tag], (error, results) => {
         if (error) {
@@ -302,8 +302,8 @@ const getTabletopGameByLessRatingAndTag = (request, response) => {
 
 
 const getVideoGameByGreaterRatingAndTitle = (request, response) => {
-    const rating = parseInt(request.params.gameid)
-    const title = parseInt(request.params.gameid)
+    const rating = parseInt(request.body.gameid)
+    const title = parseInt(request.body.gameid)
 
     pool.query('SELECT * FROM videogame where rating > $1 AND title LIKE \'%$2%\' limit 50', [rating, title], (error, results) => {
         if (error) {
@@ -314,8 +314,8 @@ const getVideoGameByGreaterRatingAndTitle = (request, response) => {
 }
 
 const getVideoGameByLessRatingAndTitle = (request, response) => {
-    const rating = parseInt(request.params.gameid)
-    const title = parseInt(request.params.gameid)
+    const rating = parseInt(request.body.gameid)
+    const title = parseInt(request.body.gameid)
 
     pool.query('SELECT * FROM videogame where rating > $1 AND title LIKE \'%$2%\' limit 50', [rating, title], (error, results) => {
         if (error) {
@@ -327,8 +327,8 @@ const getVideoGameByLessRatingAndTitle = (request, response) => {
 
 
 const getTabletopGameByGreaterRatingAndTitle = (request, response) => {
-    const rating = parseInt(request.params.gameid)
-    const title = parseInt(request.params.gameid)
+    const rating = parseInt(request.body.gameid)
+    const title = parseInt(request.body.gameid)
 
     pool.query('SELECT * FROM tabletopgame where rating > $1 AND title LIKE \'%$2%\' limit 50', [rating, title], (error, results) => {
         if (error) {
@@ -339,8 +339,8 @@ const getTabletopGameByGreaterRatingAndTitle = (request, response) => {
 }
 
 const getTabletopGameByLessRatingAndTitle = (request, response) => {
-    const rating = parseInt(request.params.gameid)
-    const title = parseInt(request.params.gameid)
+    const rating = parseInt(request.body.gameid)
+    const title = parseInt(request.body.gameid)
 
     pool.query('SELECT * FROM tabletopgame where rating < $1 AND title LIKE \'%$2%\' limit 50', [rating, title], (error, results) => {
         if (error) {
