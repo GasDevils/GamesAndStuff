@@ -25,6 +25,8 @@ const GameGallery = (props) => {
       </tr>
     );
   });
+
+  const pageCount = Math.ceil(games.length / gamesPerPage);
   //const gamesToShow = _.slice(games, pagesVisited, pagesVisited + gamesPerPage);
   useEffect(() => {
     async function fetchData(){
@@ -40,7 +42,7 @@ const GameGallery = (props) => {
   // Pagination
 
   const handlePageClick = ({selected}) =>{
-      setCurrentPage(selected)
+      setPageNumber(selected);
   };
   //////////////////////////////////////////////////////////////////////////////
     return(
@@ -71,7 +73,7 @@ const GameGallery = (props) => {
         previousLabel={'<'}
         nextLabel={'>'}
         breakLabel={'...'}
-        pageCount={pageNumber}
+        pageCount={pageCount}
         marginPagesDisplayed={2}
         pageRangeDisplayed={5}
         onPageChange={handlePageClick}
