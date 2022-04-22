@@ -19,7 +19,7 @@ const GameGallery = (props) => {
 
   const[pageNumber, setPageNumber] = useState(0);
   const gamesPerPage = 20;
-  const pagesVisted = pageNumber * usersPerPage;
+  const pagesVisted = pageNumber * gamesPerPage;
 
   const displayGames = games
   .slice(pagesVisted, pagesVisted + gamesPerPage)
