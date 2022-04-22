@@ -26,7 +26,6 @@ const App = () => {
             <Route path="*" element={<Notfound />} />
           </Routes>
         </div>
-        <Footer/>
       </Router>
     </GamesContextProvider>
     
