@@ -35,6 +35,7 @@ const GameGallery = (props) => {
   }
   //////////////////////////////////////////////////////////////////////////////
     return(
+      <div className="game-gallery">
       <div className="container">
         <div className="list-group">
           <table className="table table-hover table-dark">
@@ -62,7 +63,9 @@ const GameGallery = (props) => {
               </tr> */}
             </tbody>
           </table> 
-        </div>   
+        </div>    
+      </div>
+      <div>
         <ReactPaginate
         previousLabel={'<'}
         nextLabel={'>'}
@@ -76,9 +79,9 @@ const GameGallery = (props) => {
         nextLIinkClassName={'nextBttn'}
         disabledClassName={'paginationDisabled'}
         activeClassName={'paginationActive'}
-        />  
+        /> 
       </div>
-      
+      </div>
     );
 }
 
