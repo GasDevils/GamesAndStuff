@@ -24,7 +24,13 @@ const App = () => {
             <Route path="/notFound" element={<Notfound />} />
             <Route path="*" element={<Notfound />} />
           </Routes>
-          
+          <div>
+            {Array(200)
+              .fill()
+              .map((_, i) => (
+                <p key={i}>{i}</p>
+              ))}
+          </div>
           <div
           style={{
             position: "fixed",
