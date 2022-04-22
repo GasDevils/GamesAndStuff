@@ -16,6 +16,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition-duration: 0.4s;
 }
 
 .paginationBttns a{
@@ -24,15 +25,25 @@ html {
   border-radius: 5px;
   border: 1px solid #ccc;
   color:#ccc;
+  background-color: #1f1e23;
   cursor: pointer;
+  text-decoration: none;
+  border-radius: 5px;
 }
 
 .paginationBttns a:hover{
   background-color: #8a40ff;
   color: #ccc;
+  border-radius: 5px;
 }
 
 .paginationActive a{
   background-color: #8a40ff;
   color: #ccc;
+}
+
+.paginationDisabled a{
+  background-color: #ccc;
+  color: #ccc;
+  cursor: not-allowed;
 }
