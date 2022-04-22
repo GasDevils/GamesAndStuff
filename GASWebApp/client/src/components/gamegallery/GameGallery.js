@@ -1,15 +1,16 @@
-import React, {useEffect} from 'react'
+import React, {useContext, useEffect} from 'react'
 import './gamegallery.css'
 import Game from '../../components/game/Game'
 import GameFinder from '../../apis/GameFinder'
+import { GamesContext } from '../../context/GamesContext'
 
-const GameGallery = () => {
-
+const GameGallery = (props) => {
+  const[games, setGames] = useContext(GamesContext)
   useEffect(() => {
     async function fetchData(){
       try{
         const response = await GameFinder.post('/games');
-        console.log(response);
+        setGames(response.data.data.games)
       } catch(err){}
     }
     fetchData();
