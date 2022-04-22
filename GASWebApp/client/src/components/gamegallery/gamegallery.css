@@ -26,3 +26,13 @@ html {
   color:#ccc;
   cursor: pointer;
 }
+
+.paginationBttns a:hover{
+  background-color: #8a40ff;
+  color: #ccc;
+}
+
+.paginationActive a{
+  background-color: #8a40ff;
+  color: #ccc;
+}
