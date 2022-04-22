@@ -5,7 +5,7 @@ import GameFinder from '../../apis/GameFinder'
 import { GamesContext } from '../../context/GamesContext'
 
 const GameGallery = (props) => {
-  const[games, setGames] = useContext(GamesContext)
+  const{games, setGames} = useContext(GamesContext);
   useEffect(() => {
     async function fetchData(){
       try{
