@@ -28,6 +28,11 @@ const GameGallery = (props) => {
   if(pageCount === 1){ return null };
 
   const pages = _.range(1, pageCount + 1);
+  function handlePageClick(){
+    return(
+      <></>
+    );
+  }
   //////////////////////////////////////////////////////////////////////////////
     return(
       <div className="container">
@@ -59,10 +64,10 @@ const GameGallery = (props) => {
           </table> 
         </div>   
         <ReactPaginate
-        previousLabel={'previous'}
-        nextLabel={'next'}
+        previousLabel={'<'}
+        nextLabel={'>'}
         breakLabel={'...'}
-        pageCount={pagination.pageCount}
+        pageCount={pageSize}
         marginPagesDisplayed={2}
         pageRangeDisplayed={5}
         onPageChange={handlePageClick}
