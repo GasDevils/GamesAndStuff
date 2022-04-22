@@ -16,11 +16,17 @@ app.use(
   })
 )
 */
-
+//gets all users
 app.get('/api/users', db.getUsers)
-
+//gets all games
 app.post('/api/games', db.getGames)
-// app.post('/users/getById', db.getUserById)
+//login
+app.post('/api/login', db.loginUser)
+//creates user with given username and password
+app.put('/api/createUser', db.createUser)
+
+
+//app.post('/users/getById', db.getUserById)
 // app.post('/users/create/', db.createUser)
 // app.post('/users/delete', db.deleteUser)
 // app.post('/users/login', db.loginUser)
