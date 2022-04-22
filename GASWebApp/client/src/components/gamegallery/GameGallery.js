@@ -71,8 +71,11 @@ const GameGallery = (props) => {
         marginPagesDisplayed={2}
         pageRangeDisplayed={5}
         onPageChange={handlePageClick}
-        containerClassName={'pagination'}
-        activeClassName={'active'}
+        containerClassName={'paginationBttns'}
+        previousLinkClassName={'previousBttn'}
+        nextLIinkClassName={'nextBttn'}
+        disabledClassName={'paginationDisabled'}
+        activeClassName={'paginationActive'}
         />  
       </div>
       
