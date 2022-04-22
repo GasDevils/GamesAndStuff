@@ -1,10 +1,16 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './gamegallery.css'
 import Game from '../../components/game/Game'
-
+import GameFinder from '../../apis/GameFinder'
 
 const GameGallery = () => {
 
+  useEffect(async() => {
+    try{
+      const response = await GameFinder.get('/games');
+      console.log(response);
+    } catch(err){}
+  }, [])
 
     return(
       <div className="container">

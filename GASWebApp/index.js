@@ -2,11 +2,12 @@
 const express = require('express')
 //const bodyParser = require('body-parser')
 const app = express()
+const cors = require('cors')
 const db = require('./queries')
 const port = 5000
 
 // middleware
-// app.use(cors());
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 /*
