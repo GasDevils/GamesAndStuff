@@ -9,7 +9,7 @@ const GameGallery = (props) => {
   useEffect(() => {
     async function fetchData(){
       try{
-        const response = await GameFinder.post('/games');
+        const response = await GameFinder.get('/games');
         console.log(response);
       } catch(err){}
     }
