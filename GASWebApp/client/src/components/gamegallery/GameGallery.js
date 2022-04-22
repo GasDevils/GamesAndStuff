@@ -28,11 +28,9 @@ const GameGallery = (props) => {
   if(pageCount === 1){ return null };
 
   const pages = _.range(1, pageCount + 1);
-  function handlePageClick(){
-    return(
-      <></>
-    );
-  }
+  const handlePageClick = ({selected}) =>{
+      setCurrentPage(selected)
+  };
   //////////////////////////////////////////////////////////////////////////////
     return(
       <div className="game-gallery">
