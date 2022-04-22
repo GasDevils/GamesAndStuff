@@ -7,9 +7,6 @@ const Account = () => {
     return(
         
         <div>
-        
-        <Navbar></Navbar>
-        
             <div className="content-profile-page">
                 <div className="profile-user-page card">
                     <div className="img-user-profile">

@@ -9,6 +9,7 @@ import Friends from './components/friends/Friends';
 import Account from './components/account/Account';
 import Notfound from './components/notfound/Notfound';
 import { GamesContextProvider } from './context/GamesContext';
+import Footer from './components/footer/Footer';
 
 const App = () => {
   return (  
@@ -41,6 +42,7 @@ const App = () => {
           }}>footer
           </div>
         </div>
+        <Footer/>
       </Router>
     </GamesContextProvider>
     
