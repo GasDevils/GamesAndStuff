@@ -3,6 +3,6 @@ html {
 }
 .list-group{
   position: relative;
-  top: 50%;
   margin: 1em auto;
+  margin-top: 50%;
 }
