@@ -17,28 +17,39 @@ const GameGallery = (props) => {
     fetchData();
   }, []);
 
-  const[pageNumber, setPageNumber] = useState(0);
-  const gamesPerPage = 20;
-  const pagesVisted = pageNumber * gamesPerPage;
-
-  const displayGames = games
-  .slice(pagesVisted, pagesVisted + gamesPerPage)
-  .map((game) => {
+  function Games({currentItems}){
     return(
-      <tr key={game.gameid}>
-      <td><img src={game.imageurl} alt="game-logo"/></td>
-      <td>{game.title}</td>
-      <td>{game.rating}</td>
-      </tr>
-    );
-  });
+      <>
+        {currentItems && currentItems.map((game)=>(
+          <tr key={game.gameid}>
+          <td><img src={game.imageurl} alt="game-logo"/></td>
+          <td>{game.title}</td>
+          <td>{game.rating}</td>
+          </tr>
+        ))}
+      </>
+    )
+  }
 
-    const pageCount = Math.ceil(games.length / gamesPerPage);
-    
-    const changePage = ({selected}) =>{
-      setPageNumber(selected);
-    }
+  function PaginatedGames({gamesPerPage}){
+    const [currentItems, setCurrentItems] = useState(null);
+    const[pageNumber, setPageNumber] = useState(0);
+    const [itemOffset, setItemOffset] = useState(0);
+    const gamesPerPage = 20;
+    const pagesVisted = pageNumber * gamesPerPage;
 
+    useEffect(() => {
+      const endOffset = itemOffset + gamesPerPage;
+      console.log('Loading games from ${itemOffset} to ${endOffset}');
+      setCurrentItems(games.slice(itemOffset, endOffset));
+      setPageCount(Math.ceil(games.length / gamesPerPage));
+    }, [itemOffset, gamesPerPage]);
+
+    const handlePageClick = (event) => {
+      const newOffset = (even.selected * gamesPerPage) % games.length;
+      console.log('User requested page ${event.selected}, which is offset ${newOffset}');
+      setItemOffset(newOffset);
+    }; 
     return(
       <div className="game-gallery">
       <div className="container">
@@ -52,9 +63,7 @@ const GameGallery = (props) => {
               </tr>
             </thead>
             <tbody>
-              {games && games.map(game => {
-              {displayGames}
-            })}
+              <Games currentItems={currentItems}/>
             </tbody>
           </table> 
         </div>    
@@ -75,6 +84,9 @@ const GameGallery = (props) => {
       /> 
       </div>
     );
+  }
+  <PaginatedGames gamesPerPage={20}/>
+    
 }
 
 export default GameGallery;
