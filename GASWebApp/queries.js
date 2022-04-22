@@ -37,11 +37,11 @@ const getUserById = (request, response) => {
 const createUser = (request, response) => {
   const { name, password} = request.body
 
-  pool.query('INSERT INTO gamers (userID,username, password,dateCreated) VALUES (DEFAULT,$1, $2,DEFAULT)', [name, password], (error, results) => {
+  pool.query('INSERT INTO gamers (userID,username, password,dateCreated) VALUES (DEFAULT,$1, $2,DEFAULT) RETURNING USERID', [name, password], (error, results) => {
     if (error) {
       throw error
     }
-    response.status(201).send(`User added with ID: ${result.insertId}`)
+    response.status(201).send(`User added with ID: ${results.rows[0].userid}`)
   })
 }
 
@@ -58,7 +58,7 @@ const loginUser = (request, response) => {
 const deleteUser = (request, response) => {
   const id = parseInt(request.body.id)
 
-  pool.query('DELETE FROM gamers WHERE id = $1', [id], (error, results) => {
+  pool.query('DELETE FROM gamers WHERE userid = $1', [id], (error, results) => {
     if (error) {
       throw error
     }
@@ -71,7 +71,7 @@ const addFriend = (request, response) => {
     const id1 = parseInt(request.body.id1)
     const id2 = parseInt(request.body.id2)
 
-    pool.query('INSERT INTO friendswith (id1, id2, dateAdded) values ($1, $2, DEFAULT)', [id1, id2], (error, results) => {
+    pool.query('INSERT INTO friendswith (userid1, userid2, dateAdded) values ($1, $2, DEFAULT)', [id1, id2], (error, results) => {
         if (error) {
             throw error
         }
@@ -192,7 +192,7 @@ const getGameByRatingGreaterThan = (request, response) => {
 
 const getFriends = (request, response) => {
     const id = parseInt(request.body.id)
-    pool.query('SELECT * FROM friendswith WHERE id1 = $1', [id], (error, results) => {
+    pool.query('SELECT * FROM friendswith WHERE userid1 = $1', [id], (error, results) => {
         if (error) {
             throw error
         }
