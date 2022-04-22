@@ -1,6 +1,7 @@
 import React from 'react'
 import './gamegallery.css'
 
+
 const GameGallery = () => {
 
 
@@ -92,7 +93,7 @@ const GameGallery = () => {
 
     </card>
     </head>
-        </div>
+</div>
     );
 }
 
