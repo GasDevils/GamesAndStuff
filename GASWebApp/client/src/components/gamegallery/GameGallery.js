@@ -1,4 +1,5 @@
-import React, {useContext, useEffect} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
+import ReactPaginate from 'react-paginate';
 import './gamegallery.css'
 import Game from '../../components/game/Game'
 import GameFinder from '../../apis/GameFinder'
@@ -16,6 +17,28 @@ const GameGallery = (props) => {
     fetchData();
   }, []);
 
+  const[pageNumber, setPageNumber] = useState(0);
+  const gamesPerPage = 20;
+  const pagesVisted = pageNumber * usersPerPage;
+
+  const displayGames = games
+  .slice(pagesVisted, pagesVisted + gamesPerPage)
+  .map((game) => {
+    return(
+      <tr key={game.gameid}>
+      <td><img src={game.imageurl} alt="game-logo"/></td>
+      <td>{game.title}</td>
+      <td>{game.rating}</td>
+      </tr>
+    );
+  });
+
+    const pageCount = Math.ceil(games.length / gamesPerPage);
+    
+    const changePage = ({selected}) =>{
+      setPageNumber(selected);
+    }
+
     return(
       <div className="container">
         <div className="list-group">
@@ -28,23 +51,26 @@ const GameGallery = (props) => {
               </tr>
             </thead>
             <tbody>
-              {games.map(game => {
-                return(
-                  <tr key={game.gameid}>
-                  <td><img src={game.imageurl} alt="game-logo"/></td>
-                  <td>{game.title}</td>
-                  <td>{game.rating}</td>
-                  </tr>
-                );
+              {games && games.map(game => {
+              {displayGames}
             })}
-              {/* <tr>
-                <td><img src="https://cf.geekdo-images.com/micro/img/uhYn0Xn8TZ1vzVfyi4VO1UfNTII=/fit-in/64x64/pic347837.jpg" alt="game-logo"/></td>
-                <td>Risk (Revised Edition)</td>
-                <td>60</td>
-              </tr> */}
             </tbody>
           </table> 
-        </div>     
+        </div> 
+        <ReactPaginate
+        previousLabel={'Previous'}
+        nextLabel={'Next'}
+        breakLabel={'...'}
+        pageCount={pageCount}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={5}
+        onPageChange={changePage}
+        containerClassName={'paginationBttns'}
+        previousLinkClassName={'previousBttn'}
+        nextLinkClassName={'nextBttn'}
+        disabledClassName={'paginationDisabled'}
+        activeClassName={'paginationActive'}
+        />    
       </div>
          
     );
