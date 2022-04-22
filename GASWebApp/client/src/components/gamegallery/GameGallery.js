@@ -9,6 +9,7 @@ import { GamesContext } from '../../context/GamesContext'
 const GameGallery = (props) => {
   const{games, setGames} = useContext(GamesContext)
   const [paginatedGames, setPaginatedGames] = useState();
+  const [currentPage, setCurrentPage] = useState(1);
   useEffect(() => {
     async function fetchData(){
       try{
@@ -24,7 +25,7 @@ const GameGallery = (props) => {
   
   const pageSize = 10;
   const pageCount = games? Math.ceil(games.length/pageSize): 0;
-  if(pageCount == 1){ return null };
+  if(pageCount === 1){ return null };
 
   const pages = _.range(1, pageCount + 1);
   //////////////////////////////////////////////////////////////////////////////
@@ -56,9 +57,20 @@ const GameGallery = (props) => {
               </tr> */}
             </tbody>
           </table> 
-        </div>     
+        </div>   
+        <ReactPaginate
+        previousLabel={'previous'}
+        nextLabel={'next'}
+        breakLabel={'...'}
+        pageCount={pagination.pageCount}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={5}
+        onPageChange={handlePageClick}
+        containerClassName={'pagination'}
+        activeClassName={'active'}
+        />  
       </div>
-         
+      
     );
 }
 
