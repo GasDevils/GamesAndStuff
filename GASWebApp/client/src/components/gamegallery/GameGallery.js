@@ -8,26 +8,37 @@ import { GamesContext } from '../../context/GamesContext'
 
 const GameGallery = (props) => {
   const{games, setGames} = useContext(GamesContext)
-  const [paginatedGames, setPaginatedGames] = useState();
-  const [currentPage, setCurrentPage] = useState(1);
+  const [pageNumber, setPageNumber] = useState(0);
+  
+  const gamesPerPage = 10;
+
+  const pagesVisited = pageNumber * gamesPerPage;
+
+  const displayGames = games
+  .slice(pagesVisited, pagesVisited + gamesPerPage)
+  .map(game => {
+    return(
+      <tr key={game.gameid}>
+      <td><img src={game.imageurl} alt="game-logo"/></td>
+      <td>{game.title}</td>
+      <td>{game.rating}</td>
+      </tr>
+    );
+  });
+  //const gamesToShow = _.slice(games, pagesVisited, pagesVisited + gamesPerPage);
   useEffect(() => {
     async function fetchData(){
       try{
         const response = await GameFinder.post('/games');
         setGames(response.data)
-        setPaginatedGames(_(response.data).slice(0).take(pageSize).value())
+        
       } catch(err){}
     }
     fetchData();
   }, []);
 
   // Pagination
-  
-  const pageSize = 10;
-  const pageCount = games? Math.ceil(games.length/pageSize): 0;
-  if(pageCount === 1){ return null };
 
-  const pages = _.range(1, pageCount + 1);
   const handlePageClick = ({selected}) =>{
       setCurrentPage(selected)
   };
@@ -46,13 +57,7 @@ const GameGallery = (props) => {
             </thead>
             <tbody>
               { paginatedGames && paginatedGames.map(game => {
-                return(
-                  <tr key={game.gameid}>
-                  <td><img src={game.imageurl} alt="game-logo"/></td>
-                  <td>{game.title}</td>
-                  <td>{game.rating}</td>
-                  </tr>
-                );
+                {displayGames}
             })}
               {/* <tr>
                 <td><img src="https://cf.geekdo-images.com/micro/img/uhYn0Xn8TZ1vzVfyi4VO1UfNTII=/fit-in/64x64/pic347837.jpg" alt="game-logo"/></td>
