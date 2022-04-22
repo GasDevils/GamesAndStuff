@@ -73,7 +73,7 @@ const GameGallery = (props) => {
         previousLabel={'<'}
         nextLabel={'>'}
         breakLabel={'...'}
-        pageCount={pageSize}
+        pageCount={pageNumber}
         marginPagesDisplayed={2}
         pageRangeDisplayed={5}
         onPageChange={handlePageClick}
