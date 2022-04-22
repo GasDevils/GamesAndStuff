@@ -7,7 +7,7 @@
 
 body {
   background: var(--color-bg);
-  background-attachment: scroll;
+  background-attachment: fixed;
 }
 
 a{
