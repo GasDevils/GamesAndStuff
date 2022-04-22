@@ -15,7 +15,7 @@ const getUsers = (request, response) => {
   })
 }
 const getGames = (request, response) => {
-  pool.query('SELECT * FROM games', (error, results) => {
+  pool.query('SELECT * FROM game', (error, results) => {
     if (error) {
       throw error
     }
@@ -117,7 +117,7 @@ const removeWishlist = (request, response) => {
 
 const getWishlist = (request, response) => {
     const id = parseInt(request.params.id)
-    pool.query('SELECT * FROM wishlist w , games g WHERE userid = $1 AND w.gameID = g.gameID', [id], (error, results) => {
+    pool.query('SELECT * FROM wishlist w , game g WHERE userid = $1 AND w.gameID = g.gameID', [id], (error, results) => {
         if (error) {
             throw error
         }
@@ -128,7 +128,7 @@ const getWishlist = (request, response) => {
 const getCollection = (request, response) => {
     const id = parseInt(request.params.id)
 
-    pool.query('SELECT * FROM owns w , games g WHERE userid = $1 AND w.gameID = g.gameID', [id], (error, results) => {
+    pool.query('SELECT * FROM owns w , game g WHERE userid = $1 AND w.gameID = g.gameID', [id], (error, results) => {
         if (error) {
             throw error
         }
