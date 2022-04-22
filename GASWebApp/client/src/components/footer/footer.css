@@ -2,6 +2,7 @@
     position: scroll;
     left: 0;
     bottom: 0;
+    margin: auto;
     width: 100%;
     background-color: #1f1e23;
     color: white;

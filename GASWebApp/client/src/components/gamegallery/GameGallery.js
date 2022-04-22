@@ -68,7 +68,6 @@ const GameGallery = (props) => {
           </table> 
         </div>    
       </div>
-      <div>
         <ReactPaginate
         previousLabel={'<'}
         nextLabel={'>'}
@@ -83,7 +82,6 @@ const GameGallery = (props) => {
         disabledClassName={'paginationDisabled'}
         activeClassName={'paginationActive'}
         /> 
-      </div>
       </div>
     );
 }
