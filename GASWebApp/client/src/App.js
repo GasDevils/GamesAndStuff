@@ -25,7 +25,15 @@ const App = () => {
             <Route path="*" element={<Notfound />} />
           </Routes>
           
-
+          <div
+          style={{
+            position: "fixed",
+            left: 0,
+            bottom: 0,
+            right: 0,
+            backgroundColor: "charcoal",
+          }}>footer
+          </div>
         </div>
       </Router>
     </GamesContextProvider>

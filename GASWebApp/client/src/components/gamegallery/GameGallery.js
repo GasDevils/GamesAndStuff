@@ -51,7 +51,7 @@ const GameGallery = (props) => {
         <div className="list-group">
           <table className="table table-hover table-dark">
             <thead>
-              <tr className="bg-primary">
+              <tr>
                 <th scope="col">Image</th>
                 <th scope="col">Name</th>
                 <th scope="col">Rating</th>
