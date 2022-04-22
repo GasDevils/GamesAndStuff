@@ -10,7 +10,7 @@ const GameGallery = (props) => {
     async function fetchData(){
       try{
         const response = await GameFinder.post('/games');
-        setGames(response.data.data.games)
+        setGames(response.data.data.results)
       } catch(err){}
     }
     fetchData();
