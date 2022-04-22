@@ -37,11 +37,11 @@ const getUserById = (request, response) => {
 const createUser = (request, response) => {
   const { name, password} = request.body
 
-  pool.query('INSERT INTO gamers (userID,username, password,dateCreated) VALUES (DEFAULT,$1, $2,DEFAULT)', [name, password], (error, results) => {
+  pool.query('INSERT INTO gamers (userID,username, password,dateCreated) VALUES (DEFAULT,$1, $2,DEFAULT) RETURNING USERID', [name, password], (error, results) => {
     if (error) {
       throw error
     }
-    response.status(201).send(`User added with ID: ${result.insertId}`)
+    response.status(201).send(`User added with ID: ${results.rows[0].userid}`)
   })
 }
 
@@ -58,7 +58,7 @@ const loginUser = (request, response) => {
 const deleteUser = (request, response) => {
   const id = parseInt(request.body.id)
 
-  pool.query('DELETE FROM gamers WHERE id = $1', [id], (error, results) => {
+  pool.query('DELETE FROM gamers WHERE userid = $1', [id], (error, results) => {
     if (error) {
       throw error
     }
@@ -71,7 +71,7 @@ const addFriend = (request, response) => {
     const id1 = parseInt(request.body.id1)
     const id2 = parseInt(request.body.id2)
 
-    pool.query('INSERT INTO friendswith (id1, id2, dateAdded) values ($1, $2, DEFAULT)', [id1, id2], (error, results) => {
+    pool.query('INSERT INTO friendswith (userid1, userid2, dateAdded) values ($1, $2, DEFAULT)', [id1, id2], (error, results) => {
         if (error) {
             throw error
         }
@@ -200,7 +200,7 @@ const getGameByRatingGreaterThan = (request, response) => {
 
 const getFriends = (request, response) => {
     const id = parseInt(request.body.id)
-    pool.query('SELECT * FROM friendswith WHERE id1 = $1', [id], (error, results) => {
+    pool.query('SELECT * FROM friendswith WHERE userid1 = $1', [id], (error, results) => {
         if (error) {
             throw error
         }
@@ -358,6 +358,57 @@ const getTabletopGameByLessRatingAndTitle = (request, response) => {
     })
 }
 
+const getTabletopGameByGreaterRatingTagAndTitle = (request, response) => {
+    const rating = parseInt(request.body.gameid)
+    const tag = parseInt(request.body.gameid)
+    const title = parseInt(request.body.gameid)
+
+    pool.query('SELECT * FROM tabletopgame, tags where rating > $1 AND tag LIKE \'%$2%\' and title LIKE \'%3\' limit 50', [rating, tag, title], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.status(200).json(results.rows);
+    })
+}
+
+const getTabletopGameByLessRatingTagAndTitle = (request, response) => {
+    const rating = parseInt(request.body.gameid)
+    const tag = parseInt(request.body.gameid)
+    const title = parseInt(request.body.gameid)
+
+    pool.query('SELECT * FROM tabletopgame, tags where rating < $1 AND tag LIKE \'%$2%\' and title LIKE \'%3\' limit 50', [rating, tag, title], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.status(200).json(results.rows);
+    })
+}
+
+const getVideoGameByGreaterRatingTagAndTitle = (request, response) => {
+    const rating = parseInt(request.body.gameid)
+    const tag = parseInt(request.body.gameid)
+    const title = parseInt(request.body.gameid)
+
+    pool.query('SELECT * FROM videogame, tags where rating > $1 AND tag LIKE \'%$2%\' and title LIKE \'%3\' limit 50', [rating, tag, title], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.status(200).json(results.rows);
+    })
+}
+
+const getVideoGameByLessRatingTagAndTitle = (request, response) => {
+    const rating = parseInt(request.body.gameid)
+    const tag = parseInt(request.body.gameid)
+    const title = parseInt(request.body.gameid)
+
+    pool.query('SELECT * FROM videogame, tags where rating < $1 AND tag LIKE \'%$2%\' and title LIKE \'%3\' limit 50', [rating, tag, title], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.status(200).json(results.rows);
+    })
+}
 
 
 module.exports = {
@@ -392,5 +443,9 @@ module.exports = {
   getVideoGameByGreaterRatingAndTitle,
   getVideoGameByLessRatingAndTitle,
   getTabletopGameByGreaterRatingAndTitle,
-  getTabletopGameByLessRatingAndTitle
+  getTabletopGameByLessRatingAndTitle,
+  getTabletopGameByGreaterRatingTagAndTitle,
+  getTabletopGameByLessRatingTagAndTitle,
+  getVideoGameByGreaterRatingTagAndTitle,
+  getVideoGameByLessRatingTagAndTitle
 }

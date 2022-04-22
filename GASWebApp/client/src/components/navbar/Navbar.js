@@ -1,27 +1,27 @@
 import React from 'react'
 //import { RiMenu3Line, RiCloseLin } from 'react-icons/ri';
 
-import logo from '../../assets/logo.png'
+//import logo from '../../assets/logo.png'
 
 import './navbar.css';
 import {NavLink} from 'react-router-dom';
 
 const Navbar = ()=>{
   return(
-    <body>
+    <div className="bg-background">
       <nav>
       
 
-        <div class="container">
-          <h1 class="gradient shimmer">
+        <div className="container">
+          <h1 className="gradient shimmer">
               
-            <img src="https://media.discordapp.net/attachments/287073823608668163/962829511701962833/412ProjectLogo.png?width=437&height=437"></img>
+            <img src="https://media.discordapp.net/attachments/287073823608668163/962829511701962833/412ProjectLogo.png?width=437&height=437" alt="412 Project Logo"></img>
 
-            <a href="">G.A.S.</a>
+            <a href="/">G.A.S.</a>
               
           </h1>
-          <div class="nav-list">
-            <li><NavLink exact to="/" className="nav-link">Home</NavLink></li>
+          <div className="nav-list">
+            <li><NavLink to="/" className="nav-link">Home</NavLink></li>
             <li><NavLink to="/gameGallery" className="nav-link">Game Gallery</NavLink></li>
             <li><NavLink to="/Friends" className="nav-link">Friends</NavLink></li>
             <li><NavLink to="/Account" className="nav-link">Account</NavLink></li>
@@ -32,7 +32,7 @@ const Navbar = ()=>{
 
       </nav>
       
-    </body>
+    </div>
     
   );
 }

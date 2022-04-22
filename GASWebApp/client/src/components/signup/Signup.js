@@ -30,7 +30,7 @@ const signup = ()=>{
                     <span></span>
                     <span></span>
                     <span></span>
-                    <li><NavLink exact to="/" className="nav-link">Sign up</NavLink></li>
+                    <li><NavLink to="/" className="nav-link">Sign up</NavLink></li>
                     </center>
                 </a>
 

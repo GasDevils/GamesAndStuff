@@ -2,11 +2,12 @@
 const express = require('express')
 //const bodyParser = require('body-parser')
 const app = express()
+const cors = require('cors')
 const db = require('./queries')
 const port = 5000
 
 // middleware
-// app.use(cors());
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 /*
@@ -30,22 +31,36 @@ app.post('/api/login', db.loginUser)
 
 //creates user with given username and password
 //body {name: string, password: string}
-//@returns user info if made successfully
-//@returns empty otherwise
+//@returns user id if made successfully
+//@returns error otherwise
 app.put('/api/createUser', db.createUser)
 
-//deletes user
+//deletes user with given id
+//body {id: int}
+//@returns empty if successful
+//@returns error otherwise
 app.delete('/api/deleteUser', db.deleteUser)
+
 //gets user by id
 app.get('/api/user/', db.getUserById)
+
 //adds friend to user
+//body {id1: int, id2: int}
+//@returns User added to friends with ID 2 if successful
+//@returns error otherwise
 app.put('/api/addFriend', db.addFriend)
+
 //gets all friends of user
+//body {id: int}
+//@returns array of users if successful
 app.get('/api/friends/', db.getFriends)
+
 //gets all games owned by a user
 app.get('/api/owns/', db.getCollection)
+
 //gets all games on wishlist of a user
 app.get('/api/wishlist/', db.getWishlist)
+
 //removes friend (id2) from user (id1) 
 app.delete('/api/removeFriend', db.removeFriend)
 app.post('/api/addWishlist', db.addWishlist)
