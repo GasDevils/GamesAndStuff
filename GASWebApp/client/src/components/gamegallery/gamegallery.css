@@ -11,7 +11,7 @@ html {
 .paginationBttns{
   width: 80%;
   height: 40px;
-  margin: 0 auto;
+  margin: 100px auto;
   list-style: none;
   display: flex;
   justify-content: center;
