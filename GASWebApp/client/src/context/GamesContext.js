@@ -1,9 +1,9 @@
-import {React, userState, createContext} from "react";
+import React, { useState, createContext } from "react";
 
 export const GamesContext = createContext();
 
 export const GamesContextProvider = (props) => {
-    const[games, setGames] = userState([]);
+    const[games, setGames] = useState([]);
 
     return(
         <GamesContext.Provider value={{games, setGames}}>
