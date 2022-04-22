@@ -1,8 +1,8 @@
-import React, {userState, createContext} from "react";
+import {React, userState, createContext} from "react";
 
 export const GamesContext = createContext();
 
-export const GamesContextProvider = props => {
+export const GamesContextProvider = (props) => {
     const[games, setGames] = userState([]);
 
     return(
@@ -10,4 +10,4 @@ export const GamesContextProvider = props => {
             {props.children}
         </GamesContext.Provider>
     );
-}
+};
