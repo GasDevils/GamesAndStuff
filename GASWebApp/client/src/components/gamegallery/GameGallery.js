@@ -33,10 +33,8 @@ const GameGallery = (props) => {
 
   function PaginatedGames({gamesPerPage}){
     const [currentItems, setCurrentItems] = useState(null);
-    const[pageNumber, setPageNumber] = useState(0);
+    const [pageCount, setPageCount] = useState(0);
     const [itemOffset, setItemOffset] = useState(0);
-    const gamesPerPage = 20;
-    const pagesVisted = pageNumber * gamesPerPage;
 
     useEffect(() => {
       const endOffset = itemOffset + gamesPerPage;
@@ -75,7 +73,7 @@ const GameGallery = (props) => {
       pageCount={pageCount}
       marginPagesDisplayed={2}
       pageRangeDisplayed={5}
-      onPageChange={changePage}
+      onPageChange={handlePageClick}
       containerClassName={'paginationBttns'}
       previousLinkClassName={'previousBttn'}
       nextLinkClassName={'nextBttn'}
