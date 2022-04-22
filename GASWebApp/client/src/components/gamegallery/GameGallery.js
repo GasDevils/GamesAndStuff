@@ -1,5 +1,6 @@
 import React, {useState, useContext, useEffect} from 'react'
 import ReactPaginate from 'react-paginate';
+import _ from 'lodash';
 import './gamegallery.css'
 import Game from '../../components/game/Game'
 import GameFinder from '../../apis/GameFinder'
@@ -7,49 +8,27 @@ import { GamesContext } from '../../context/GamesContext'
 
 const GameGallery = (props) => {
   const{games, setGames} = useContext(GamesContext)
+  const [paginatedGames, setPaginatedGames] = useState();
   useEffect(() => {
     async function fetchData(){
       try{
         const response = await GameFinder.post('/games');
         setGames(response.data)
+        setPaginatedGames(_(response.data).slice(0).take(pageSize).value())
       } catch(err){}
     }
     fetchData();
   }, []);
 
-  function Games({currentItems}){
+  // Pagination
+  
+  const pageSize = 10;
+  const pageCount = games? Math.ceil(games.length/pageSize): 0;
+  if(pageCount == 1){ return null };
+
+  const pages = _.range(1, pageCount + 1);
+  //////////////////////////////////////////////////////////////////////////////
     return(
-      <>
-        {currentItems && currentItems.map((game)=>(
-          <tr key={game.gameid}>
-          <td><img src={game.imageurl} alt="game-logo"/></td>
-          <td>{game.title}</td>
-          <td>{game.rating}</td>
-          </tr>
-        ))}
-      </>
-    )
-  }
-
-  function PaginatedGames({gamesPerPage}){
-    const [currentItems, setCurrentItems] = useState(null);
-    const [pageCount, setPageCount] = useState(0);
-    const [itemOffset, setItemOffset] = useState(0);
-
-    useEffect(() => {
-      const endOffset = itemOffset + gamesPerPage;
-      console.log('Loading games from ${itemOffset} to ${endOffset}');
-      setCurrentItems(games.slice(itemOffset, endOffset));
-      setPageCount(Math.ceil(games.length / gamesPerPage));
-    }, [itemOffset, gamesPerPage]);
-
-    const handlePageClick = (event) => {
-      const newOffset = (even.selected * gamesPerPage) % games.length;
-      console.log('User requested page ${event.selected}, which is offset ${newOffset}');
-      setItemOffset(newOffset);
-    }; 
-    return(
-      <div className="game-gallery">
       <div className="container">
         <div className="list-group">
           <table className="table table-hover table-dark">
@@ -61,30 +40,26 @@ const GameGallery = (props) => {
               </tr>
             </thead>
             <tbody>
-              <Games currentItems={currentItems}/>
+              { paginatedGames && paginatedGames.map(game => {
+                return(
+                  <tr key={game.gameid}>
+                  <td><img src={game.imageurl} alt="game-logo"/></td>
+                  <td>{game.title}</td>
+                  <td>{game.rating}</td>
+                  </tr>
+                );
+            })}
+              {/* <tr>
+                <td><img src="https://cf.geekdo-images.com/micro/img/uhYn0Xn8TZ1vzVfyi4VO1UfNTII=/fit-in/64x64/pic347837.jpg" alt="game-logo"/></td>
+                <td>Risk (Revised Edition)</td>
+                <td>60</td>
+              </tr> */}
             </tbody>
           </table> 
-        </div>    
+        </div>     
       </div>
-      <ReactPaginate
-      previousLabel={'Previous'}
-      nextLabel={'Next'}
-      breakLabel={'...'}
-      pageCount={pageCount}
-      marginPagesDisplayed={2}
-      pageRangeDisplayed={5}
-      onPageChange={handlePageClick}
-      containerClassName={'paginationBttns'}
-      previousLinkClassName={'previousBttn'}
-      nextLinkClassName={'nextBttn'}
-      disabledClassName={'paginationDisabled'}
-      activeClassName={'paginationActive'}
-      /> 
-      </div>
+         
     );
-  }
-  <PaginatedGames gamesPerPage={20}/>
-    
 }
 
 export default GameGallery;
