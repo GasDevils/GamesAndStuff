@@ -8,24 +8,28 @@ import GameGallery from './components/gamegallery/GameGallery';
 import Friends from './components/friends/Friends';
 import Account from './components/account/Account';
 import Notfound from './components/notfound/Notfound';
+import { GamesContextProvider } from './context/GamesContext';
 
 const App = () => {
   return (  
-    <Router>
+    <GamesContextProvider>
+      <Router>
       <Navbar />
-      <div className='App'>
-        <Routes>
-          <Route path="/" exact element={<Login />} />
-          <Route path="/gameGallery" element={<GameGallery />} />
-          <Route path="/Friends" element={<Friends />} />
-          <Route path="/Account" element={<Account />} />
-          <Route path="/notFound" element={<Notfound />} />
-          <Route path="*" element={<Notfound />} />
-        </Routes>
-        
+        <div className='App'>
+          <Routes>
+            <Route path="/" exact element={<Login />} />
+            <Route path="/gameGallery" element={<GameGallery />} />
+            <Route path="/Friends" element={<Friends />} />
+            <Route path="/Account" element={<Account />} />
+            <Route path="/notFound" element={<Notfound />} />
+            <Route path="*" element={<Notfound />} />
+          </Routes>
+          
 
-      </div>
-    </Router>
+        </div>
+      </Router>
+    </GamesContextProvider>
+    
 );
 }
 
