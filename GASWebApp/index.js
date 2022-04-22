@@ -24,20 +24,38 @@ app.post('/api/games', db.getGames)
 app.post('/api/login', db.loginUser)
 //creates user with given username and password
 app.put('/api/createUser', db.createUser)
+//deletes user
+app.delete('/api/deleteUser', db.deleteUser)
+//gets user by id
+app.get('/api/user/', db.getUserById)
+//adds friend to user
+app.put('/api/addFriend', db.addFriend)
+//gets all friends of user
+app.get('/api/friends/', db.getFriends)
+//gets all games owned by a user
+app.get('/api/owns/', db.getCollection)
+//gets all games on wishlist of a user
+app.get('/api/wishlist/', db.getWishlist)
+//removes friend (id2) from user (id1) 
+app.delete('/api/removeFriend', db.removeFriend)
+app.post('/api/addWishlist', db.addWishlist)
+app.delete('/api/removeWishlist', db.removeWishlist)
+app.post('/api/addToCollection', db.addToCollection)
+app.delete('/api/removeFromCollection', db.removeFromCollection)
+//gets 50 games 
+app.get('/api/game/', db.getGame)
+//gets 50 games with rating greater than given rating
+app.get('/api/game/rating/greaterThan', db.getGameByRatingGreaterThan)
+//gets 50 games with rating less than given rating
+app.get('/api/game/rating/lessThan', db.getGameByRatingLessThan)
+//gets 50 games with given keyword
+app.get('/api/game/keyword', db.getGameKeyword)
+app.get('/api/getSpecificGameType', db.getSpecificGameType)
+app.get('/api/getTableTopGameInfoByID', db.getTableTopGameInfoByID)
+app.get('/api/getVideoGameInfoByID', db.getVideoGameInfoByID)
 
 
-//app.post('/users/getById', db.getUserById)
-// app.post('/users/create/', db.createUser)
-// app.post('/users/delete', db.deleteUser)
-// app.post('/users/login', db.loginUser)
-// app.post('/friends/add', db.addFriend)
-// app.post('/friends/remove', db.removeFriend)
-// app.post('/friends/get', db.getFriends)
 
-//app.get('/users/:id', db.getUserById)
-//app.post('/users', db.createUser)
-//app.put('/users/:id', db.updateUser)
-//app.delete('/users/:id', db.deleteUser)
 
 
 app.get('/', (req, res) => res.send('this is an update'));
