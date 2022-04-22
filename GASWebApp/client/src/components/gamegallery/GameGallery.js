@@ -30,9 +30,9 @@ const GameGallery = (props) => {
             <tbody>
               {games.map(game => {
                 return(
-                  <tr>
-                  <td><img src={game.image} alt="game-logo"/></td>
-                  <td>{game.name}</td>
+                  <tr key={game.gameid}>
+                  <td><img src={game.imageurl} alt="game-logo"/></td>
+                  <td>{game.title}</td>
                   <td>{game.rating}</td>
                   </tr>
                 );
