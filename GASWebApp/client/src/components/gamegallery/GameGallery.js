@@ -7,15 +7,24 @@ const GameGallery = () => {
 
 
     return(
-      <div className="gamegallery">
-        <h1>Game </h1>
-        <div className="gamegallery-games">
-          <Game />
-          <Game />
-          <Game />
-          <Game />
-          <Game />
-        </div>
+      <div className="list-group">
+        <table className="table table-hover table-dark">
+          <thead>
+            <tr className="bg-primary">
+              <th scope="col">Image</th>
+              <th scope="col">Name</th>
+              <th scope="col">Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><img src="https://cf.geekdo-images.com/micro/img/uhYn0Xn8TZ1vzVfyi4VO1UfNTII=/fit-in/64x64/pic347837.jpg" alt="game-logo"/></td>
+              <td>Risk (Revised Edition)</td>
+              <td>60</td>
+            </tr>
+          </tbody>
+        </table> 
+
       </div>
     );
 }
