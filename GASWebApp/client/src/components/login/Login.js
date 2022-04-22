@@ -10,15 +10,15 @@ const Login = ()=>{
     <h2>Welcome G.A.S. User!</h2>
     <h2>Sign in to your account.</h2>
         
-        <form>
+        <form method="POST">
             <div className="user-box">
-                <input type="text" name="" required="" placeholder="Username">
+                <input type="text" id="userName" required="" placeholder="Username">
                 </input>
 
             </div>
 
             <div className="user-box">
-                <input type="password" name="" required="" placeholder="Password">
+                <input type="password" id="password" required="" placeholder="Password">
                 </input>
             </div>
 
