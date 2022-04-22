@@ -350,6 +350,57 @@ const getTabletopGameByLessRatingAndTitle = (request, response) => {
     })
 }
 
+const getTabletopGameByGreaterRatingTagAndTitle = (request, response) => {
+    const rating = parseInt(request.body.gameid)
+    const tag = parseInt(request.body.gameid)
+    const title = parseInt(request.body.gameid)
+
+    pool.query('SELECT * FROM tabletopgame, tags where rating > $1 AND tag LIKE \'%$2%\' and title LIKE \'%3\' limit 50', [rating, tag, title], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.status(200).json(results.rows);
+    })
+}
+
+const getTabletopGameByLessRatingTagAndTitle = (request, response) => {
+    const rating = parseInt(request.body.gameid)
+    const tag = parseInt(request.body.gameid)
+    const title = parseInt(request.body.gameid)
+
+    pool.query('SELECT * FROM tabletopgame, tags where rating < $1 AND tag LIKE \'%$2%\' and title LIKE \'%3\' limit 50', [rating, tag, title], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.status(200).json(results.rows);
+    })
+}
+
+const getVideoGameByGreaterRatingTagAndTitle = (request, response) => {
+    const rating = parseInt(request.body.gameid)
+    const tag = parseInt(request.body.gameid)
+    const title = parseInt(request.body.gameid)
+
+    pool.query('SELECT * FROM videogame, tags where rating > $1 AND tag LIKE \'%$2%\' and title LIKE \'%3\' limit 50', [rating, tag, title], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.status(200).json(results.rows);
+    })
+}
+
+const getVideoGameByLessRatingTagAndTitle = (request, response) => {
+    const rating = parseInt(request.body.gameid)
+    const tag = parseInt(request.body.gameid)
+    const title = parseInt(request.body.gameid)
+
+    pool.query('SELECT * FROM videogame, tags where rating < $1 AND tag LIKE \'%$2%\' and title LIKE \'%3\' limit 50', [rating, tag, title], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.status(200).json(results.rows);
+    })
+}
 
 
 module.exports = {
@@ -383,5 +434,9 @@ module.exports = {
   getVideoGameByGreaterRatingAndTitle,
   getVideoGameByLessRatingAndTitle,
   getTabletopGameByGreaterRatingAndTitle,
-  getTabletopGameByLessRatingAndTitle
+  getTabletopGameByLessRatingAndTitle,
+  getTabletopGameByGreaterRatingTagAndTitle,
+  getTabletopGameByLessRatingTagAndTitle,
+  getVideoGameByGreaterRatingTagAndTitle,
+  getVideoGameByLessRatingTagAndTitle
 }
