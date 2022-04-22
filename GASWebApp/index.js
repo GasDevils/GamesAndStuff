@@ -21,7 +21,7 @@ app.use(
 //gets all users
 app.get('/api/users', db.getUsers)
 //gets all games
-app.get('/api/games', db.getGames)
+app.post('/api/games', db.getGames)
 
 //login
 //body {name: string, password: string}
