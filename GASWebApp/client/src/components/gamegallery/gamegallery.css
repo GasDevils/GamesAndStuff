@@ -9,7 +9,7 @@ html {
 }
 
 .paginationBttns{
-  width: 40px;
+  width: 80%;
   height: 40px;
   margin: auto;
   list-style: none;
@@ -20,13 +20,14 @@ html {
 }
 
 .paginationBttns a{
-  padding: 10px;
+  padding: 8px;
   margin: 8px;
   color:#ccc;
   background-color: #1f1e23;
   cursor: pointer;
   text-decoration: none;
   border-radius: 5px;
+  font-weight: bold;
 }
 
 .paginationBttns a:hover{
