@@ -40,6 +40,7 @@ const GameGallery = (props) => {
     }
 
     return(
+      <div className="game-gallery">
       <div className="container">
         <div className="list-group">
           <table className="table table-hover table-dark">
@@ -56,23 +57,23 @@ const GameGallery = (props) => {
             })}
             </tbody>
           </table> 
-        </div> 
-        <ReactPaginate
-        previousLabel={'Previous'}
-        nextLabel={'Next'}
-        breakLabel={'...'}
-        pageCount={pageCount}
-        marginPagesDisplayed={2}
-        pageRangeDisplayed={5}
-        onPageChange={changePage}
-        containerClassName={'paginationBttns'}
-        previousLinkClassName={'previousBttn'}
-        nextLinkClassName={'nextBttn'}
-        disabledClassName={'paginationDisabled'}
-        activeClassName={'paginationActive'}
-        />    
+        </div>    
       </div>
-         
+      <ReactPaginate
+      previousLabel={'Previous'}
+      nextLabel={'Next'}
+      breakLabel={'...'}
+      pageCount={pageCount}
+      marginPagesDisplayed={2}
+      pageRangeDisplayed={5}
+      onPageChange={changePage}
+      containerClassName={'paginationBttns'}
+      previousLinkClassName={'previousBttn'}
+      nextLinkClassName={'nextBttn'}
+      disabledClassName={'paginationDisabled'}
+      activeClassName={'paginationActive'}
+      /> 
+      </div>
     );
 }
 
