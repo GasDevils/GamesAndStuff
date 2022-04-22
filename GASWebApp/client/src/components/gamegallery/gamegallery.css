@@ -7,3 +7,21 @@ html {
   margin-top: 10%;
   width: 80%;
 }
+
+.paginationBttns{
+  width: 80%;
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+
+}
+
+.paginationBttns a{
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  color:#ccc;
+  cursor: pointer;
+}
