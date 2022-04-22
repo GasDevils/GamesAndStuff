@@ -9,11 +9,12 @@ const Friends = () => {
 
                     <div id="topSearchDisplay"></div>
                     <table id="searchDisplay">
-                        
+
                                 <tr></tr>
                                 <td></td>
                                 <input id="searchLocation" value='' type="text" placeholder='Search for friends!'></input>
                         
+                                &nbsp;&nbsp;&nbsp;
 
                                 <input id="search-button" type="submit" value="Search"></input>
 
