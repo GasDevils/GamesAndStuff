@@ -1,7 +1,18 @@
+.gamegallery{
+  margin:1rem auto;
+}
 html {
     height: 100%
   }
-  
+h1{
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
   body {
     height: 100%;
     margin: 0;
@@ -10,22 +21,20 @@ html {
     background: linear-gradient(#1f1e23, #8a40ff);
   }
   
-    card {
-      margin-left: auto;
-      margin-right: auto;
-      display:block;
-      top: 30%;
-      left: 50%;
-      right: 50%;
-      width: 1000px;
-      height: 1000px;
-      padding: 40px;
-      background: #000000;
-      box-sizing: border-box;
-      box-shadow: 0 15px 25px rgba(0,0,0,.6);
-      border-radius: 10px;
-      
-    }
+  .card {
+    margin-left: auto;
+    margin-right: auto;
+    display:block;
+    top: 30%;
+    left: 50%;
+    right: 50%;
+    width: 1000px;
+    padding: 40px;
+    background: #000000;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;  
+  }
   
   a:link {
     color: #ddf;
