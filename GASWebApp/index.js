@@ -1,13 +1,14 @@
 
 const express = require('express')
-const bodyParser = require('body-parser')
+//const bodyParser = require('body-parser')
 const app = express()
 const db = require('./queries')
 const port = 5000
 
 // middleware
 // app.use(cors());
-// app.use(express.json());
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 /*
 app.use(bodyParser.json())
 app.use(
@@ -20,10 +21,19 @@ app.use(
 app.get('/api/users', db.getUsers)
 //gets all games
 app.post('/api/games', db.getGames)
+
 //login
+//body {name: string, password: string}
+//returns user info if userName and password match
+//returns empty otherwise
 app.post('/api/login', db.loginUser)
+
 //creates user with given username and password
+//body {name: string, password: string}
+//@returns user info if made successfully
+//@returns empty otherwise
 app.put('/api/createUser', db.createUser)
+
 //deletes user
 app.delete('/api/deleteUser', db.deleteUser)
 //gets user by id
