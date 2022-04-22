@@ -20,7 +20,7 @@ const getGames = (request, response) => {
       throw error
     }
     response.status(200).json({data:{
-        games: results[rows],
+        games: results.rows,
     }})
   })
 }
