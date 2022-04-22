@@ -56,9 +56,7 @@ const GameGallery = (props) => {
               </tr>
             </thead>
             <tbody>
-              { paginatedGames && paginatedGames.map(game => {
                 {displayGames}
-            })}
               {/* <tr>
                 <td><img src="https://cf.geekdo-images.com/micro/img/uhYn0Xn8TZ1vzVfyi4VO1UfNTII=/fit-in/64x64/pic347837.jpg" alt="game-logo"/></td>
                 <td>Risk (Revised Edition)</td>
