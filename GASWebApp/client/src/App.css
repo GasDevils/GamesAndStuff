@@ -7,7 +7,9 @@
 
 body {
   background: var(--color-bg);
-  background-attachment: fixed;
+  min-height:100%;
+  position: relative;
+  z-index: 1;
 }
 
 a{
