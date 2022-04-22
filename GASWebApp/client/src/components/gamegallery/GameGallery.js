@@ -5,12 +5,15 @@ import GameFinder from '../../apis/GameFinder'
 
 const GameGallery = () => {
 
-  useEffect(async() => {
-    try{
-      const response = await GameFinder.get('/games');
-      console.log(response);
-    } catch(err){}
-  }, [])
+  useEffect(() => {
+    async function fetchData(){
+      try{
+        const response = await GameFinder.get('/games');
+        console.log(response);
+      } catch(err){}
+    }
+    fetchData();
+  }, []);
 
     return(
       <div className="container">
