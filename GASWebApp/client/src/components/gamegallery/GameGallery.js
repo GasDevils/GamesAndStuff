@@ -128,40 +128,11 @@ export default GameGallery;
                 <input className='query' value='' type="text" placeholder=' e.g. survival, fantasy'
                       title='Enter keywords here'></input>
 
-<<<<<<< Updated upstream
     </card>
     </head>
 </div>
     );
 }
-=======
-              </td>
-              <td>&nbsp;&nbsp;&nbsp;</td>
-              <td>
-                <select className='locRadius' title='Enter the location radius to search on'>
-                  <option value=""selected="selected">None</option>
-                  <option value="0-10">0-10</option>
-                  <option value="10-30">10-30</option>
-                  <option value="40-50">40-50</option>
-                  <option value="60-70">60-70</option>
-                  <option value="70-80">70-80</option>
-                  <option value="90-100">90-100</option>
-                </select>
-              </td>
-              <td>&nbsp;&nbsp;&nbsp;</td>
-              <td>
-                <select className='locRadius' title='Enter the location radius to search on'>
-                  <option value=""selected="selected">All</option>
-                  <option value="Tabletop">Tabletop</option>
-                  <option value="Video Game">Video Game</option>
-                </select>
-              </td>
-            </tr>
-          </table>
-          <table>
-          </table>
-        </div>
->>>>>>> Stashed changes
 
         <form>
           <table>
