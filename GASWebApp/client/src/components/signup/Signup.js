@@ -57,9 +57,14 @@ handleSubmit = (e) => {
     e.preventDefault();
     const{username, password} = this.state;
     try{
-        const response = await GameFinder.post('/createUser', {username, password});
-        setUser(response.data);
-        history.push('/gameGallery');//if successful login redirect to gameGallery
+        const response = await GameFinder.get('/userSearchByUsername',username);
+        if(response.data.length > 0){
+            this.setState({loginErrors:"Username already exists"});
+        }else{
+            const response = await GameFinder.put('/createUser', {username, password});
+            setUser(response.data);
+            history.push('/gameGallery');//if successful login redirect to gameGallery
+        }
       } catch(err){
         console.log(err);
         //print error message saying Username/User already exists

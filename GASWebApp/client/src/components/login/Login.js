@@ -66,8 +66,12 @@ handleSubmit = (e) => {
     const{username, password} = this.state;
     try{
         const response = await GameFinder.post('/login', {username, password});
-        setUser(response.data);
-        history.push('/gameGallery');//if successful login redirect to game gallery
+        if(response.data != ""){
+            setUser(response.data);
+            history.push('/');
+        }else{
+            this.setState({loginErrors:"Invalid username or password"});
+        }
       } catch(err){
 
       }
