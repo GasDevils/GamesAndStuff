@@ -1,8 +1,13 @@
-import React from 'react'
+import React, {useState, useContext, useEffect} from 'react'
+import ReactPaginate from 'react-paginate';
+import _ from 'lodash';
 import './friends.css'
+import Friends from '../../components/friends/Friends'
+import FriendFinder from '../../apis/FriendFinder'
+import { FriendContext } from '../../context/FriendContext'
 
 const Friends = (props) => {
-    const{friends, setFriends} = useContext(FriendsContext)
+    const{friends, setFriends} = useContext(FriendContext)
     const [pageNumber, setPageNumber] = useState(0);
     
     const friendsPerPage = 10;
