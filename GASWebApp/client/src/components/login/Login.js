@@ -3,6 +3,9 @@ import {NavLink} from 'react-router-dom';
 import GameFinder from '../../apis/GameFinder'
 import './login.css';
 import { UserContext } from '../../context/UserContext'
+import { useHistory } from 'react-router-dom';
+
+const history = useHistory();
 
 const Login = (props)=>{
     const{user,setUser} = useContext(UserContext);
@@ -59,15 +62,17 @@ handleChange = (e) => {
 }
 
 handleSubmit = (e) => {
+    e.preventDefault();
     const{username, password} = this.state;
     try{
         const response = await GameFinder.post('/login', {username, password});
         setUser(response.data);
+        history.push('/gameGallery');//if successful login redirect to game gallery
       } catch(err){
 
       }
 
-    e.preventDefault();
+   
 }
 
 export default Login;

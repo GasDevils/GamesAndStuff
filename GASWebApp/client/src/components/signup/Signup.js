@@ -3,6 +3,7 @@ import {NavLink} from 'react-router-dom';
 import { UserContext } from '../../context/UserContext'
 import GameFinder from '../../apis/GameFinder'
 import './signup.css';
+import { useHistory } from 'react-router-dom';
 
 const Signup = (props)=>{
     const{user,setUser} = useContext(UserContext);
@@ -53,16 +54,16 @@ handleChange = (e) => {
 }
 
 handleSubmit = (e) => {
+    e.preventDefault();
     const{username, password} = this.state;
     try{
         const response = await GameFinder.post('/createUser', {username, password});
         setUser(response.data);
+        history.push('/gameGallery');//if successful login redirect to gameGallery
       } catch(err){
         console.log(err);
         //print error message saying Username/User already exists
-      }
-
-    e.preventDefault();
+      } 
 }
 
 export default Signup;
