@@ -9,6 +9,7 @@ import Friends from './components/friends/Friends';
 import Account from './components/account/Account';
 import Notfound from './components/notfound/Notfound';
 import { GamesContextProvider } from './context/GamesContext';
+import Signup from './components/signup/Signup';
 import Footer from './components/footer/Footer';
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
             <Route path="/gameGallery" element={<GameGallery />} />
             <Route path="/Friends" element={<Friends />} />
             <Route path="/Account" element={<Account />} />
+            <Route path="/Signup" element={<Signup />} />
             <Route path="/notFound" element={<Notfound />} />
             <Route path="*" element={<Notfound />} />
           </Routes>
