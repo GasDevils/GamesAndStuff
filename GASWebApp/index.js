@@ -30,7 +30,7 @@ app.get('/api/users', db.getUsers)
 app.post('/api/games', db.getGames)
 
 //login
-//body {name: string, password: string}
+//body {username: string, password: string}
 //returns user(s) info if userName and password match
 //returns empty otherwise
 app.post('/api/login', db.loginUser)
