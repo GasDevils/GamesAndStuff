@@ -178,7 +178,17 @@ app.get('/api/getFriendCount', db.getFriendCount)
 //body {userid:int}
 app.get('/api/getWishListCount', db.getWishListCount)
 
+//body {userid:int}
+//returns name, userID and dateAdded of all friends of user with param userID
+app.get('/api/getFriendUserInfo', db.getFriendUserInfo)
 
+//body {username: string}
+//returns name, userID and dateAdded of user with param username
+app.get('/api/getUserInfoByUsername', db.getUserInfoByUsername)
+
+//body {username: string}
+//returns name, userID and dateAdded of users whose usernames is like param username
+app.get('/api/userSearchByUsername', db.userSearchByUsername)
 
 app.get('/', (req, res) => res.send('this is an update'));
 app.listen(port);
