@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 
 import './signup.css';
 
-const signup = ()=>{
+const Signup = ()=>{
     
     return(
     <div className="signup-box">
