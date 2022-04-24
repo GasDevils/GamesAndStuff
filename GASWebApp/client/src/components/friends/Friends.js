@@ -3,7 +3,7 @@ import ReactPaginate from 'react-paginate';
 import _ from 'lodash';
 import './friends.css'
 import FriendFinder from '../../apis/FriendFinder'
-import { FriendContext } from '../../context/FriendContext'
+import { FriendContext } from '../../context/FriendsContext'
 
 const Friends = (props) => {
     const{friends, setFriends} = useContext(FriendContext)
