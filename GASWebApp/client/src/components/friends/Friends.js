@@ -4,15 +4,18 @@ import _ from 'lodash';
 import './friends.css'
 import GameFinder from '../../apis/GameFinder'
 import { FriendsContext } from '../../context/FriendsContext'
+import { UserContext } from '../../context/UserContext';
 
  //////////////////////////////////////////////////////////////////////////////
  const Friends = () => {
+   const {gamer} = useContext(UserContext);
    
   useEffect(() => {
+    console.log(gamer);
     const fetchData = async () => {
       try{
         const response = await GameFinder.get("/friends/", {
-          "username": "test"//fill in with actual value from login
+          "username": gamer.username//fill in with actual value from login
         });
         console.log(response);
       }catch(err){

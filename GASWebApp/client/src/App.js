@@ -12,9 +12,17 @@ import { GamesContextProvider } from './context/GamesContext';
 import Signup from './components/signup/Signup';
 import Footer from './components/footer/Footer';
 import { FriendsContextProvider } from './context/FriendsContext';
+import { UserContext } from './context/UserContext';
+
+const[gamer,setGamer] = useState({});
+const loggedInUser = useMemo(
+  () => ({gamer,setGamer}),
+  [gamer]
+);
 
 const App = () => {
   return (  
+    <UserContext.Provider loggedInUser={loggedInUser}>
     <FriendsContextProvider>
     <GamesContextProvider>
       <Router>
@@ -33,6 +41,8 @@ const App = () => {
       </Router>
     </GamesContextProvider>
     </FriendsContextProvider>
+    </UserContext.Provider>
+    
 );
 }
 

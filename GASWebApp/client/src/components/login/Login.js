@@ -11,10 +11,7 @@ const Login = (props)=>{
     const [loginErrors, setloginErrors] = useState('');
     const {gamer, setGamer} = useContext(UserContext);
     const history = useNavigate();
-    const loggedInUser = useMemo(
-        () => ({gamer,setGamer}),
-        [gamer]
-    );
+   
         
     const useHandleSubmit = (e) => {
         e.preventDefault();
@@ -23,6 +20,7 @@ const Login = (props)=>{
                 "password": password
             }).then(res => {
             if(res.data !== ""){
+                console.log(res.data);
                 setGamer(res.data);
                 history('/gameGallery');
             }else{
