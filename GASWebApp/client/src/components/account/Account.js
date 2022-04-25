@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext,useState} from 'react'
 import Navbar from '../navbar/Navbar'
 import './account.css'
 import GameFinder from '../../apis/GameFinder'
