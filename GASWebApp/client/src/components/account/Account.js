@@ -7,9 +7,9 @@ import { UserContext } from '../../context/UserContext';
 const Account = () => {
     const {gamer} = useContext(UserContext);
     
-    var numFriends = 0;
-    var numGames = 0;
-    var numWishlist = 0;
+    var numFriends;
+    var numGames;
+    var numWishlist;
     getValues();
 
 
