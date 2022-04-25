@@ -12,8 +12,7 @@ import { FriendsContext } from '../../context/FriendsContext'
     const fetchData = async () => {
       try{
         const response = await GameFinder.get("/friends/", {
-          "Param": value,
-          "2": value
+          "username": "test"//fill in with actual value from login
         });
         console.log(response);
       }catch(err){

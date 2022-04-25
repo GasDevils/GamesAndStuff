@@ -11,7 +11,7 @@ const Signup = (props)=>{
     const [registerErrors, setregisterErrors] = useState('');
     let history = useNavigate();
 
-    const handleSubmit = (e) => {
+    const useHandleSubmit = (e) => {
         e.preventDefault();
             GameFinder.get('/userSearchByUsername',{
                 "username": username
