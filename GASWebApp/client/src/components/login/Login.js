@@ -15,13 +15,13 @@ const Login = (props)=>{
         
         <form method="POST" onSubmit={useHandleSubmit}>
             <div className="user-box">
-                <input type="text" id="username" required="" placeholder="Username" onChange={handleChange}>
+                <input type="text" name="username" id="username" required="" placeholder="Username" onChange={handleChange}>
                 </input>
 
             </div>
 
             <div className="user-box">
-                <input type="password" id="password" required="" placeholder="Password" onChange={handleChange}>
+                <input type="password" name="password" id="password" required="" placeholder="Password" onChange={handleChange}>
                 </input>
             </div>
 
@@ -57,8 +57,10 @@ const state={
 }
 
 const handleChange = (e) => {
-    const{name, value} = e.target;
-    setState({[name]:value});
+    console.log(e.target);
+	const{name, value} = e.target;
+	console.log("name: " + name + " value:" + value);
+    this.setState({[name]:value});
 }
 
 const useHandleSubmit = (e) => {
