@@ -57,7 +57,7 @@ const Login = (props)=>{
                     <span></span>
                     <span></span>
                     <span></span>
-                    <li><button onSubmit = {useHandleSubmit}>Login</button></li>
+                    <button onSubmit = {useHandleSubmit}>Login</button>
                     </center>
                 </a>
 
