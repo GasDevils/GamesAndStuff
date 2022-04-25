@@ -13,6 +13,7 @@ import Signup from './components/signup/Signup';
 import Footer from './components/footer/Footer';
 import { FriendsContextProvider } from './context/FriendsContext';
 import { UserContext } from './context/UserContext';
+import GameDetails from './components/gamegallery/GameDetails';
 
 
 const App = () => {
