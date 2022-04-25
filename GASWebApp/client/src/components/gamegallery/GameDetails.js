@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import GameFinder from "../../apis/GameFinder";
-import { GamesContext } from "./context/GamesContext";
+import { GamesContext } from "../../context/GamesContext";
 import './gamedetails.css';
 
 const GameDetails = () => {
