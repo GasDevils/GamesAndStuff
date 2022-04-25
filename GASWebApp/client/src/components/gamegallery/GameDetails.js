@@ -12,7 +12,7 @@ const GameDetails = () => {
         const fetchData = async() =>{
             try{
                     const response = await GameFinder.post('/getVideoGameInfoByID', {gameid});
-                    console.log(response.data);
+                    console.log(response.data[0]);
                     //setSelectedGames(response.data);
             } catch (err){
                 console.log(err);
