@@ -32,7 +32,7 @@ const GameDetails = () => {
             <div>
                 <h1>
                     {selectedGame && selectedGame.title}
-                    <img src={selectedGame.imageurl} alt="game-logo"/>
+                    
                 </h1>
                 <h2>
                     <li>Platform: {selectedGame.platform}</li>
@@ -55,7 +55,7 @@ const GameDetails = () => {
         <div>
             <h1>
                 {selectedGame && selectedGame.title}
-                <img src={selectedGame.imageurl} alt="game-logo"/>
+                
             </h1>
             <h2>
                 <li>Max Players: {selectedGame.maxplayers}</li>
