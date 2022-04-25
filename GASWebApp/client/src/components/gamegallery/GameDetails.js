@@ -17,8 +17,6 @@ const GameDetails = () => {
                 }else{
                     response = await GameFinder.post('/getTableTopGameInfoByID', {gameid});
                 }
-                
-                console.log(response);
                 setSelectedGame(response.data);
             } catch (err){
                 console.log(err);
@@ -27,15 +25,54 @@ const GameDetails = () => {
         fetchData();
     }, [])
 
+    const videoGameColumns = () => {
+        if(selectedGame.gameid < 27076){
+            return(
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Platform</th>
+                    <th scope="col">Release Date</th>
+                    <th scope="col">Publisher</th>
+                    <th scope="col">Developer</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Users Rated</th>
+                  </tr>
+            );
+        } else{
+            tableTopGameColumns();
+        }
+
+        
+    }
+    const tableTopGameColumns = () => {
+        return(
+            <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Name</th>
+                <th scope="col">Min Players</th>
+                <th scope="col">Max Players</th>
+                <th scope="col">Min Age</th>
+                <th scope="col">Release Year</th>
+                <th scope="col">Rating</th>
+                <th scope="col">Users Rated</th>
+              </tr>
+        );
+    };
     const showVideoGameDetails = () => {
         if(gameid < 27076){
-            <div>
-                <h1>
-                    {selectedGame && selectedGame.title}
-                </h1>
-            </div>
-            
-            
+            return(
+                <tr key={selectedGame.gameid}>
+                    <td><img src={selectedGame.imageurl} alt="game-logo"/></td>
+                    <td>{selectedGame.title}</td>
+                    <td>{selectedGame.platform}</td>
+                    <td>{selectedGame.releasedate}</td>
+                    <td>{selectedGame.publisher}</td>
+                    <td>{selectedGame.developer}</td>
+                    <td>{selectedGame.rating}</td>
+                    <td>{selectedGame.numusersrated}</td>
+                </tr>
+            );
         }
         else{
             {showTableTopGameDetails()}
@@ -43,19 +80,37 @@ const GameDetails = () => {
     }
 
     const showTableTopGameDetails = () => {
-        <div>
-            <h1>
-                {selectedGame && selectedGame.title}
-            </h1>
-
-        </div>
+        return(
+            <tr key={selectedGame.gameid}>
+                <td><img src={selectedGame.imageurl} alt="game-logo"/></td>
+                <td>{selectedGame.title}</td>
+                <td>{selectedGame.minplayers}</td>
+                <td>{selectedGame.maxplayers}</td>
+                <td>{selectedGame.minage}</td>
+                <td>{selectedGame.releaseyear}</td>
+                <td>{selectedGame.rating}</td>
+                <td>{selectedGame.numusersrated}</td>
+            </tr>
+        );
     }
 
+    const cutoff = 27076;
   return (
-    <div>
-        <div className="container">
-            {selectedGame && selectedGame.title}
-        </div>
+    <div className="container">
+    <div className="game-gallery">
+      <div className="container">
+        <div className="list-group">
+          <table className="table table-hover table-dark">
+            <thead>
+                {videoGameColumns()}
+            </thead>
+            <tbody>
+                {showVideoGameDetails()}
+            </tbody>
+          </table> 
+        </div>    
+      </div>
+    </div>
     </div>
   );
 }
