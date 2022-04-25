@@ -18,7 +18,9 @@ app.use(
   })
 )
 */
-
+//body {gameid:int}
+//returns info where gameID = gameID
+app.post('/api/getGameInfoByID', db.getGameInfoByID)
 //gets all users
 //empty body
 //returns all users in Gamers relation
