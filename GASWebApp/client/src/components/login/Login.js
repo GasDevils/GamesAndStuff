@@ -5,7 +5,7 @@ import './login.css';
 import { UserContext } from '../../context/UserContext'
 import { useHistory } from 'react-router-dom';
 
-const history = useHistory();
+
 
 const Login = (props)=>{
     const{user,setUser} = useContext(UserContext);
@@ -63,6 +63,7 @@ handleChange = (e) => {
 
 handleSubmit = (e) => {
     e.preventDefault();
+    let history = useHistory();
     const{username, password} = this.state;
         GameFinder.post('/login', {username, password}).then(res => {
         if(response.data != ""){

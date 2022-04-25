@@ -55,6 +55,7 @@ handleChange = (e) => {
 
 handleSubmit = (e) => {
     e.preventDefault();
+    let history = useHistory();
     const{username, password} = this.state;
         GameFinder.get('/userSearchByUsername', username).then(res => {
             if(res.data.length > 0){
