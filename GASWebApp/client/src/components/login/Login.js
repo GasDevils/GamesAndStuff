@@ -9,7 +9,7 @@ const Login = (props)=>{
     const [username, setusername] = useState('');
     const [password, setpassword] = useState('');
     const [loginErrors, setloginErrors] = useState('');
-    const {gamer, setGamer} = useContext(UserContext);
+    const {setGamer} = useContext(UserContext);
     const history = useNavigate();
    
         
@@ -20,8 +20,7 @@ const Login = (props)=>{
                 "password": password
             }).then(res => {
             if(res.data !== ""){
-                console.log(res.data);
-                setGamer(res.data);
+                setGamer(res.data.rows[0]);
                 history('/gameGallery');
             }else{
                 setloginErrors("Invalid username or password")

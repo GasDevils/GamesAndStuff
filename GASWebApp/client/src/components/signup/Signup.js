@@ -10,7 +10,8 @@ const Signup = (props)=>{
     const [password, setpassword] = useState('');
     const [registerErrors, setregisterErrors] = useState('');
     let history = useNavigate();
-
+    const {setGamer} = useContext(UserContext);
+    
     const useHandleSubmit = (e) => {
         e.preventDefault();
             GameFinder.get('/userSearchByUsername',{
@@ -23,7 +24,7 @@ const Signup = (props)=>{
                         "username": username, 
                         "password": password
                     }).then(res => {
-                    //setUser(res.data)
+                    setGamer(res.data.rows[0]);
                     history('/gameGallery');//if successful login redirect to gameGallery
                 })
             }}).catch(err => {
