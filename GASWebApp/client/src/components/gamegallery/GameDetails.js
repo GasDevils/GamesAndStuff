@@ -103,6 +103,10 @@ const GameDetails = () => {
     const cutoff = 27076;
   return (
     <div className="container">
+        {selectedGames.gameid}
+    </div>
+    /*
+    <div className="container">
     <div className="game-gallery">
       <div className="container">
         <div className="list-group">
@@ -133,13 +137,13 @@ const GameDetails = () => {
                     <td>{selectedGame.numusersrated}</td>
                 </tr>
                 })}
-                */}
             </tbody>
           </table> 
         </div>    
       </div>
     </div>
     </div>
+    */
   );
 }
 
