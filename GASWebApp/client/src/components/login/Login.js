@@ -38,7 +38,7 @@ const Login = (props)=>{
     <h2>Welcome G.A.S. User!</h2>
     <h2>Sign in to your account.</h2>
         
-        <form method="POST" onSubmit={useHandleSubmit}>
+        <form onSubmit={useHandleSubmit}>
             <div className="user-box">
 <<<<<<< HEAD
                 <input type="text" name="username" id="username" required="" placeholder="Username" onChange={handleChange}>
