@@ -45,6 +45,7 @@ const GameDetails = () => {
             );
         } 
         if(selectedGames.gameid >= 27076){
+            return(
             <tr>
                 <th scope="col">Image</th>
                 <th scope="col">Name</th>
@@ -55,6 +56,7 @@ const GameDetails = () => {
                 <th scope="col">Rating</th>
                 <th scope="col">Users Rated</th>
               </tr>
+            );
         }
 
         
@@ -76,6 +78,7 @@ const GameDetails = () => {
             );
         }
         if(gameid >= 27076){
+            return(
             <tr key={selectedGames.gameid}>
                 <td><img src={selectedGames.imageurl} alt="game-logo"/></td>
                 <td>{selectedGames.title}</td>
@@ -86,6 +89,7 @@ const GameDetails = () => {
                 <td>{selectedGames.rating}</td>
                 <td>{selectedGames.numusersrated}</td>
             </tr>
+            );
         }
     }
 
