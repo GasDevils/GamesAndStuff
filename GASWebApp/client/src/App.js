@@ -11,9 +11,11 @@ import Notfound from './components/notfound/Notfound';
 import { GamesContextProvider } from './context/GamesContext';
 import Signup from './components/signup/Signup';
 import Footer from './components/footer/Footer';
+import { FriendsContextProvider } from './context/FriendsContext';
 
 const App = () => {
   return (  
+    <FriendsContextProvider>
     <GamesContextProvider>
       <Router>
       <Navbar />
@@ -30,7 +32,7 @@ const App = () => {
         </div>
       </Router>
     </GamesContextProvider>
-    
+    </FriendsContextProvider>
 );
 }
 
