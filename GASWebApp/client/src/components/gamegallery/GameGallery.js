@@ -19,7 +19,7 @@ const GameGallery = (props) => {
   .slice(pagesVisited, pagesVisited + gamesPerPage)
   .map(game => {
     return(
-      <tr onClick={() => handleGameSelect(game.id)} key={game.gameid}>
+      <tr onClick={() => handleGameSelect(game.gameid)} key={game.gameid}>
       <td><img src={game.imageurl} alt="game-logo"/></td>
       <td>{game.title}</td>
       <td>{game.rating}</td>
@@ -31,7 +31,7 @@ const GameGallery = (props) => {
   
   let navigate = useNavigate();
   const handleGameSelect = (gameid) => {
-    navigate(`../game/${gameid}`);
+    navigate(`..gameGallery/game/${gameid}`);
   }
 
   useEffect(() => {
