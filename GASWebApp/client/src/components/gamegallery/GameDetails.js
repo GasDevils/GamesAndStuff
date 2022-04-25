@@ -19,6 +19,7 @@ const GameDetails = () => {
                     response = await GameFinder.post('/getTableTopGameInfoByID', {gameid});
                     setSelectedGame(response.data);
                 }
+                response = await GameFinder.post('/getTableTopGameInfoByID', {gameid});
                 setSelectedGame(response.data);
             } catch (err){
                 console.log(err);
