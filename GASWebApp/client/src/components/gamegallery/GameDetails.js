@@ -28,7 +28,7 @@ const GameDetails = () => {
         fetchData();
     }, []);
 
-    const videoGameColumns = () => {
+    const gameColumns = () => {
         if(selectedGames.gameid < 27076){
             return(
                 <tr>
@@ -42,14 +42,8 @@ const GameDetails = () => {
                     <th scope="col">Users Rated</th>
                   </tr>
             );
-        } else{
-            {tableTopGameColumns()};
-        }
-
-        
-    }
-    const tableTopGameColumns = () => {
-        return(
+        } 
+        if(selectedGames.gameid >= 27076){
             <tr>
                 <th scope="col">Image</th>
                 <th scope="col">Name</th>
@@ -60,9 +54,12 @@ const GameDetails = () => {
                 <th scope="col">Rating</th>
                 <th scope="col">Users Rated</th>
               </tr>
-        );
-    };
-    const showVideoGameDetails = () => {
+        }
+
+        
+    }
+
+    const showGameDetails = () => {
         if(gameid < 27076){
             return(
                 <tr key={selectedGames.gameid}>
@@ -77,14 +74,7 @@ const GameDetails = () => {
                 </tr>
             );
         }
-        else{
-            {showTableTopGameDetails()}
-        }
-    }
-
-    const showTableTopGameDetails = () => {
-        return(
-            
+        if(gameid >= 27076){
             <tr key={selectedGames.gameid}>
                 <td><img src={selectedGames.imageurl} alt="game-logo"/></td>
                 <td>{selectedGames.title}</td>
@@ -95,8 +85,7 @@ const GameDetails = () => {
                 <td>{selectedGames.rating}</td>
                 <td>{selectedGames.numusersrated}</td>
             </tr>
-            
-        );
+        }
     }
 
   return (    
@@ -106,11 +95,11 @@ const GameDetails = () => {
         <div className="list-group">
           <table className="table table-hover table-dark">
             <thead>
-            {videoGameColumns()}
+            {gameColumns()}
 
             </thead>
             <tbody>
-                {showVideoGameDetails()}
+                {showGameDetails()}
 
             </tbody>
           </table> 
