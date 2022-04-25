@@ -1,4 +1,4 @@
-import React, {useContext, setState, useState} from 'react'
+import React, {useContext, useMemo, useState} from 'react'
 import {NavLink} from 'react-router-dom';
 import GameFinder from '../../apis/GameFinder'
 import './login.css';
