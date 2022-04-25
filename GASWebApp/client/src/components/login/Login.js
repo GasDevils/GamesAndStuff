@@ -20,7 +20,7 @@ const Login = (props)=>{
                 "password": password
             }).then(res => {
             if(res.data !== ""){
-                setGamer(res.data.rows[0]);
+                setGamer(res.data);
                 history('/gameGallery');
             }else{
                 setloginErrors("Invalid username or password")
