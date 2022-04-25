@@ -54,7 +54,7 @@ const GameDetails = () => {
   return (
     <div>
         <div className="container">
-            {selectedGame && selectedGame.title}
+            selectedGame.title;
         </div>
     </div>
   );
