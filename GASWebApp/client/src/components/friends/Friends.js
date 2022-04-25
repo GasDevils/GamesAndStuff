@@ -11,13 +11,11 @@ import { UserContext } from '../../context/UserContext';
    const {gamer} = useContext(UserContext);
    
   useEffect(() => {
-    console.log(gamer);
-    console.log(gamer[0]);
-    console.log(gamer[0].userid);
+    const userID = gamer.userid;
     const fetchData = async () => {
       try{
         const response = await GameFinder.get("/friends/", {
-          "id": gamer[0].userid//fill in with actual value from login
+          "id": userID//fill in with actual value from login
         });
         console.log(response);
       }catch(err){

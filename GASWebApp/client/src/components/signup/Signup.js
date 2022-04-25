@@ -24,7 +24,7 @@ const Signup = (props)=>{
                         "username": username, 
                         "password": password
                     }).then(res => {
-                    setGamer(res.data);
+                    setGamer(res.data[0]);
                     history('/gameGallery');//if successful login redirect to gameGallery
                 })
             }}).catch(err => {
