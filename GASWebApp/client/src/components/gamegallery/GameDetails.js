@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import GameFinder from "../../apis/GameFinder";
 import { GamesContext } from "../../context/GamesContext";
