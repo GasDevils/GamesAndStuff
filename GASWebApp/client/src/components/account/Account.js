@@ -6,12 +6,17 @@ import { UserContext } from '../../context/UserContext';
 
 const Account = () => {
     const {gamer} = useContext(UserContext);
-    const userID = gamer.userid;
+    
     var numFriends = 0;
     var numGames = 0;
     var numWishlist = 0;
-    getValues();
+    getValues().then(() => {
+        console.log(numFriends);
+        console.log(numGames);
+        console.log(numWishlist);
+    });
     
+
     return(
         <div>
             <div className="content-profile-page">
@@ -43,6 +48,7 @@ const Account = () => {
 
 
 async function getValues(){
+    const userID = gamer.userid;
     var numFriends = 0;
     await GameFinder.post('/getFriendCount',{
         "userid": userID
