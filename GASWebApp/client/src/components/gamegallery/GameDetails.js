@@ -102,10 +102,28 @@ const GameDetails = () => {
         <div className="list-group">
           <table className="table table-hover table-dark">
             <thead>
-                {videoGameColumns()}
+            <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Platform</th>
+                    <th scope="col">Release Date</th>
+                    <th scope="col">Publisher</th>
+                    <th scope="col">Developer</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Users Rated</th>
+                  </tr>
             </thead>
             <tbody>
-                {showVideoGameDetails()}
+            <tr key={selectedGame.gameid}>
+                    <td><img src={selectedGame.imageurl} alt="game-logo"/></td>
+                    <td>{selectedGame.title}</td>
+                    <td>{selectedGame.platform}</td>
+                    <td>{selectedGame.releasedate}</td>
+                    <td>{selectedGame.publisher}</td>
+                    <td>{selectedGame.developer}</td>
+                    <td>{selectedGame.rating}</td>
+                    <td>{selectedGame.numusersrated}</td>
+                </tr>
             </tbody>
           </table> 
         </div>    
