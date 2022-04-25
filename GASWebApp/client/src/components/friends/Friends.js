@@ -5,56 +5,25 @@ import './friends.css'
 import FriendFinder from '../../apis/FriendFinder'
 import { FriendsContext } from '../../context/FriendsContext'
 
-const Friends = (props) => {
-    const{friends, setFriends} = useContext(FriendContext)
-    const [pageNumber, setPageNumber] = useState(0);
-    
-    const friendsPerPage = 10;
-
-    const pagesVisited = pageNumber * friendsPerPage;
-
-    const displayFriends = friends
-    .slice(pagesVisited, pagesVisited + friendsPerPage)
-    
-    .map(friend => {
-    return(
-        <tr key={user.userid}>
-        </tr>
-    );
-});
-
-const pageCount = Math.ceil(friends.length / friendsPerPage);
-
-  useEffect(() => {
-    async function fetchData(){
-      try{
-        const response = await FriendFinder.post('/friends');
-        setFriends(response.data)
-        
-      } catch(err){}
-    }
-    fetchData();
-  }, []);
-
-  // Pagination
-
-  const handlePageClick = ({selected}) =>{
-    setPageNumber(selected);
-};
-
  //////////////////////////////////////////////////////////////////////////////
+ const Friends = () => {
  return(
-    <div className="friend-gallery">
+    <div className="friends">
     <div className="container">
       <div className="list-group">
         <table className="table table-hover table-dark">
           <thead>
             <tr>
               <th scope="col">Username</th>
+              <th scope="col">Become friends on</th>
             </tr>
           </thead>
           <tbody>
-              {displayFriends}
+              <tr>
+                <td>Test Friend</td>
+                <td>Test Friend 2</td>
+                <td>Test Friend 3</td>
+              </tr>
             {/* <tr>
               <td><img src="https://cf.geekdo-images.com/micro/img/uhYn0Xn8TZ1vzVfyi4VO1UfNTII=/fit-in/64x64/pic347837.jpg" alt="game-logo"/></td>
               <td>Risk (Revised Edition)</td>
@@ -62,24 +31,9 @@ const pageCount = Math.ceil(friends.length / friendsPerPage);
             </tr> */}
           </tbody>
         </table> 
-      </div>    
+      </div>  
     </div>
-      <ReactPaginate
-      previousLabel={'<'}
-      nextLabel={'>'}
-      breakLabel={'...'}
-      pageCount={pageCount}
-      marginPagesDisplayed={2}
-      pageRangeDisplayed={5}
-      onPageChange={handlePageClick}
-      containerClassName={'paginationBttns'}
-      previousLinkClassName={'previousBttn'}
-      nextLIinkClassName={'nextBttn'}
-      disabledClassName={'paginationDisabled'}
-      activeClassName={'paginationActive'}
-      /> 
-    </div>
-  );
+    </div>);  
 }
 
 
