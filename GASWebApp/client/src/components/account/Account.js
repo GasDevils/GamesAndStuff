@@ -5,7 +5,7 @@ import GameFinder from '../../apis/GameFinder'
 import { UserContext } from '../../context/UserContext';
 
 const Account = () => {
-
+    const {gamer} = useContext(UserContext);
     
     var numFriends = 0;
     var numGames = 0;
