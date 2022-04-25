@@ -30,8 +30,8 @@ const GameGallery = (props) => {
   const pageCount = Math.ceil(games.length / gamesPerPage);
   
   let navigate = useNavigate();
-  const handleGameSelect = (id) => {
-    navigate(`/gameGallery/game/${id}`);
+  const handleGameSelect = (gameid) => {
+    navigate(`/gameGallery/game/${gameid}`);
   }
 
   useEffect(() => {
