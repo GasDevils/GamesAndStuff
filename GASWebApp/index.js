@@ -62,7 +62,7 @@ app.put('/api/addFriend', db.addFriend)
 //gets all friends of user
 //body {id: int}
 //@returns array of users if successful
-app.get('/api/friends', db.getFriends)
+app.post('/api/friends', db.getFriends)
 
 //gets all games owned by a user
 app.get('/api/owns', db.getCollection)
