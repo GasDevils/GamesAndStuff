@@ -6,11 +6,33 @@ import { UserContext } from '../../context/UserContext';
 
 const Account = () => {
     const {gamer} = useContext(UserContext);
-    
-    var numFriends;
-    var numGames;
-    var numWishlist;
-    getValues();
+    const [numFriends, setNumFriends] = useState(0);
+    const [numGames, setNumGames] = useState(0);
+    const [numWishlist, setNumWishlist] = useState(0);
+    const userID = gamer.userid;
+
+    GameFinder.post('/getFriendCount',{
+        "userid": userID
+    }).then(res => {
+        setNumFriends(res.data[0].num)
+    }).catch(err => {
+        console.log(err);
+    });
+
+    GameFinder.post('/getCollectionCount',{
+        "userid": userID
+    }).then(res => {
+        setNumGames(res.data[0].num)
+    }).catch(err => {
+        console.log(err);
+    });
+    GameFinder.post('/getWishListCount',{
+        "userid": userID
+    }).then(res => {
+        setNumWishlist(res.data[0].num)
+    }, err => {
+        console.log(err);
+    });
 
 
     return(
@@ -44,34 +66,6 @@ const Account = () => {
 
 
 async function getValues(){
-    const {gamer} = useContext(UserContext);
-    const userID = gamer.userid;
-    var numFriends = 0;
-    await GameFinder.post('/getFriendCount',{
-        "userid": userID
-    }).then(res => {
-        console.log(res.data[0].num);
-        numFriends = res.data[0].num
-    }).catch(err => {
-        console.log(err);
-    });
-    var numGames = 0;
-    await GameFinder.post('/getCollectionCount',{
-        "userid": userID
-    }).then(res => {
-        console.log(res.data[0].num);
-        numGames = res.data[0].num
-    }).catch(err => {
-        console.log(err);
-    });
-    var numWishlist = 0;
-    await GameFinder.post('/getWishListCount',{
-        "userid": userID
-    }).then(res => {
-        console.log(res.data[0].num);
-        numWishlist = res.data[0].num
-    }, err => {
-        console.log(err);
-    });
+    
 }
 export default Account;
