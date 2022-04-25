@@ -2,11 +2,21 @@ import React, {useState, useContext, useEffect} from 'react'
 import ReactPaginate from 'react-paginate';
 import _ from 'lodash';
 import './friends.css'
-import FriendFinder from '../../apis/FriendFinder'
+import GameFinder from '../../apis/GameFinder'
 import { FriendsContext } from '../../context/FriendsContext'
 
  //////////////////////////////////////////////////////////////////////////////
  const Friends = () => {
+   
+  useEffect(() => {
+    try{
+      const response = await GameFinder.get("/getFriendUserInfo");
+      console.log(response);
+    }catch(err){
+
+    }
+  },[])
+
  return(
     <div className="friends">
     <div className="container">
