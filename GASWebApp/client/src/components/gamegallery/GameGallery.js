@@ -5,6 +5,7 @@ import './gamegallery.css'
 import Game from '../../components/game/Game'
 import GameFinder from '../../apis/GameFinder'
 import { GamesContext } from '../../context/GamesContext'
+import { useHistory } from 'react-router-dom';
 
 const GameGallery = (props) => {
   const{games, setGames} = useContext(GamesContext)
@@ -18,7 +19,7 @@ const GameGallery = (props) => {
   .slice(pagesVisited, pagesVisited + gamesPerPage)
   .map(game => {
     return(
-      <tr key={game.gameid}>
+      <tr onClick={() => handleGameSelect(game.id)} key={game.gameid}>
       <td><img src={game.imageurl} alt="game-logo"/></td>
       <td>{game.title}</td>
       <td>{game.rating}</td>
@@ -27,7 +28,11 @@ const GameGallery = (props) => {
   });
 
   const pageCount = Math.ceil(games.length / gamesPerPage);
-  //const gamesToShow = _.slice(games, pagesVisited, pagesVisited + gamesPerPage);
+  
+  let history = useHistory();
+  const handleGameSelect = (id) => {
+    history.push(`/games/${id}`);
+  }
   useEffect(() => {
     async function fetchData(){
       try{

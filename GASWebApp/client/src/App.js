@@ -37,6 +37,7 @@ const App = () => {
             <Route path="/Account" element={<Account />} />
             <Route path="/Signup" element={<Signup />} />
             <Route path="/notFound" element={<Notfound />} />
+            <Route path="/gameGallery/:id" element={<GameDetails />} />
             <Route path="*" element={<Notfound />} />
           </Routes>
         </div>
