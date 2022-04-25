@@ -4,7 +4,7 @@ export const GamesContext = createContext();
 
 export const GamesContextProvider = (props) => {
     const[games, setGames] = useState([]);
-    const [selectedGame, setSelectedGame] = useState(null);
+    const [selectedGames, setSelectedGames] = useState(null);
 
     return(
         <GamesContext.Provider value={{
