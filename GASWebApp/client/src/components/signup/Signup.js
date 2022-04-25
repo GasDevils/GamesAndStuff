@@ -48,12 +48,12 @@ const state={
     loginErrors:""
 }
 
-handleChange = (e) => {
+const handleChange = (e) => {
     const{name, value} = e.target;
     this.setState({[name]:value});
 }
 
-handleSubmit = (e) => {
+const handleSubmit = (e) => {
     e.preventDefault();
     let history = useHistory();
     const{username, password} = this.state;
