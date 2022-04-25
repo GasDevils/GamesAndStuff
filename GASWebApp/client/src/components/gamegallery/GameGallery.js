@@ -5,7 +5,7 @@ import './gamegallery.css'
 import Game from '../../components/game/Game'
 import GameFinder from '../../apis/GameFinder'
 import { GamesContext } from '../../context/GamesContext'
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const GameGallery = (props) => {
   const{games, setGames} = useContext(GamesContext)
@@ -29,10 +29,11 @@ const GameGallery = (props) => {
 
   const pageCount = Math.ceil(games.length / gamesPerPage);
   
-  let history = useHistory();
+  let navigate = useNavigate();
   const handleGameSelect = (id) => {
-    history.push(`/games/${id}`);
+    navigate(`/gameGallery/game/${id}`);
   }
+
   useEffect(() => {
     async function fetchData(){
       try{
