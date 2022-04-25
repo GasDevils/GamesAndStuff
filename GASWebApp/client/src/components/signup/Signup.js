@@ -53,7 +53,7 @@ const Signup = (props)=>{
                     <span></span>
                     <span></span>
                     <span></span>
-                    <button onSubmit = {usehandleSubmit}>Signup</button>
+                    <button onSubmit = {useHandleSubmit}>Signup</button>
                     </center>
                 </a>
             </center>

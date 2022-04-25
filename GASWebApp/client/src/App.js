@@ -1,4 +1,4 @@
-import React ,{useState}from 'react';
+import React ,{useState,useMemo}from 'react';
 import './App.css';
 import Navbar from './components/navbar/Navbar';
 import Login from './components/login/Login';
@@ -14,15 +14,17 @@ import Footer from './components/footer/Footer';
 import { FriendsContextProvider } from './context/FriendsContext';
 import { UserContext } from './context/UserContext';
 
-const[gamer,setGamer] = useState({});
-const loggedInUser = useMemo(
-  () => ({gamer,setGamer}),
-  [gamer]
-);
 
 const App = () => {
+  const[gamer,setGamer] = useState({});
+  const loggedInUser = useMemo(
+      () => ({gamer,setGamer}),
+      [gamer]
+  );
   return (  
-    <UserContext.Provider loggedInUser={loggedInUser}>
+    
+
+    <UserContext.Provider value={loggedInUser}>
     <FriendsContextProvider>
     <GamesContextProvider>
       <Router>
