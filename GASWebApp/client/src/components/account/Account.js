@@ -7,34 +7,11 @@ import { UserContext } from '../../context/UserContext';
 const Account = () => {
     const {gamer} = useContext(UserContext);
     const userID = gamer.userid;
-    let numFriends = 0;
-    GameFinder.post('/getFriendCount',{
-        "userid": userID
-    }).then(res => {
-        console.log(res.data[0].num);
-        numFriends = res.data[0].num
-    }).catch(err => {
-        console.log(err);
-    });
-    let numGames = 0;
-    GameFinder.post('/getCollectionCount',{
-        "userid": userID
-    }).then(res => {
-        console.log(res.data[0].num);
-        numGames = res.data[0].num
-    }).catch(err => {
-        console.log(err);
-    });
-    let numWishlist = 0;
-    GameFinder.post('/getWishListCount',{
-        "userid": userID
-    }).then(res => {
-        console.log(res.data[0].num);
-        numWishlist = res.data[0].num
-    }).catch(err => {
-        console.log(err);
-    });
-    console.log(numGames, numWishlist, numFriends);
+    var numFriends = 0;
+    var numGames = 0;
+    var numWishlist = 0;
+    getValues();
+    
     return(
         <div>
             <div className="content-profile-page">
@@ -61,7 +38,37 @@ const Account = () => {
                 </div>
             </div>
         </div>
-    );
+    )
 }
 
+
+async function getValues(){
+    var numFriends = 0;
+    await GameFinder.post('/getFriendCount',{
+        "userid": userID
+    }).then(res => {
+        console.log(res.data[0].num);
+        numFriends = res.data[0].num
+    }).catch(err => {
+        console.log(err);
+    });
+    var numGames = 0;
+    await GameFinder.post('/getCollectionCount',{
+        "userid": userID
+    }).then(res => {
+        console.log(res.data[0].num);
+        numGames = res.data[0].num
+    }).catch(err => {
+        console.log(err);
+    });
+    var numWishlist = 0;
+    await GameFinder.post('/getWishListCount',{
+        "userid": userID
+    }).then(res => {
+        console.log(res.data[0].num);
+        numWishlist = res.data[0].num
+    }, err => {
+        console.log(err);
+    });
+}
 export default Account;
