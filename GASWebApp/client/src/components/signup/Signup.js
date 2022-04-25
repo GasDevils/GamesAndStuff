@@ -3,10 +3,10 @@ import {NavLink} from 'react-router-dom';
 import { UserContext } from '../../context/UserContext'
 import GameFinder from '../../apis/GameFinder'
 import './signup.css';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = (props)=>{
-    const{user,setUser} = useContext(UserContext);
+    const{user,setUser} = {};
     return(
     <div className="signup-box">
     <h2>Welcome NEW G.A.S. User!</h2>
@@ -55,7 +55,7 @@ const handleChange = (e) => {
 
 const handleSubmit = (e) => {
     e.preventDefault();
-    let history = useHistory();
+    let history = useNavigate();
     const{username, password} = this.state;
         GameFinder.get('/userSearchByUsername', username).then(res => {
             if(res.data.length > 0){
@@ -63,7 +63,7 @@ const handleSubmit = (e) => {
             }else{
                 GameFinder.put('/createUser', {username, password}).then(res => {
                 setUser(res.data)
-                history.push('/gameGallery');//if successful login redirect to gameGallery
+                history('/gameGallery');//if successful login redirect to gameGallery
             })
         }}).catch(err => {
             console.log(err)
