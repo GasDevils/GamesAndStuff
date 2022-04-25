@@ -33,6 +33,15 @@ body {
   position: center;
 }
 
+button {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+}
+
 .login-box .user-box input {
   width: 100%;
   padding: 10px 0;

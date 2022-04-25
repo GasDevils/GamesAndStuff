@@ -31,10 +31,9 @@ const Signup = (props)=>{
             });
     }
     return(
-    <div className="signup-box">
+    <div className="login-box">
     <h2>Welcome NEW G.A.S. User!</h2>
     <h2>Choose a username and password for your account.</h2>
-        
         <form onSubmit={useHandleSubmit}>
             <div className="user-box">
                 <input type="text" name="username" required="" placeholder="Username" onChange= {e => setusername(e.target.value)}>
