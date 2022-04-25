@@ -64,19 +64,16 @@ handleChange = (e) => {
 handleSubmit = (e) => {
     e.preventDefault();
     const{username, password} = this.state;
-    try{
-        const response = await GameFinder.post('/login', {username, password});
+        GameFinder.post('/login', {username, password}).then(res => {
         if(response.data != ""){
             setUser(response.data);
             history.push('/');
         }else{
             this.setState({loginErrors:"Invalid username or password"});
         }
-      } catch(err){
-
-      }
-
-   
+      }).catch(err => {
+            console.log(err);
+      });
 }
 
 export default Login;
