@@ -49,7 +49,7 @@ const Login = (props)=>{
                 </input>
             </div>
 
-            
+            <div className="user-box">
             <center>
                 <a href="#">
                     <center>
@@ -62,6 +62,7 @@ const Login = (props)=>{
                 </a>
 
             </center>
+            </div>
             
             <center>
             <p style={{color:"white"}}>Don't have an account?</p>
