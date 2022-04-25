@@ -1,13 +1,9 @@
 import React, { useState, createContext } from "react";
 
-export const UserContext = createContext();
+ const UserContext = createContext({
+    user:{},
+    setUser: () => {},
+    });
 
-export const UserContextProvider = (props) => {
-    const[gamer, setGamer] = useState([]);
+export{UserContext};
 
-    return(
-        <UserContext.Provider value={{gamer, setGamer}}>
-            {props.children}
-        </UserContext.Provider>
-    );
-};

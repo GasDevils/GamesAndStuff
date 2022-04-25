@@ -6,21 +6,42 @@ import './signup.css';
 import { useNavigate } from 'react-router-dom';
 
 const Signup = (props)=>{
-    const{user,setUser} = {};
+    const [username, setusername] = useState('');
+    const [password, setpassword] = useState('');
+    const [registerErrors, setregisterErrors] = useState('');
+    let history = useNavigate();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+            GameFinder.get('/userSearchByUsername',{
+                "username": username
+            }).then(res => {
+                if(res.data.length > 0){
+                    setregisterErrors("Username already exists");
+                }else{
+                    GameFinder.put('/createUser', {
+                        "username": username, 
+                        "password": password
+                    }).then(res => {
+                    //setUser(res.data)
+                    history('/gameGallery');//if successful login redirect to gameGallery
+                })
+            }}).catch(err => {
+                console.log(err)
+            });
+    }
     return(
     <div className="signup-box">
     <h2>Welcome NEW G.A.S. User!</h2>
     <h2>Choose a username and password for your account.</h2>
         
-        <form method="POST">
+        <form onSubmit={useHandleSubmit}>
             <div className="user-box">
-                <input type="text" name="username" required="" placeholder="Username" onChange = {this.handleChange}>
+                <input type="text" name="username" required="" placeholder="Username" onChange= {e => setusername(e.target.value)}>
                 </input>
-
             </div>
-
             <div className="user-box">
-                <input type="password" name="password" required="" placeholder="Password" onChange = {this.handleChange}>
+                <input type="password" name="password" id="password" required="" placeholder="Password" onChange={e => setpassword(e.target.value)}>
                 </input>
             </div>
 
@@ -32,7 +53,7 @@ const Signup = (props)=>{
                     <span></span>
                     <span></span>
                     <span></span>
-                    <button onSubmit = {this.handleSubmit}>Signup</button>
+                    <button onSubmit = {usehandleSubmit}>Signup</button>
                     </center>
                 </a>
             </center>
@@ -42,32 +63,6 @@ const Signup = (props)=>{
     </div>)
 }
 
-const state={
-    username:"",
-    password:"",
-    loginErrors:""
-}
 
-const handleChange = (e) => {
-    const{name, value} = e.target;
-    this.setState({[name]:value});
-}
-
-const handleSubmit = (e) => {
-    e.preventDefault();
-    let history = useNavigate();
-    const{username, password} = this.state;
-        GameFinder.get('/userSearchByUsername', username).then(res => {
-            if(res.data.length > 0){
-                this.setState({loginErrors:"Username already exists"});
-            }else{
-                GameFinder.put('/createUser', {username, password}).then(res => {
-                setUser(res.data)
-                history('/gameGallery');//if successful login redirect to gameGallery
-            })
-        }}).catch(err => {
-            console.log(err)
-        });
-}
 
 export default Signup;

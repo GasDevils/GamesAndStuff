@@ -9,10 +9,13 @@ const Login = (props)=>{
     const [username, setusername] = useState('');
     const [password, setpassword] = useState('');
     const [loginErrors, setloginErrors] = useState('');
-    //const {gamer, setGamer} = useContext(UserContext);
+    const {gamer, setGamer} = useContext(UserContext);
     const history = useNavigate();
+    const loggedInUser = useMemo(
+        () => ({gamer,setGamer}),
+        [user]
+    );
         
-
     const useHandleSubmit = (e) => {
         e.preventDefault();
             GameFinder.post('/login', {
@@ -20,10 +23,10 @@ const Login = (props)=>{
                 "password": password
             }).then(res => {
             if(res.data !== ""){
-                //setGamer(res.data);
+                setGamer(res.data);
                 history('/gameGallery');
             }else{
-                setState({loginErrors:"Invalid username or password"});
+                setloginErrors("Invalid username or password")
             }
         }).catch(err => {
                 console.log(err);
