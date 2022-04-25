@@ -6,8 +6,8 @@ export const UserContextProvider = (props) => {
     const[user, setUser] = useState([]);
 
     return(
-        <GamesContext.Provider value={{games, setGames}}>
+        <UserContext.Provider value={{user, setUser}}>
             {props.children}
-        </GamesContext.Provider>
+        </UserContext.Provider>
     );
 };
