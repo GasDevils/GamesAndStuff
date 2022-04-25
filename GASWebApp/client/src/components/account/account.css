@@ -34,6 +34,7 @@
   .profile-user-page .img-user-profile {
       margin: 0 auto;
     text-align: center; 
+    position: center;
   }
   .profile-user-page .img-user-profile .profile-bgHome {
       border-bottom: .2em solid #03e9f4;
