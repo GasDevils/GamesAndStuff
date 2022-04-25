@@ -94,7 +94,6 @@ const GameDetails = () => {
     }
 
   return (    
-    <div className="container">
     <div className="game-gallery">
       <div className="container">
         <div className="list-group">
@@ -110,9 +109,7 @@ const GameDetails = () => {
           </table> 
         </div>    
       </div>
-    </div>
-    </div>
-    
+    </div>    
   );
 }
 
