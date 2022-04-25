@@ -12,8 +12,8 @@ const GameDetails = () => {
         const fetchData = async() =>{
             try{
                     const response = await GameFinder.post('/getVideoGameInfoByID', {gameid});
-                    console.log(response.data[0]);
-                    //setSelectedGames(response.data);
+                    //console.log(response.data[0]);
+                    setSelectedGames(response.data[0]);
             } catch (err){
                 console.log(err);
             }
@@ -92,11 +92,7 @@ const GameDetails = () => {
         );
     }
 
-  return (
-    <div className="container">
-        console.log({selectedGames});
-    </div>
-    /*
+  return (    
     <div className="container">
     <div className="game-gallery">
       <div className="container">
@@ -115,7 +111,7 @@ const GameDetails = () => {
                   </tr>
             </thead>
             <tbody>
-                {/*
+                
                 {selectedGames.map(selectedGame => {
                     <tr key={selectedGame.gameid}>
                     <td><img src={selectedGame.imageurl} alt="game-logo"/></td>
@@ -134,7 +130,7 @@ const GameDetails = () => {
       </div>
     </div>
     </div>
-    */
+    
   );
 }
 
