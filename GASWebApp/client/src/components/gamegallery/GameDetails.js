@@ -21,7 +21,6 @@ const GameDetails = () => {
                     console.log(response.data);
                     setSelectedGames(response.data);
                 }
-                console.log(selectedGames.data);
             } catch (err){
                 console.log(err);
             }
@@ -102,7 +101,7 @@ const GameDetails = () => {
 
   return (
     <div className="container">
-        
+        console.log({selectedGames});
     </div>
     /*
     <div className="container">
