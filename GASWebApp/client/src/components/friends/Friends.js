@@ -12,6 +12,8 @@ import { UserContext } from '../../context/UserContext';
    
   useEffect(() => {
     console.log(gamer);
+    console.log(gamer[0]);
+    console.log(gamer[0].userid);
     const fetchData = async () => {
       try{
         const response = await GameFinder.get("/friends/", {
