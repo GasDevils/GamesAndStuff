@@ -31,17 +31,8 @@ const GameDetails = () => {
         if(gameid < 27076){
             <div>
                 <h1>
-                    {selectedGame.title}
-                    <img src={selectedGame && selectedGame.imageurl} alt="game-logo"/>
+                    {selectedGame && selectedGame.title}
                 </h1>
-                <h2>
-                    <li>Platform: {selectedGame && selectedGame.platform}</li>
-                    <li>Developer: {selectedGame && selectedGame.developer}</li>
-                    <li>Publisher: {selectedGame && selectedGame.publisher}</li>
-                    <li>Release Date: {selectedGame && selectedGame.releasedate}</li>
-                    <li>Received Ratings: {selectedGame && selectedGame.numusersrated}</li>
-                    <li>Rating: {selectedGame && selectedGame.rating}</li>
-                </h2>
             </div>
             
             
@@ -55,16 +46,8 @@ const GameDetails = () => {
         <div>
             <h1>
                 {selectedGame && selectedGame.title}
-                <img src={selectedGame && selectedGame.imageurl} alt="game-logo"/>
             </h1>
-            <h2>
-                <li>Max Players: {selectedGame && selectedGame.maxplayers}</li>
-                <li>Min Players: {selectedGame && selectedGame.minplayers}</li>
-                <li>Min Age: {selectedGame && selectedGame.minage}</li>
-                <li>Release Year: {selectedGame && selectedGame.releaseyear}</li>
-                <li>Received Ratings: {selectedGame && selectedGame.numusersrated}</li>
-                <li>Rating: {selectedGame && selectedGame.rating}</li>
-            </h2>
+
         </div>
     }
 
