@@ -50,7 +50,8 @@ const Login = (props)=>{
 
     </div>)
 }
-state={
+
+const state={
     username:"",
     password:"",
     loginErrors:""

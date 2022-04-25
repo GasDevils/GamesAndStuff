@@ -42,7 +42,7 @@ const Signup = (props)=>{
     </div>)
 }
 
-state={
+const state={
     username:"",
     password:"",
     loginErrors:""
