@@ -9,18 +9,14 @@ const Login = (props)=>{
     const [username, setusername] = useState('');
     const [password, setpassword] = useState('');
     const [loginErrors, setloginErrors] = useState('');
-    const {gamer, setGamer} = useContext(UserContext);
+    //const {gamer, setGamer} = useContext(UserContext);
 
-    const handleChange = (e) => {
-        // const{name, value} = e.target;
-        // console.log(name, value);
-        // this.setState({[name]:value});
-    }
 
     const useHandleSubmit = (e) => {
-        const{gamer,setGamer} = useState(null);
-        const history = useNavigate();
         e.preventDefault();
+        //const{gamer,setGamer} = useState(null);
+        const history = useNavigate();
+        
         console.log(username, password);
             GameFinder.post('/login', {
                 "username": username, 
@@ -46,9 +42,7 @@ const Login = (props)=>{
             <div className="user-box">
                 <input type="text" name="username" id="username" required="" placeholder="Username" onChange={e => setusername(e.target.value)}>
                 </input>
-
             </div>
-
             <div className="user-box">
                 <input type="password" name="password" id="password" required="" placeholder="Password" onChange={e => setpassword(e.target.value)}>
                 </input>
