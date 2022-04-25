@@ -14,8 +14,10 @@ const GameDetails = () => {
                 let response;
                 if(gameid < 27076){
                     response = await GameFinder.post('/getVideoGameInfoByID', {gameid});
+                    setSelectedGame(response.data);
                 }else{
                     response = await GameFinder.post('/getTableTopGameInfoByID', {gameid});
+                    setSelectedGame(response.data);
                 }
                 setSelectedGame(response.data);
             } catch (err){
