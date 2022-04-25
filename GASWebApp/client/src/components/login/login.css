@@ -55,6 +55,15 @@ html {
     transition: .5s;
   }
   
+  .login-box .user-box button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+
   /* this part makes the text go up*/
   .login-box .user-box input:focus ~ label,
   .login-box .user-box input:valid ~ label {
