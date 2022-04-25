@@ -10,11 +10,7 @@ const Account = () => {
     var numFriends = 0;
     var numGames = 0;
     var numWishlist = 0;
-    getValues().then(() => {
-        console.log(numFriends);
-        console.log(numGames);
-        console.log(numWishlist);
-    });
+    await getValues();
 
 
     return(
