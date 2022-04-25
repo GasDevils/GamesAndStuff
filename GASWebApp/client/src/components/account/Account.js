@@ -31,7 +31,7 @@ const Account = () => {
     }).catch(err => {
         console.log(err);
     });
-
+    console.log(numGames, numWishlist, numFriends);
     return(
         
         <div>
