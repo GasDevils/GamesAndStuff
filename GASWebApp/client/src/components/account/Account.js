@@ -7,7 +7,7 @@ import { UserContext } from '../../context/UserContext';
 const Account = () => {
     const {gamer} = useContext(UserContext);
     const userID = gamer.userid;
-    let numFriends;
+    let numFriends = 0;
     GameFinder.post('/getFriendCount',{
         "userid": userID
     }).then(res => {
@@ -15,7 +15,7 @@ const Account = () => {
     }).catch(err => {
         console.log(err);
     });
-    let numGames;
+    let numGames = 0;
     GameFinder.post('/getCollectionCount',{
         "userid": userID
     }).then(res => {
@@ -23,7 +23,7 @@ const Account = () => {
     }).catch(err => {
         console.log(err);
     });
-    let numWishlist;
+    let numWishlist = 0;
     GameFinder.post('/getWishListCount',{
         "userid": userID
     }).then(res => {
