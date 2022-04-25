@@ -1,28 +1,27 @@
-import React, {useState, useContext, useEffect} from 'react'
+import React, {useContext, setState, useState} from 'react'
 import {NavLink} from 'react-router-dom';
 import GameFinder from '../../apis/GameFinder'
 import './login.css';
 import { UserContext } from '../../context/UserContext'
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const Login = (props)=>{
-    const{user,setUser} = useContext(UserContext);
     return(
     <div className="login-box">
     <h2>Welcome G.A.S. User!</h2>
     <h2>Sign in to your account.</h2>
         
-        <form method="POST" onSubmit = {this.handleSubmit}>
+        <form method="POST" onSubmit={useHandleSubmit}>
             <div className="user-box">
-                <input type="text" id="username" required="" placeholder="Username" onChange = {this.handleChange}>
+                <input type="text" id="username" required="" placeholder="Username" onChange={handleChange}>
                 </input>
 
             </div>
 
             <div className="user-box">
-                <input type="password" id="password" required="" placeholder="Password" onChange = {this.handleChange}>
+                <input type="password" id="password" required="" placeholder="Password" onChange={handleChange}>
                 </input>
             </div>
 
@@ -34,7 +33,7 @@ const Login = (props)=>{
                     <span></span>
                     <span></span>
                     <span></span>
-                    <button onSubmit = {this.handleSubmit}>Login</button>
+                    <button onSubmit = {useHandleSubmit}>Login</button>
                     </center>
                 </a>
 
@@ -59,23 +58,28 @@ const state={
 
 const handleChange = (e) => {
     const{name, value} = e.target;
-    this.setState({[name]:value});
+    setState({[name]:value});
 }
 
-const handleSubmit = (e) => {
+const useHandleSubmit = (e) => {
+    const{gamer,setGamer} = useState(null);
+    const history = useNavigate();
     e.preventDefault();
-    let history = useHistory();
-    const{username, password} = this.state;
+    const{username, password, loginErrors} = state;
         GameFinder.post('/login', {username, password}).then(res => {
-        if(response.data != ""){
-            setUser(response.data);
-            history.push('/');
+        if(res.data !== ""){
+            setGamer(res.data);
+            history('/gameGallery');
         }else{
-            this.setState({loginErrors:"Invalid username or password"});
+            setState({loginErrors:"Invalid username or password"});
         }
       }).catch(err => {
             console.log(err);
       });
+}
+
+function useNavigateToGoToGameGallery(){
+    
 }
 
 export default Login;
