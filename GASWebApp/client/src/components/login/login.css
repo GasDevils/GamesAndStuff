@@ -8,9 +8,6 @@ html {
     background: linear-gradient(#1f1e23, #8a40ff);
   }
   
-  button {
-    background-color: rgba(255,255,255,0);
-  }
   
   .login-box {
     position: absolute;
@@ -58,6 +55,15 @@ html {
     transition: .5s;
   }
   
+  .login-box .user-box button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+
   /* this part makes the text go up*/
   .login-box .user-box input:focus ~ label,
   .login-box .user-box input:valid ~ label {
