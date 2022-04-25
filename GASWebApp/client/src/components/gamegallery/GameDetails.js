@@ -11,12 +11,7 @@ const GameDetails = () => {
     useEffect(() => {
         const fetchData = async() =>{
             try{
-                if(gameid < 27076){
-                    const response = await GameFinder.post('/getVideoGameInfoByID', {gameid});
-                }
-                else{
-                    const response = await GameFinder.post('/getTableTopGameInfoByID', {gameid});
-                }
+                const response = await GameFinder.post('/getVideoGameInfoByID', {gameid});
                 console.log(response);
                 setSelectedGame(response.data);
             } catch (err){
