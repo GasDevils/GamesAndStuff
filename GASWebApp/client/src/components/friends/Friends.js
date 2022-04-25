@@ -11,7 +11,7 @@ import { FriendsContext } from '../../context/FriendsContext'
   useEffect(() => {
     const fetchData = async () => {
       try{
-        const response = await GameFinder.get("/friends");
+        const response = await GameFinder.get("/friends/");
         console.log(response);
       }catch(err){
   
