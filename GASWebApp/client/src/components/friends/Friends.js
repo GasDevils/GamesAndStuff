@@ -14,7 +14,7 @@ import { UserContext } from '../../context/UserContext';
     const userID = gamer.userid;
     const fetchData = async () => {
       try{
-        const response = await GameFinder.get("/friends/", {
+        const response = await GameFinder.get("/friends", {
           "id": userID//fill in with actual value from login
         });
         console.log(response);

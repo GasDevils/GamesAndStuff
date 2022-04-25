@@ -51,7 +51,7 @@ app.delete('/api/deleteUser', db.deleteUser)
 //body {id: int}
 //@returns username, userid, dateCreated of user with id if successful
 //@returns error otherwise
-app.get('/api/user/', db.getUserById)
+app.get('/api/user', db.getUserById)
 
 //adds friend to user
 //body {id1: int, id2: int}
@@ -62,16 +62,16 @@ app.put('/api/addFriend', db.addFriend)
 //gets all friends of user
 //body {id: int}
 //@returns array of users if successful
-app.get('/api/friends/', db.getFriends)
+app.get('/api/friends', db.getFriends)
 
 //gets all games owned by a user
-app.get('/api/owns/', db.getCollection)
+app.get('/api/owns', db.getCollection)
 
 //gets all games on wishlist of a user
 //body {id: int}
 //@returns array of games if successful
 //@returns error otherwise
-app.get('/api/wishlist/', db.getWishlist)
+app.get('/api/wishlist', db.getWishlist)
 
 //removes friend (id2) from user (id1) 
 //body {id1: int, id2: int}
