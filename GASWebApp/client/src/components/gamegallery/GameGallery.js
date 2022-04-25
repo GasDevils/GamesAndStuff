@@ -31,7 +31,7 @@ const GameGallery = (props) => {
   
   let navigate = useNavigate();
   const handleGameSelect = (gameid) => {
-    navigate(`/game/${gameid}`);
+    navigate(`../game/${gameid}`);
   }
 
   useEffect(() => {
