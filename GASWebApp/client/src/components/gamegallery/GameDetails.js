@@ -14,12 +14,14 @@ const GameDetails = () => {
                 if(gameid < 27076){
                     console.log('gameid < 27076');
                     const response = await GameFinder.post('/getVideoGameInfoByID', {gameid});
+                    console.log(response.data);
                     setSelectedGames(response.data);
                 }else{
                     const response = await GameFinder.post('/getTableTopGameInfoByID', {gameid});
+                    console.log(response.data);
                     setSelectedGames(response.data);
                 }
-                console.log(response.data);
+                
             } catch (err){
                 console.log(err);
             }
