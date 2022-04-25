@@ -11,6 +11,7 @@ const Account = () => {
     GameFinder.post('/getFriendCount',{
         "userid": userID
     }).then(res => {
+        console.log(res.data[0]);
         numFriends = res.data[0].count
     }).catch(err => {
         console.log(err);
@@ -19,6 +20,7 @@ const Account = () => {
     GameFinder.post('/getCollectionCount',{
         "userid": userID
     }).then(res => {
+        console.log(res.data[0]);
         numGames = res.data[0].count
     }).catch(err => {
         console.log(err);
@@ -27,6 +29,7 @@ const Account = () => {
     GameFinder.post('/getWishListCount',{
         "userid": userID
     }).then(res => {
+        console.log(res.data[0]);
         numWishlist = res.data[0].count
     }).catch(err => {
         console.log(err);
