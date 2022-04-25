@@ -97,10 +97,9 @@ const GameDetails = () => {
         );
     }
 
-    const cutoff = 27076;
   return (
     <div className="container">
-        {selectedGames.gameid}
+        {selectedGames.title}
     </div>
     /*
     <div className="container">
