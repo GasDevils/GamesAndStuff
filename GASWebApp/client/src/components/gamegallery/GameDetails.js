@@ -11,11 +11,16 @@ const GameDetails = () => {
     useEffect(() => {
         async function fetchData(){
             try{
-                const response = await GameFinder.post('/getTableTopGameInfoByID', {gameid});
-                if(gameid < 27076)
-                    response = await GameFinder.post('/getVideoGameInfoByID', {gameid});
+                
+                if(gameid < 27076){
+                    const response = await GameFinder.post('/getVideoGameInfoByID', {gameid});
                     //console.log(response.data[0]);
                     setSelectedGames(response.data[0]);
+                }else{
+                    const response = await GameFinder.post('/getTableTopGameInfoByID', {gameid});
+                    setSelectedGames(response.data[0]);
+                }
+                
             } catch (err){
                 console.log(err);
             }
@@ -101,28 +106,12 @@ const GameDetails = () => {
         <div className="list-group">
           <table className="table table-hover table-dark">
             <thead>
-            <tr>
-                    <th scope="col">Image</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Platform</th>
-                    <th scope="col">Release Date</th>
-                    <th scope="col">Publisher</th>
-                    <th scope="col">Developer</th>
-                    <th scope="col">Rating</th>
-                    <th scope="col">Users Rated</th>
-                  </tr>
+            {videoGameColumns()}
+
             </thead>
             <tbody>
-                    <tr key={selectedGames.gameid}>
-                    <td><img src={selectedGames.imageurl} alt="game-logo"/></td>
-                    <td>{selectedGames.title}</td>
-                    <td>{selectedGames.platform}</td>
-                    <td>{selectedGames.releasedate}</td>
-                    <td>{selectedGames.publisher}</td>
-                    <td>{selectedGames.developer}</td>
-                    <td>{selectedGames.rating}</td>
-                    <td>{selectedGames.numusersrated}</td>
-                </tr>
+                {showVideoGameDetails()}
+
             </tbody>
           </table> 
         </div>    
