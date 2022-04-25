@@ -111,15 +111,15 @@ const GameDetails = () => {
                   </tr>
             </thead>
             <tbody>
-                    <tr key={selectedGame.gameid}>
-                    <td><img src={selectedGame.imageurl} alt="game-logo"/></td>
-                    <td>{selectedGame.title}</td>
-                    <td>{selectedGame.platform}</td>
-                    <td>{selectedGame.releasedate}</td>
-                    <td>{selectedGame.publisher}</td>
-                    <td>{selectedGame.developer}</td>
-                    <td>{selectedGame.rating}</td>
-                    <td>{selectedGame.numusersrated}</td>
+                    <tr key={selectedGames.gameid}>
+                    <td><img src={selectedGames.imageurl} alt="game-logo"/></td>
+                    <td>{selectedGames.title}</td>
+                    <td>{selectedGames.platform}</td>
+                    <td>{selectedGames.releasedate}</td>
+                    <td>{selectedGames.publisher}</td>
+                    <td>{selectedGames.developer}</td>
+                    <td>{selectedGames.rating}</td>
+                    <td>{selectedGames.numusersrated}</td>
                 </tr>
             </tbody>
           </table> 
