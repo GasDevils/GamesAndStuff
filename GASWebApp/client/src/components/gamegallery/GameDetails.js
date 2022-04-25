@@ -21,7 +21,7 @@ const GameDetails = () => {
                     console.log(response.data);
                     setSelectedGames(response.data);
                 }
-                
+                console.log(selectedGames.data);
             } catch (err){
                 console.log(err);
             }
