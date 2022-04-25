@@ -2,7 +2,6 @@ import React, {useState, useContext, useEffect} from 'react'
 import ReactPaginate from 'react-paginate';
 import _ from 'lodash';
 import './gamegallery.css'
-import Game from '../../components/game/Game'
 import GameFinder from '../../apis/GameFinder'
 import { GamesContext } from '../../context/GamesContext'
 import { useNavigate } from 'react-router-dom';
