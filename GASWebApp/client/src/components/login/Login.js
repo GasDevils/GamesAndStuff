@@ -13,7 +13,7 @@ const Login = (props)=>{
     const history = useNavigate();
     const loggedInUser = useMemo(
         () => ({gamer,setGamer}),
-        [user]
+        [gamer]
     );
         
     const useHandleSubmit = (e) => {
