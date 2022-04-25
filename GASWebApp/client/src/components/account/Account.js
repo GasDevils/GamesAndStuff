@@ -8,7 +8,7 @@ const Account = () => {
     const {gamer} = useContext(UserContext);
     const userID = gamer.userid;
     let numFriends;
-    GameFinder.get('/getFriendCount',{
+    GameFinder.post('/getFriendCount',{
         "userid": userID
     }).then(res => {
         numFriends = res.data[0].count
@@ -16,7 +16,7 @@ const Account = () => {
         console.log(err);
     });
     let numGames;
-    GameFinder.get('/getCollectionCount',{
+    GameFinder.post('/getCollectionCount',{
         "userid": userID
     }).then(res => {
         numGames = res.data[0].count
@@ -24,7 +24,7 @@ const Account = () => {
         console.log(err);
     });
     let numWishlist;
-    GameFinder.get('/getWishListCount',{
+    GameFinder.post('/getWishListCount',{
         "userid": userID
     }).then(res => {
         numWishlist = res.data[0].count

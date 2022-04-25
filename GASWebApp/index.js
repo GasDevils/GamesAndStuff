@@ -22,7 +22,7 @@ app.use(
 //gets all users
 //empty body
 //returns all users in Gamers relation
-app.get('/api/users', db.getUsers)
+app.post('/api/users', db.getUsers)
 
 //gets all games
 //empty body
@@ -51,7 +51,7 @@ app.delete('/api/deleteUser', db.deleteUser)
 //body {id: int}
 //@returns username, userid, dateCreated of user with id if successful
 //@returns error otherwise
-app.get('/api/user', db.getUserById)
+app.post('/api/user', db.getUserById)
 
 //adds friend to user
 //body {id1: int, id2: int}
@@ -65,13 +65,13 @@ app.put('/api/addFriend', db.addFriend)
 app.post('/api/friends', db.getFriends)
 
 //gets all games owned by a user
-app.get('/api/owns', db.getCollection)
+app.post('/api/owns', db.getCollection)
 
 //gets all games on wishlist of a user
 //body {id: int}
 //@returns array of games if successful
 //@returns error otherwise
-app.get('/api/wishlist', db.getWishlist)
+app.post('/api/wishlist', db.getWishlist)
 
 //removes friend (id2) from user (id1) 
 //body {id1: int, id2: int}
@@ -102,93 +102,93 @@ app.post('/api/addToCollection', db.addToCollection)
 app.delete('/api/removeFromCollection', db.removeFromCollection)
 
 //gets 50 games 
-app.get('/api/game/', db.getGame)
+app.post('/api/game/', db.getGame)
 
 //gets 50 games with rating greater than given rating
-app.get('/api/game/rating/greaterThan', db.getGameByRatingGreaterThan)
+app.post('/api/game/rating/greaterThan', db.getGameByRatingGreaterThan)
 
 //gets 50 games with rating less than given rating
-app.get('/api/game/rating/lessThan', db.getGameByRatingLessThan)
+app.post('/api/game/rating/lessThan', db.getGameByRatingLessThan)
 
 //gets 50 games with given keyword
-app.get('/api/game/keyword', db.getGameKeyword)
+app.post('/api/game/keyword', db.getGameKeyword)
 
 //gets 50 games with given game type
 //body {gameType: string}
 //returns array of games of given type if successful
-app.get('/api/getSpecificGameType', db.getSpecificGameType)
+app.post('/api/getSpecificGameType', db.getSpecificGameType)
 
 //gets the game info if its a board game
 //body {gameid: int}
-app.get('/api/getTableTopGameInfoByID', db.getTableTopGameInfoByID)
+app.post('/api/getTableTopGameInfoByID', db.getTableTopGameInfoByID)
 
 //gets the game info if its a video game
 //body {gameid: int}
-app.get('/api/getVideoGameInfoByID', db.getVideoGameInfoByID)
+app.post('/api/getVideoGameInfoByID', db.getVideoGameInfoByID)
 
 //gets the video games game info where its greater than given rating and with given tags
 //body {rating: int, tag: string}
-app.get('/api/getVideoGameByGreaterRatingAndTag', db.getVideoGameByGreaterRatingAndTag)
+app.post('/api/getVideoGameByGreaterRatingAndTag', db.getVideoGameByGreaterRatingAndTag)
 
 //gets the video games game info where its less than given rating and with given tags
 //body {rating: int, tag: string}
-app.get('/api/getVideoGameByLessRatingAndTag', db.getVideoGameByLessRatingAndTag)
+app.post('/api/getVideoGameByLessRatingAndTag', db.getVideoGameByLessRatingAndTag)
 
 //gets the video games game info where its greater than given rating and with given tags
 //body {rating: int, tag: string}
-app.get('/api/getTabletopGameByGreaterRatingAndTag', db.getTabletopGameByGreaterRatingAndTag)
+app.post('/api/getTabletopGameByGreaterRatingAndTag', db.getTabletopGameByGreaterRatingAndTag)
 
 //gets the video games game info where its less than given rating and with given tags
 //body {rating: int, tag: string}
-app.get('/api/getTabletopGameByLessRatingAndTag', db.getTabletopGameByLessRatingAndTag)
+app.post('/api/getTabletopGameByLessRatingAndTag', db.getTabletopGameByLessRatingAndTag)
 
 //body {rating: int, title: string}
-app.get('/api/getVideoGameByGreaterRatingAndTitle', db.getVideoGameByGreaterRatingAndTitle)
+app.post('/api/getVideoGameByGreaterRatingAndTitle', db.getVideoGameByGreaterRatingAndTitle)
 
 //body {rating: int, title: string}
-app.get('/api/getVideoGameByLessRatingAndTitle', db.getVideoGameByLessRatingAndTitle)
+app.post('/api/getVideoGameByLessRatingAndTitle', db.getVideoGameByLessRatingAndTitle)
 
 //body {rating: int, title: string}
-app.get('/api/getTabletopGameByGreaterRatingAndTitle', db.getTabletopGameByGreaterRatingAndTitle)
+app.post('/api/getTabletopGameByGreaterRatingAndTitle', db.getTabletopGameByGreaterRatingAndTitle)
 
 //body {rating: int, title: string}
-app.get('/api/getTabletopGameByLessRatingAndTitle', db.getTabletopGameByLessRatingAndTitle)
+app.post('/api/getTabletopGameByLessRatingAndTitle', db.getTabletopGameByLessRatingAndTitle)
 
 //body {rating: int, tag: string, title: string}
-app.get('/api/getTabletopGameByGreaterRatingTagAndTitle', db.getTabletopGameByGreaterRatingTagAndTitle)
+app.post('/api/getTabletopGameByGreaterRatingTagAndTitle', db.getTabletopGameByGreaterRatingTagAndTitle)
 
 //body {rating: int, tag: string, title: string}
-app.get('/api/getTabletopGameByLessRatingAndTag', db.getTabletopGameByLessRatingAndTag)
+app.post('/api/getTabletopGameByLessRatingAndTag', db.getTabletopGameByLessRatingAndTag)
 
 //body {rating: int, tag: string, title: string}
-app.get('/api/getTabletopGameByLessRatingTagAndTitle', db.getTabletopGameByLessRatingTagAndTitle)
+app.post('/api/getTabletopGameByLessRatingTagAndTitle', db.getTabletopGameByLessRatingTagAndTitle)
 
 //body {rating: int, tag: string, title: string}
-app.get('/api/getVideoGameByGreaterRatingTagAndTitle', db.getVideoGameByGreaterRatingTagAndTitle)
+app.post('/api/getVideoGameByGreaterRatingTagAndTitle', db.getVideoGameByGreaterRatingTagAndTitle)
 
 //body {rating: int, tag: string, title: string}
-app.get('/api/getVideoGameByLessRatingTagAndTitle', db.getVideoGameByLessRatingTagAndTitle)
+app.post('/api/getVideoGameByLessRatingTagAndTitle', db.getVideoGameByLessRatingTagAndTitle)
 
 //body {userid:int}
-app.get('/api/getCollectionCount', db.getCollectionCount)
+app.post('/api/getCollectionCount', db.getCollectionCount)
 
 //body {userid:int}
-app.get('/api/getFriendCount', db.getFriendCount)
+app.post('/api/getFriendCount', db.getFriendCount)
 
 //body {userid:int}
-app.get('/api/getWishListCount', db.getWishListCount)
+app.post('/api/getWishListCount', db.getWishListCount)
 
 //body {userid:int}
 //returns name, userID and dateAdded of all friends of user with param userID
-app.get('/api/getFriendUserInfo', db.getFriendUserInfo)
+app.post('/api/getFriendUserInfo', db.getFriendUserInfo)
 
 //body {username: string}
 //returns name, userID and dateAdded of user with param username
-app.get('/api/getUserInfoByUsername', db.getUserInfoByUsername)
+app.post('/api/getUserInfoByUsername', db.getUserInfoByUsername)
 
 //body {username: string}
 //returns name, userID and dateAdded of users whose usernames is like param username
-app.get('/api/userSearchByUsername', db.userSearchByUsername)
+app.post('/api/userSearchByUsername', db.userSearchByUsername)
 
 app.get('/', (req, res) => res.send('this is an update'));
 app.listen(port);

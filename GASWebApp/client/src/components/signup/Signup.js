@@ -14,7 +14,7 @@ const Signup = (props)=>{
 
     const useHandleSubmit = (e) => {
         e.preventDefault();
-            GameFinder.get('/userSearchByUsername',{
+            GameFinder.post('/userSearchByUsername',{
                 "username": username
             }).then(res => {
                 if(res.data.length > 0){
