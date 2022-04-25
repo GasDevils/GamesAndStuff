@@ -1,8 +1,35 @@
 import React from 'react'
 import Navbar from '../navbar/Navbar'
 import './account.css'
+import GameFinder from '../../apis/GameFinder'
+import { UserContext } from '../../context/UserContext';
 
 const Account = () => {
+    const {gamer} = useContext(UserContext);
+    let numFriends;
+    GameFinder.get('/getFriendCount',{
+        "userid": gamer.userid
+    }).then(res => {
+        numFriends = res.data[0].count
+    }).catch(err => {
+        console.log(err);
+    });
+    let numGames;
+    GameFinder.get('/getCollectionCount',{
+        "userid": gamer.userid
+    }).then(res => {
+        numGames = res.data[0].count
+    }).catch(err => {
+        console.log(err);
+    });
+    let numWishlist;
+    GameFinder.get('/getWishListCount',{
+        "userid": gamer.userid
+    }).then(res => {
+        numWishlist = res.data[0].count
+    }).catch(err => {
+        console.log(err);
+    });
 
     return(
         
@@ -17,16 +44,16 @@ const Account = () => {
                     <button>+ Friend</button>
 
                     <div className="user-profile-data">
-                        <h1>Username</h1>
+                        <h1>{gamer.username}</h1>
                     </div> 
                         
                     <div className="description-profile">I am an Arizona State University student. I love board games, tabletop games, and pizza!
                     </div>
                     
                     <ul className="data-user">
-                        <li><a><strong>Games</strong><span>3390</span></a></li>
-                        <li><a><strong>Wishlist</strong><span>718</span></a></li>
-                        <li><a><strong>Friends</strong><span>239</span></a></li>
+                        <li><a><strong>Games</strong><span>{numGames}</span></a></li>
+                        <li><a><strong>Wishlist</strong><span>{numWishlist}</span></a></li>
+                        <li><a><strong>Friends</strong><span>{numFriends}</span></a></li>
                     </ul>
                 </div>
             </div>

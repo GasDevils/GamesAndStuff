@@ -17,7 +17,7 @@ import { UserContext } from '../../context/UserContext';
         const response = await GameFinder.post("/friends", {
           "id": userID//fill in with actual value from login
         });
-        console.log(response);
+        console.log(response);//use response.data to get friends userid2 and dateadded are relevant
       }catch(err){
   
       }
