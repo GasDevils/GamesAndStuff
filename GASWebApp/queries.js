@@ -37,7 +37,7 @@ const getUserById = (request, response) => {
 const createUser = (request, response) => {
   const {username, password} = request.body
 
-  pool.query('INSERT INTO gamers (userID,username, password,dateCreated) VALUES (DEFAULT,$1, $2,DEFAULT) RETURNING USERID', [name, password], (error, results) => {
+  pool.query('INSERT INTO gamers (userID,username, password,dateCreated) VALUES (DEFAULT,$1, $2,DEFAULT) RETURNING USERID', [username, password], (error, results) => {
     if (error) {
       res.status(500).send('Error 500');
     }
@@ -47,7 +47,7 @@ const createUser = (request, response) => {
 
 const loginUser = (request, response) => {
   const { username, password} = request.body
-  pool.query('SELECT username, userID, dateCreated from gamers where username = $1 AND password = $2', [name, password], (error, results) => {
+  pool.query('SELECT username, userID, dateCreated from gamers where username = $1 AND password = $2', [username, password], (error, results) => {
     if (error) {
       res.status(500).send('Error 500');
     }

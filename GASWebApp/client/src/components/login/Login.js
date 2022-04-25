@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 const Login = (props)=>{
     const [username, setusername] = useState('');
     const [password, setpassword] = useState('');
+    const [loginErrors, setloginErrors] = useState('');
+    const {gamer, setGamer} = useContext(UserContext);
 
     const handleChange = (e) => {
         // const{name, value} = e.target;
@@ -20,7 +22,10 @@ const Login = (props)=>{
         const history = useNavigate();
         e.preventDefault();
         console.log(username, password);
-            GameFinder.post('/login', {username, password}).then(res => {
+            GameFinder.post('/login', {
+                "username": username, 
+                "password": password
+            }).then(res => {
             if(res.data !== ""){
                 setGamer(res.data);
                 history('/gameGallery');
