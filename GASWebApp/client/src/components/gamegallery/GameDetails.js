@@ -26,9 +26,53 @@ const GameDetails = () => {
         }
         fetchData();
     }, [])
+
+    const showVideoGameDetails = () => {
+        if(gameid < 27076){
+            <div>
+                <h1>
+                    {selectedGame && selectedGame.title}
+                    <img src={selectedGame && selectedGame.imageurl} alt="game-logo"/>
+                </h1>
+                <h2>
+                    <li>Platform: {selectedGame && selectedGame.platform}</li>
+                    <li>Developer: {selectedGame && selectedGame.developer}</li>
+                    <li>Publisher: {selectedGame && selectedGame.publisher}</li>
+                    <li>Release Date: {selectedGame && selectedGame.releasedate}</li>
+                    <li>Received Ratings: {selectedGame && selectedGame.numusersrated}</li>
+                    <li>Rating: {selectedGame && selectedGame.rating}</li>
+                </h2>
+            </div>
+            
+            
+        }
+        else{
+            {showTableTopGameDetails()}
+        }
+    }
+
+    const showTableTopGameDetails = () => {
+        <div>
+            <h1>
+                {selectedGame && selectedGame.title}
+                <img src={selectedGame && selectedGame.imageurl} alt="game-logo"/>
+            </h1>
+            <h2>
+                <li>Max Players: {selectedGame && selectedGame.maxplayers}</li>
+                <li>Min Players: {selectedGame && selectedGame.minplayers}</li>
+                <li>Min Age: {selectedGame && selectedGame.minage}</li>
+                <li>Release Year: {selectedGame && selectedGame.releaseyear}</li>
+                <li>Received Ratings: {selectedGame && selectedGame.numusersrated}</li>
+                <li>Rating: {selectedGame && selectedGame.rating}</li>
+            </h2>
+        </div>
+    }
+
   return (
     <div>
-      <h1>Game Details</h1>
+        <div className="container">
+            {showVideoGameDetails()}
+        </div>
     </div>
   );
 }
