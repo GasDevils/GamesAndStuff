@@ -9,12 +9,15 @@ import { FriendsContext } from '../../context/FriendsContext'
  const Friends = () => {
    
   useEffect(() => {
-    try{
-      const response = await GameFinder.get("/getFriendUserInfo");
-      console.log(response);
-    }catch(err){
-
+    const fetchData = async () => {
+      try{
+        const response = await GameFinder.get("/getFriendUserInfo");
+        console.log(response);
+      }catch(err){
+  
+      }
     }
+    fetchData();
   },[])
 
  return(
