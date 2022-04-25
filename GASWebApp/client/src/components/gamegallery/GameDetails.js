@@ -19,6 +19,7 @@ const GameDetails = () => {
                     const response = await GameFinder.post('/getTableTopGameInfoByID', {gameid});
                     setSelectedGames(response.data);
                 }
+                console.log(response.data);
             } catch (err){
                 console.log(err);
             }
@@ -99,7 +100,7 @@ const GameDetails = () => {
 
   return (
     <div className="container">
-        {selectedGames.title}
+        
     </div>
     /*
     <div className="container">
