@@ -6,7 +6,7 @@ import './gamedetails.css';
 
 const GameDetails = () => {
     const {gameid} = useParams();
-    const {selectedGame, setSelectedGame} = useContext(GamesContext);
+    const {selectedGames, setSelectedGames} = useContext(GamesContext);
     
     useEffect(() => {
         const fetchData = async() =>{
@@ -15,13 +15,13 @@ const GameDetails = () => {
                 if(gameid < 27076){
                     console.log('gameid < 27076');
                     response = await GameFinder.post('/getVideoGameInfoByID', {gameid});
-                    setSelectedGame(response.data);
+                    setSelectedGames(response.data);
                 }else{
                     response = await GameFinder.post('/getTableTopGameInfoByID', {gameid});
-                    setSelectedGame(response.data);
+                    setSelectedGames(response.data);
                 }
                 response = await GameFinder.post('/getTableTopGameInfoByID', {gameid});
-                setSelectedGame(response.data);
+                setSelectedGames(response.data);
             } catch (err){
                 console.log(err);
             }
@@ -30,7 +30,7 @@ const GameDetails = () => {
     }, [])
 
     const videoGameColumns = () => {
-        if(selectedGame.gameid < 27076){
+        if(selectedGames.gameid < 27076){
             return(
                 <tr>
                     <th scope="col">Image</th>
@@ -66,15 +66,15 @@ const GameDetails = () => {
     const showVideoGameDetails = () => {
         if(gameid < 27076){
             return(
-                <tr key={selectedGame.gameid}>
-                    <td><img src={selectedGame.imageurl} alt="game-logo"/></td>
-                    <td>{selectedGame.title}</td>
-                    <td>{selectedGame.platform}</td>
-                    <td>{selectedGame.releasedate}</td>
-                    <td>{selectedGame.publisher}</td>
-                    <td>{selectedGame.developer}</td>
-                    <td>{selectedGame.rating}</td>
-                    <td>{selectedGame.numusersrated}</td>
+                <tr key={selectedGames.gameid}>
+                    <td><img src={selectedGames.imageurl} alt="game-logo"/></td>
+                    <td>{selectedGames.title}</td>
+                    <td>{selectedGames.platform}</td>
+                    <td>{selectedGames.releasedate}</td>
+                    <td>{selectedGames.publisher}</td>
+                    <td>{selectedGames.developer}</td>
+                    <td>{selectedGames.rating}</td>
+                    <td>{selectedGames.numusersrated}</td>
                 </tr>
             );
         }
@@ -85,15 +85,15 @@ const GameDetails = () => {
 
     const showTableTopGameDetails = () => {
         return(
-            <tr key={selectedGame.gameid}>
-                <td><img src={selectedGame.imageurl} alt="game-logo"/></td>
-                <td>{selectedGame.title}</td>
-                <td>{selectedGame.minplayers}</td>
-                <td>{selectedGame.maxplayers}</td>
-                <td>{selectedGame.minage}</td>
-                <td>{selectedGame.releaseyear}</td>
-                <td>{selectedGame.rating}</td>
-                <td>{selectedGame.numusersrated}</td>
+            <tr key={selectedGames.gameid}>
+                <td><img src={selectedGames.imageurl} alt="game-logo"/></td>
+                <td>{selectedGames.title}</td>
+                <td>{selectedGames.minplayers}</td>
+                <td>{selectedGames.maxplayers}</td>
+                <td>{selectedGames.minage}</td>
+                <td>{selectedGames.releaseyear}</td>
+                <td>{selectedGames.rating}</td>
+                <td>{selectedGames.numusersrated}</td>
             </tr>
         );
     }
@@ -118,7 +118,8 @@ const GameDetails = () => {
                   </tr>
             </thead>
             <tbody>
-            <tr key={selectedGame.gameid}>
+                {selectedGames.map(selectedGame => {
+                    <tr key={selectedGame.gameid}>
                     <td><img src={selectedGame.imageurl} alt="game-logo"/></td>
                     <td>{selectedGame.title}</td>
                     <td>{selectedGame.platform}</td>
@@ -128,6 +129,7 @@ const GameDetails = () => {
                     <td>{selectedGame.rating}</td>
                     <td>{selectedGame.numusersrated}</td>
                 </tr>
+                })}
             </tbody>
           </table> 
         </div>    
