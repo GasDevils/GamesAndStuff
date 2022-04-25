@@ -11,7 +11,7 @@ const Account = () => {
     GameFinder.post('/getFriendCount',{
         "userid": userID
     }).then(res => {
-        console.log(res.data[0]);
+        console.log(res.data[0].num);
         numFriends = res.data[0].num
     }).catch(err => {
         console.log(err);
@@ -20,7 +20,7 @@ const Account = () => {
     GameFinder.post('/getCollectionCount',{
         "userid": userID
     }).then(res => {
-        console.log(res.data[0].count);
+        console.log(res.data[0].num);
         numGames = res.data[0].num
     }).catch(err => {
         console.log(err);
@@ -29,14 +29,13 @@ const Account = () => {
     GameFinder.post('/getWishListCount',{
         "userid": userID
     }).then(res => {
-        console.log(res.data[0].count);
+        console.log(res.data[0].num);
         numWishlist = res.data[0].num
     }).catch(err => {
         console.log(err);
     });
     console.log(numGames, numWishlist, numFriends);
     return(
-        
         <div>
             <div className="content-profile-page">
                 <div className="profile-user-page card">
