@@ -12,7 +12,7 @@ const Account = () => {
         "userid": userID
     }).then(res => {
         console.log(res.data[0]);
-        numFriends = res.data[0].count
+        numFriends = res.data[0].num
     }).catch(err => {
         console.log(err);
     });
@@ -20,8 +20,8 @@ const Account = () => {
     GameFinder.post('/getCollectionCount',{
         "userid": userID
     }).then(res => {
-        console.log(res.data[0]);
-        numGames = res.data[0].count
+        console.log(res.data[0].count);
+        numGames = res.data[0].num
     }).catch(err => {
         console.log(err);
     });
@@ -29,8 +29,8 @@ const Account = () => {
     GameFinder.post('/getWishListCount',{
         "userid": userID
     }).then(res => {
-        console.log(res.data[0]);
-        numWishlist = res.data[0].count
+        console.log(res.data[0].count);
+        numWishlist = res.data[0].num
     }).catch(err => {
         console.log(err);
     });

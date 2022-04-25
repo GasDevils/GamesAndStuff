@@ -412,7 +412,7 @@ const getVideoGameByLessRatingTagAndTitle = (request, response) => {
 
 const getCollectionCount = (request, response) => {
     const userid = parseInt(request.body.userid)
-    pool.query('SELECT COUNT(*) from owns where userid = $1', [userid], (error, results) => {
+    pool.query('SELECT COUNT(*) as num from owns where userid = $1', [userid], (error, results) => {
         if (error) {
             res.status(500).send('Error 500');
         }
@@ -422,7 +422,7 @@ const getCollectionCount = (request, response) => {
 
 const getWishListCount = (request, response) => {
     const userid = parseInt(request.body.userid)
-    pool.query('SELECT COUNT(*) from wishlist where userid = $1', [userid], (error, results) => {
+    pool.query('SELECT COUNT(*) as num from wishlist where userid = $1', [userid], (error, results) => {
         if (error) {
             res.status(500).send('Error 500');
         }
@@ -432,7 +432,7 @@ const getWishListCount = (request, response) => {
 
 const getFriendCount = (request, response) => {
     const userid = parseInt(request.body.userid)
-    pool.query('SELECT COUNT(*) from friendsWith where userid1 = $1', [userid], (error, results) => {
+    pool.query('SELECT COUNT(*) as num from friendsWith where userid1 = $1', [userid], (error, results) => {
         if (error) {
             res.status(500).send('Error 500');
         }
