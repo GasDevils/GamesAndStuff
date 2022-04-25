@@ -111,8 +111,6 @@ const GameDetails = () => {
                   </tr>
             </thead>
             <tbody>
-                
-                {selectedGames.map(selectedGame => {
                     <tr key={selectedGame.gameid}>
                     <td><img src={selectedGame.imageurl} alt="game-logo"/></td>
                     <td>{selectedGame.title}</td>
@@ -123,7 +121,6 @@ const GameDetails = () => {
                     <td>{selectedGame.rating}</td>
                     <td>{selectedGame.numusersrated}</td>
                 </tr>
-                })}
             </tbody>
           </table> 
         </div>    
