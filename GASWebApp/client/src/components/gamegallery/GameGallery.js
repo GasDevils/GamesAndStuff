@@ -87,6 +87,7 @@ const GameGallery = (props) => {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export default GameGallery;
 =======
 export default GameGallery;
@@ -154,3 +155,6 @@ export default GameGallery;
       </card>
     </head> */
 >>>>>>> 11bc9df2abe651533c20e77ce5d63a4f4f0b9949
+=======
+export default GameGallery;
+>>>>>>> 99ff394269070816ddf124a215d5404afb8b69ad
