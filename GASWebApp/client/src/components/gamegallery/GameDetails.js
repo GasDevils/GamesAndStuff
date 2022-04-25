@@ -43,7 +43,7 @@ const GameDetails = () => {
                   </tr>
             );
         } else{
-            tableTopGameColumns();
+            {tableTopGameColumns()};
         }
 
         
