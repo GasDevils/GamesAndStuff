@@ -9,7 +9,7 @@ export const GamesContextProvider = (props) => {
     return(
         <GamesContext.Provider value={{
             games, setGames,
-            selectedGame, setSelectedGame}}>
+            selectedGames, setSelectedGames}}>
             {props.children}
         </GamesContext.Provider>
     );
