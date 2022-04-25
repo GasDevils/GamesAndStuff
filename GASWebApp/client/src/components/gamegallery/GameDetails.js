@@ -85,7 +85,7 @@ const GameDetails = () => {
 
     const showTableTopGameDetails = () => {
         return(
-            /*
+            
             <tr key={selectedGames.gameid}>
                 <td><img src={selectedGames.imageurl} alt="game-logo"/></td>
                 <td>{selectedGames.title}</td>
@@ -96,7 +96,7 @@ const GameDetails = () => {
                 <td>{selectedGames.rating}</td>
                 <td>{selectedGames.numusersrated}</td>
             </tr>
-            */
+            
         );
     }
 
