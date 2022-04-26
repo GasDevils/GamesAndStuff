@@ -53,7 +53,7 @@ const GameDetails = () => {
             });
         }
         fetchBooleans();
-    },[isAdded, isWish]);
+    },[]);
 
     const gameColumns = () => {
         if(selectedGames.gameid < 27076){
