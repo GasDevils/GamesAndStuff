@@ -16,7 +16,6 @@ const GameDetails = () => {
     useEffect(() => {
         async function fetchData(){
             try{
-                
                 if(gameid < 27076){
                     const response = await GameFinder.post('/getVideoGameInfoByID', {gameid});
                     //console.log(response.data[0]);
@@ -34,23 +33,26 @@ const GameDetails = () => {
     }, []);
 
     useEffect(() => {
-        //check if game is already in collection
-        GameFinder.post('/checkIfOwned', {
-            "userID":gamerID,
-            "gameID":gameid
-        }).then(res => {
-            setisAdded(res.data[0])
-        }).catch(err => {
-            console.log(err);
-        });
-        GameFinder.post('/checkIfWishlist', {
-            "userID":gamerID,
-            "gameID":gameid
-        }).then(res => {
-            setisWish(res.data[0])
-        }).catch(err => {
-            console.log(err);
-        });
+        async function fetchBooleans(){
+            //check if game is already in collection
+            GameFinder.post('/checkIfOwned', {
+                "userID":gamerID,
+                "gameID":gameid
+            }).then(res => {
+                setisAdded(res.data[0])
+            }).catch(err => {
+                console.log(err);
+            });
+            GameFinder.post('/checkIfWishlist', {
+                "userID":gamerID,
+                "gameID":gameid
+            }).then(res => {
+                setisWish(res.data[0])
+            }).catch(err => {
+                console.log(err);
+            });
+        }
+        fetchBooleans();
     });
 
     const gameColumns = () => {
