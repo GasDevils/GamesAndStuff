@@ -8,17 +8,17 @@ import { UserContext } from "../../context/UserContext";
 const GameCollection = () => {
     //const {gameid} = useParams();
     
-    const {gamer, setGamer} = useContext(UserContext);
+    const {gamer} = useContext(UserContext);
     const userid = gamer.userid;
     const [collectionsGamer,setcollectionsGamer] = useState([]); 
-    const [colGames, setcolGames] = useState([]);
+    const {colGames, setcolGames} = useState([]);
     const [pageNumber, setPageNumber] = useState(0);
     
     const gamesPerPage = 10;
     const pagesVisited = pageNumber * gamesPerPage;
 
-    const displayGames =colGames
-  // .slice(pagesVisited, pagesVisited + gamesPerPage)
+    const displayGames = colGames
+  .slice(pagesVisited, pagesVisited + gamesPerPage)
   .map(game => {
     return(
       <tr onClick={() => handleGameSelect(game.gameid)} key={game.gameid}>
