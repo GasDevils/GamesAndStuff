@@ -121,7 +121,7 @@ const GameDetails = () => {
 
     const handleCollectionAdd = async () => {
         //add to collection
-        GameFinder.post('/addToCollection', {"userID":gamerID,"gameid":gameid, "numcopies":1});
+        GameFinder.post('/addToCollection', {"userid":gamerID,"gameid":gameid, "numcopies":1});
         //change button to remove from collection
         setisAdded(true);
     }
