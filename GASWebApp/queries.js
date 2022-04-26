@@ -190,8 +190,9 @@ const addToCollection = (request, response) => {
     const gameid = parseInt(request.body.gameid)
     const numcopies = parseInt(request.body.numcopies)
 
-    pool.query('INSERT INTO owns (id, gameid, numcopies) VALUES ($1, $2, $3, DEFAULT)', [id, gameid, numcopies], (error, results) => {
+    pool.query('INSERT INTO owns (userid, gameid, numcopies) VALUES ($1, $2, $3)', [id, gameid, numcopies], (error, results) => {
         if (error) {
+		console.log(error);
             response.status(500).send('Error 500');
 return;
         }
