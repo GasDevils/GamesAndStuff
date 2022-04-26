@@ -7,7 +7,7 @@ import ReactPaginate from 'react-paginate';
 
 const GameCollection = () => {
     const {userid} = useParams();
-    const collectionsGamer = {}; 
+    const [collectionsGamer,setcollectionsGamer] = useState({}); 
     const [selectedGames, setSelectedGames] = useState([]);
     const [pageNumber, setPageNumber] = useState(0);
     const gamesPerPage = 10;
@@ -31,7 +31,7 @@ const GameCollection = () => {
         async function fetchData(){
             try{
                 GameFinder.post('/user', {"id":userid}).then(res => {   
-                    collectionsGamer = res.data[0];
+                    setcollectionsGamer(res.data[0]);
                     GameFinder.post('owns', {"id":userid}).then(res => {
                         setSelectedGames(res.data);
                     }).catch(err => {
