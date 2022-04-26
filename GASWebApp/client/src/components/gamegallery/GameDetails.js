@@ -52,7 +52,7 @@ const GameDetails = () => {
             }).catch(err => {
                 console.log(err);
             });
-            change = false;
+            setChange(false);
         }
         fetchBooleans();
     }, [change]);
