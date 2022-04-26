@@ -13,7 +13,7 @@ const GameCollection = (props) => {
   const [query, setQuery] = useState('');
   const {gamer} = useContext(UserContext)  
   const gamesPerPage = 10;
-  const [displayGames, setDisplayGames] = useState({})
+  const [displayGames, setDisplayGames] = useState([])
 
   const pagesVisited = pageNumber * gamesPerPage;
   
