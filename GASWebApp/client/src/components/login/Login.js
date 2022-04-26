@@ -12,12 +12,7 @@ const Login = (props)=>{
     const {gamer,setGamer} = useContext(UserContext);
     const history = useNavigate();
 
-    useEffect (() => {
-        if(gamer !== {}){
-            setGamer({});
-        }
-    }, [gamer]);
-
+    
         
     const useHandleSubmit = (e) => {
         e.preventDefault();
