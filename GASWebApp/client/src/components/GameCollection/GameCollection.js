@@ -25,21 +25,6 @@ const GameCollection = (props) => {
     navigate(`../gameGallery/game/${gameid}`);
   }
 
-  useEffect( () =>setDisplayGames( 
-    collection
-    .filter(game=>game.title.toLowerCase().includes(query.toLowerCase()))
-    .slice(pagesVisited, pagesVisited + gamesPerPage)
-    .map(game => {
-      return(
-        <tr onClick={() => handleGameSelect(game.gameid)} key={game.gameid}>
-        <td><img src={game.imageurl} alt="game-logo"/></td>
-        <td>{game.title}</td>
-        <td>{game.rating}</td>
-        </tr>
-      );
-    })
-  ),[pagesVisited]);
-
   useEffect(() => {
     async function fetchData(){
       try{
@@ -55,6 +40,22 @@ const GameCollection = (props) => {
     fetchData();
   }, []);
 
+  useEffect( () =>setDisplayGames( 
+    collection
+    .filter(game=>game.title.toLowerCase().includes(query.toLowerCase()))
+    .slice(pagesVisited, pagesVisited + gamesPerPage)
+    .map(game => {
+      return(
+        <tr onClick={() => handleGameSelect(game.gameid)} key={game.gameid}>
+        <td><img src={game.imageurl} alt="game-logo"/></td>
+        <td>{game.title}</td>
+        <td>{game.rating}</td>
+        </tr>
+      );
+    })
+  ),[pagesVisited]);
+
+ 
   // Pagination
 
   const handlePageClick = ({selected}) =>{

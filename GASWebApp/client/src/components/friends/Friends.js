@@ -20,7 +20,21 @@ import { UserContext } from '../../context/UserContext';
    const pagesVisited = pageNumber * gamesPerPage;
 
    const pageCount = Math.ceil(friends.length / gamesPerPage);
-
+  
+   useEffect(() => {
+    const userID = gamer.userid;
+    const fetchData = async () => {
+      try{
+        const response = await GameFinder.post("/friends", {
+          "id": userID//fill in with actual value from login
+        });
+        console.log(response);//use response.data to get friends userid2 and dateadded are relevant
+        setFriends(response.data.rows);
+      }catch(err){
+      }
+    }
+    fetchData();
+  },[])
 
    useEffect( () => setDisplayFriends( 
     friends
@@ -36,20 +50,7 @@ import { UserContext } from '../../context/UserContext';
   ),[pagesVisited]);
 
 
-  useEffect(() => {
-    const userID = gamer.userid;
-    const fetchData = async () => {
-      try{
-        const response = await GameFinder.post("/friends", {
-          "id": userID//fill in with actual value from login
-        });
-        console.log(response);//use response.data to get friends userid2 and dateadded are relevant
-        setFriends(response.data.rows);
-      }catch(err){
-      }
-    }
-    fetchData();
-  },[])
+
 
 // Pagination
 

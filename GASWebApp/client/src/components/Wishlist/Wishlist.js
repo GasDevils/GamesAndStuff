@@ -15,16 +15,29 @@ const Wishlist = (props) => {
   const gamesPerPage = 10;
   const [displayGames, setDisplayGames] = useState([])
 
-  const pagesVisited = pageNumber * gamesPerPage;
-  
-
-  const pageCount = Math.ceil(Wish.length / gamesPerPage);
+ 
   
   let navigate = useNavigate();
   const handleGameSelect = (gameid) => {
     navigate(`../gameGallery/game/${gameid}`);
   }
 
+  useEffect(() => {
+    async function fetchData(){
+      try{
+        const response = await GameFinder.post('/wishlist',{
+          "userid": gamer.userid
+        });
+        console.log(response.data.rows)
+        setWish(response.data.rows)
+      } catch(err){}
+    }
+    fetchData();
+  }, []);
+
+  const pagesVisited = pageNumber * gamesPerPage;
+
+  const pageCount = Math.ceil(Wish.length / gamesPerPage);
   useEffect( () => setDisplayGames( 
     Wish
     .filter(game=>game.title.toLowerCase().includes(query.toLowerCase()))
@@ -40,18 +53,7 @@ const Wishlist = (props) => {
     })
     ),[pagesVisited]);
 
-  useEffect(() => {
-    async function fetchData(){
-      try{
-        const response = await GameFinder.post('/wishlist',{
-          "userid": gamer.userid
-        });
-        console.log(response.data.rows)
-        setWish(response.data.rows)
-      } catch(err){}
-    }
-    fetchData();
-  }, []);
+  
 
   // Pagination
 
