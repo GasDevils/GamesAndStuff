@@ -7,7 +7,7 @@ import { Navigate, NavLink, useNavigate } from 'react-router-dom';
 
 const Account = () => {
     const {gamer} = useContext(UserContext);
-    
+
     const [numFriends, setNumFriends] = useState(0);
     const [numGames, setNumGames] = useState(0);
     const [numWishlist, setNumWishlist] = useState(0);
@@ -58,7 +58,7 @@ const Account = () => {
                     </div>
                     
                     <ul className="data-user">
-                        <li onClick={navigate('../collection/user/${userID}')}><a><strong>Games</strong><span>{numGames}</span></a></li>
+                        <li onClick={navigate(`../collection/user/${userID}`)}><a><strong>Games</strong><span>{numGames}</span></a></li>
                         <li><a><strong>Wishlist</strong><span>{numWishlist}</span></a></li>
                         <li><a><strong>Friends</strong><span>{numFriends}</span></a></li>
                     </ul>
@@ -69,7 +69,4 @@ const Account = () => {
 }
 
 
-async function getValues(){
-    
-}
 export default Account;
