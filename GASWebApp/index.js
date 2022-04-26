@@ -192,8 +192,9 @@ app.post('/api/getUserInfoByUsername', db.getUserInfoByUsername)
 //returns name, userID and dateAdded of users whose usernames is like param username
 app.post('/api/userSearchByUsername', db.userSearchByUsername)
 
-app.get('/api/userSearchByUsername2', db.userSearchByUsername)
-
+app.post('/api/checkIfOwned', db.checkIfOwned)
+app.post('/api/checkIfWishlist', db.checkIfWishList)
+app.post('/api/checkIfFriends', db.checkIfFriends)
 
 app.get('/', (req, res) => res.send('this is an update'));
 app.listen(port);

@@ -15,6 +15,7 @@ import { FriendsContextProvider } from './context/FriendsContext';
 import { UserContext } from './context/UserContext';
 import GameDetails from './components/gamegallery/GameDetails';
 import Logout from './components/logout/Logout';
+import GameCollection from './components/GameCollection/GameCollection';
 
 
 const App = () => {
@@ -41,7 +42,8 @@ const App = () => {
             <Route path="/notFound" element={<Notfound />} />
             <Route path="/gameGallery/game/:gameid" element={<GameDetails />} />
             <Route path='/LogOut' element={<Logout />} />
-            <Route path="*" element={<Notfound />} />
+            <Route path='/LogOut' element={<Logout />} />
+            <Route path="/collection/user/:userid" element={<GameCollection />} />
           </Routes>
         </div>
       </Router>

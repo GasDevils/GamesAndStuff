@@ -1,12 +1,17 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import GameFinder from "../../apis/GameFinder";
 import { GamesContext } from "../../context/GamesContext";
+import { UserContext } from "../../context/UserContext";
 import './gamedetails.css';
 
 const GameDetails = () => {
     const {gameid} = useParams();
     const {selectedGames, setSelectedGames} = useContext(GamesContext);
+    const {isAdded, setisAdded} = useState(false);
+    const {isWish, setisWish} = useState(false);
+    const {gamer} = useContext(UserContext);
+    const gamerID = gamer.userid;
     
     useEffect(() => {
         async function fetchData(){
@@ -21,13 +26,22 @@ const GameDetails = () => {
                     const response = await GameFinder.post('/getTableTopGameInfoByID', {gameid});
                     setSelectedGames(response.data[0]);
                 }
-                
-            } catch (err){
+            }catch{
                 console.log(err);
             }
         }
         fetchData();
     }, []);
+
+    useEffect(() => {
+        //check if game is already in collection
+        GameFinder.post('/checkIfOwned', {gamerID,gameid}).then(res => {
+            setisAdded(res.data[0])
+        });
+        GameFinder.post('/checkIfWishlist', {gamerID,gameid}).then(res => {
+            setisWish(res.data[0])
+        });
+    });
 
     const gameColumns = () => {
         if(selectedGames.gameid < 27076){
@@ -93,6 +107,32 @@ const GameDetails = () => {
         }
     }
 
+    const handleCollectionAdd = async () => {
+        //add to collection
+        GameFinder.post('/addToCollection', {"gameid": selectedGames.gameid, "userid": GameFinder.userID, numCopies: 1});
+        //change button to remove from collection
+        setisAdded(true);
+    }
+    const handleRemoveCollection = async () => {
+        //add to collection
+        GameFinder.post('/removeToCollection', {"gameid": selectedGames.gameid, "userid": gamerID});
+        //change button to remove from collection
+        setisAdded(false);
+    }
+    const handlewishlistAdd = async () => {
+        //add to collection
+        GameFinder.post('/addWishlist', {"gameid": selectedGames.gameid, "userid": gamerID});
+        //change button to remove from collection
+        setisWish(true);
+    }
+    const handleRemoveWish = async () => {
+        //add to collection
+        GameFinder.post('/removeWishlist', {"gameid": selectedGames.gameid, "userid": gamerID});
+        //change button to remove from collection
+        ssetisWish(false);
+    }
+
+
   return (    
     <div className="game-gallery">
       <div className="container">
@@ -107,6 +147,8 @@ const GameDetails = () => {
 
             </tbody>
           </table> 
+          <button onClick={isAdded ? handleRemoveCollection : handleCollectionAdd}>{isAdded ? 'Remove':'Add'} to Collection</button>
+          <button onClick={isWish ? handleRemoveWish : handlewishlistAdd}>{isWish ? 'Remove':'Add'} to Wishlist</button>
         </div>    
       </div>
     </div>    

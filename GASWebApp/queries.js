@@ -23,6 +23,39 @@ const getGames = (request, response) => {
   })
 }
 
+const checkIfOwned = (request, response) => {
+    const userID = parseInt(request.body.userID)
+    const gameID = parseInt(request.body.gameID)
+    pool.query('SELECT exists (select true FROM owns WHERE userID = $1 AND gameID = $2)', [userID, gameID], (error, results) => {
+        if (error) {
+            res.status(500).send('Error 500');
+        }
+        response.status(200).json(results.rows)
+    })
+}
+
+const checkIfWishList= (request, response) => {
+    const userID = parseInt(request.body.userID)
+    const gameID = parseInt(request.body.gameID)
+    pool.query('SELECT exists (select true FROM wishlist WHERE userID = $1 AND gameID = $2)', [userID, gameID], (error, results) => {
+        if (error) {
+            res.status(500).send('Error 500');
+        }
+        response.status(200).json(results.rows)
+    })
+}
+
+const checkIfFriends= (request, response) => {
+    const userID1 = parseInt(request.body.userID1)
+    const userID2 = parseInt(request.body.userID2)
+    pool.query('SELECT exists (select true FROM friendsWith WHERE userID1 = $1 AND userID2 = $2)', [userID1, userID2], (error, results) => {
+        if (error) {
+            res.status(500).send('Error 500');
+        }
+        response.status(200).json(results.rows)
+    })
+}
+
 const getUserById = (request, response) => {
   const id = parseInt(request.body.id)
 
@@ -513,5 +546,8 @@ module.exports = {
   getWishListCount,
   getFriendUserInfo,
   getUserInfoByUsername,
-  userSearchByUsername
+  userSearchByUsername,
+  checkIfFriends,
+  checkIfOwned,
+  checkIfWishList,
 }
