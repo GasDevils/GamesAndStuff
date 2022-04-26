@@ -33,7 +33,7 @@ body {
   position: center;
 }
 
-button {
+.button {
   background-color: Transparent;
   background-repeat:no-repeat;
   border: none;
@@ -41,9 +41,10 @@ button {
   overflow: hidden;
   outline:none;
   color:#8a40ff;
+  padding: 10px 30px;
 }
 
-button:hover{
+.button:hover{
   background: #8a40ff;
   color: #fff;
   border-radius: 5px;
