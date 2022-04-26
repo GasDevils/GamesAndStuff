@@ -14,7 +14,7 @@ import Footer from './components/footer/Footer';
 import { FriendsContextProvider } from './context/FriendsContext';
 import { UserContext } from './context/UserContext';
 import GameDetails from './components/gamegallery/GameDetails';
-import Logout from './components/login/Logout';
+import Logout from './components/logout/Logout';
 
 
 const App = () => {
