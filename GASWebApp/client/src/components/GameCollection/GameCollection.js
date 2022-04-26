@@ -38,7 +38,7 @@ const GameCollection = (props) => {
         </tr>
       );
     })
-  ))[pageNumber];
+  ),[pagesVisited]);
 
   useEffect(() => {
     async function fetchData(){

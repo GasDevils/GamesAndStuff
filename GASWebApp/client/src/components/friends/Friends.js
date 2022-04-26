@@ -12,6 +12,8 @@ import { UserContext } from '../../context/UserContext';
    const [friends, setFriends] = useState([]);
    const [displayFriends, setDisplayFriends] = useState([]);
    const [pageNumber, setPageNumber] = useState(0);
+   const [pageChange, setPageChange] = useState(false);
+   
    
    const gamesPerPage = 10;
   
@@ -31,7 +33,7 @@ import { UserContext } from '../../context/UserContext';
         </tr>
       );
     })
-  ))[pageNumber];
+  ),[pagesVisited]);
 
 
   useEffect(() => {
@@ -53,6 +55,7 @@ import { UserContext } from '../../context/UserContext';
 
 const handlePageClick = ({selected}) =>{
   setPageNumber(selected);
+
 };
 
  return(

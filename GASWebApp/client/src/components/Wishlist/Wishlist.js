@@ -38,7 +38,7 @@ const Wishlist = (props) => {
         </tr>
       );
     })
-    ))[pageNumber];
+    ),[pagesVisited]);
 
   useEffect(() => {
     async function fetchData(){
