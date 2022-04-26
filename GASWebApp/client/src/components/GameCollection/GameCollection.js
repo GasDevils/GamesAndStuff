@@ -1,7 +1,7 @@
 import React, {useState, useContext, useEffect} from 'react'
 import ReactPaginate from 'react-paginate';
 import _ from 'lodash';
-import './gameCcllection.css'
+import './gamecollection.css'
 import GameFinder from '../../apis/GameFinder'
 import { GamesContext } from '../../context/GamesContext'
 import { UserContext } from '../../context/UserContext'
