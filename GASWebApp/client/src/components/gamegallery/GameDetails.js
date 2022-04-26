@@ -8,8 +8,8 @@ import './gamedetails.css';
 const GameDetails = () => {
     const {gameid} = useParams();
     const {selectedGames, setSelectedGames} = useContext(GamesContext);
-    const [isAdded, setisAdded] = useState(false);
-    const [isWish, setisWish] = useState(false);
+    const [isAdded, setisAdded] = useState();
+    const [isWish, setisWish] = useState();
     const {gamer} = useContext(UserContext);
     const gamerID = gamer.userid;
     
@@ -53,7 +53,7 @@ const GameDetails = () => {
             });
         }
         fetchBooleans();
-    });
+    },[isAdded, isWish]);
 
     const gameColumns = () => {
         if(selectedGames.gameid < 27076){
