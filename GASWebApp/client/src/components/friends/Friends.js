@@ -8,8 +8,29 @@ import { UserContext } from '../../context/UserContext';
 
  //////////////////////////////////////////////////////////////////////////////
  const Friends = () => {
-   const {gamer, setGamer} = useContext(UserContext);
+   const {gamer} = useContext(UserContext);
+   const [friends, setFriends] = useState([]);
+   const [displayFriends, setDisplayFriends] = useState([]);
    
+   const gamesPerPage = 10;
+   const pagesVisited = pageNumber * gamesPerPage;
+
+   const pageCount = Math.ceil(friends.length / gamesPerPage);
+
+   
+   setDisplayFriends( 
+    friends
+    .slice(pagesVisited, pagesVisited + gamesPerPage)
+    .map(friend => {
+      return(
+        <tr /*onClick={() => handleGameSelect(game.gameid)} key={game.gameid}*/>
+        <td>{friend.username}</td>
+        <td>{friend.dateAdded}</td>
+        </tr>
+      );
+    })
+  );
+
   useEffect(() => {
     const userID = gamer.userid;
     const fetchData = async () => {
@@ -18,13 +39,13 @@ import { UserContext } from '../../context/UserContext';
           "id": userID//fill in with actual value from login
         });
         console.log(response);//use response.data to get friends userid2 and dateadded are relevant
-        setGamer(response.data);
+        setFriends(response.data.rows);
       }catch(err){
-  
       }
     }
     fetchData();
   },[])
+
 
  return(
     <div className="friends">
@@ -38,11 +59,8 @@ import { UserContext } from '../../context/UserContext';
             </tr>
           </thead>
           <tbody>
-            
-              <tr>
-              <td>{gamer.userid2}</td>
-              <td>{gamer.dateadded}</td>
-            </tr>
+             {displayFriends}
+          
 
             {/* <tr>
               <td><img src="https://cf.geekdo-images.com/micro/img/uhYn0Xn8TZ1vzVfyi4VO1UfNTII=/fit-in/64x64/pic347837.jpg" alt="game-logo"/></td>
