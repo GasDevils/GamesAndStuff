@@ -76,11 +76,12 @@ return;
 const createUser = (request, response) => {
   const {username, password} = request.body
 
-  pool.query('INSERT INTO gamers (userID,username, password,dateCreated) VALUES (DEFAULT,$1, $2,DEFAULT) RETURNING USERID, USERNAME,dateCreated', [username, password], (error, results) => {
+  pool.query('INSERT INTO gamers (userID,username, password,dateCreated) VALUES (DEFAULT,$1, $2,DEFAULT) RETURNING USERID, username,dateCreated', [username, password], (error, results) => {
     if (error) {
       response.status(500).send('Error 500');
 return;
     }
+    console.log(results.rows)
     response.status(200).json(results.rows)
   })
 }
