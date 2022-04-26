@@ -18,7 +18,7 @@ const GameCollection = (props) => {
   const pagesVisited = pageNumber * gamesPerPage;
   
 
-  const pageCount = Math.ceil(collection.length / gamesPerPage);
+  
   
   let navigate = useNavigate();
   const handleGameSelect = (gameid) => {
@@ -55,7 +55,8 @@ const GameCollection = (props) => {
     })
   ),[pagesVisited]);
 
- 
+  const pageCount = Math.ceil(collection.length / gamesPerPage);
+  
   // Pagination
 
   const handlePageClick = ({selected}) =>{

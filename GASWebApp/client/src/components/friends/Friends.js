@@ -19,7 +19,7 @@ import { UserContext } from '../../context/UserContext';
   
    const pagesVisited = pageNumber * gamesPerPage;
 
-   const pageCount = Math.ceil(friends.length / gamesPerPage);
+   
   
    useEffect(() => {
     const userID = gamer.userid;
@@ -49,7 +49,7 @@ import { UserContext } from '../../context/UserContext';
     })
   ),[pagesVisited]);
 
-
+  const pageCount = Math.ceil(friends.length / gamesPerPage);
 
 
 // Pagination
