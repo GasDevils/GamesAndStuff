@@ -17,7 +17,7 @@ const Signup = (props)=>{
             GameFinder.post('/getUserInfoByUsername',{
                 "username": username
             }).then(res => {
-                if(res.data[0] !== 0){
+                if(res.data.length !== 0){
                     setregisterErrors("Username already exists");
                     console.log(registerErrors);
                 }else{
