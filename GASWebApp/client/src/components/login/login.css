@@ -43,7 +43,7 @@ button {
   color:#8a40ff;
 }
 
-button a:hover{
+button:hover{
   background: #8a40ff;
   color: #fff;
   border-radius: 5px;
