@@ -4,6 +4,7 @@ import GameFinder from "../../apis/GameFinder";
 import './gamecollection.css';
 import ReactPaginate from 'react-paginate';
 import { UserContext } from "../../context/UserContext";
+import { GamesContext } from '../../context/GamesContext'
 
 const GameCollection = () => {
     //const {gameid} = useParams();
@@ -11,13 +12,13 @@ const GameCollection = () => {
     const {gamer} = useContext(UserContext);
     const userid = gamer.userid;
     const [collectionsGamer,setcollectionsGamer] = useState([]); 
-    const {colGames, setcolGames} = useState([]);
+    const{games, setGames} = useContext(GamesContext)
     const [pageNumber, setPageNumber] = useState(0);
     
     const gamesPerPage = 10;
     const pagesVisited = pageNumber * gamesPerPage;
 
-    const displayGames = colGames
+    const displayGames = games
   .slice(pagesVisited, pagesVisited + gamesPerPage)
   .map(game => {
     return(
@@ -39,7 +40,7 @@ const GameCollection = () => {
                 GameFinder.post('/user', {"id":userid}).then(res => {   
                     setcollectionsGamer(res.data[0]);
                     GameFinder.post('/owns', {"userid":userid}).then(res => {
-                        setcolGames(res.data);
+                        setGames(res.data);
                     }).catch(err => {
                         console.log(err);
                     });
