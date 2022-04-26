@@ -63,7 +63,10 @@ const Signup = (props)=>{
                     <button onSubmit = {useHandleSubmit}>Signup</button>
                     </center>
                 </a>
-                <p style={{color:"red"}}>{registerErrors}</p>
+                
+            </center>
+            <center>
+            <p style={{color:"red"}}>{registerErrors}</p>
             </center>
 
         </form>

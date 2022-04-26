@@ -1,4 +1,4 @@
-import React, {useContext, useMemo, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import {NavLink} from 'react-router-dom';
 import GameFinder from '../../apis/GameFinder'
 import './login.css';
@@ -17,7 +17,7 @@ const Login = (props)=>{
             setGamer({});
         }
     }, [gamer]);
-    
+
         
     const useHandleSubmit = (e) => {
         e.preventDefault();
