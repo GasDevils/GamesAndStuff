@@ -11,6 +11,7 @@ import { UserContext } from '../../context/UserContext';
    const {gamer} = useContext(UserContext);
    const [friends, setFriends] = useState([]);
    const [displayFriends, setDisplayFriends] = useState([]);
+   const [pageNumber, setPageNumber] = useState(0);
    
    const gamesPerPage = 10;
   
