@@ -8,8 +8,10 @@ const Logout = (props)=>{
     const history = useNavigate();
         
     const useHandleSubmit = (e) => {
-        e.preventDefault();
+        console.log("logout")
+        //e.preventDefault();
         setGamer({});
+        console.log("gamer" + gamer)
         history('/');
     }
 
