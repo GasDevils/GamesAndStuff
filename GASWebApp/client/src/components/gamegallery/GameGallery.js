@@ -16,7 +16,7 @@ const GameGallery = (props) => {
   const pagesVisited = pageNumber * gamesPerPage;
 
   const displayGames = games
-  .filter(game=>game.title.toLowerCase().includes(query, game.title.toUpperCase()))
+  .filter(game=>game.title.toLowerCase().includes(query.toLowerCase()))
   .slice(pagesVisited, pagesVisited + gamesPerPage)
   .map(game => {
     return(
@@ -56,8 +56,8 @@ const GameGallery = (props) => {
   
     return(
       <div className="game-gallery">
+        <input type="text" placeholder="Search for a game..." className="search" onChange={e=> setQuery(e.target.value)}/>  
       <div className="container">
-        <input type="text" placeholder="Search for a game..." className="search" onChange={e=> setQuery(e.target.value)}/>
         <div className="list-group">
           <table className="table table-hover table-dark">
             <thead>
