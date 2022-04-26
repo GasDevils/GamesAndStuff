@@ -12,6 +12,8 @@ const GameDetails = () => {
     const [isWish, setisWish] = useState(false);
     const {gamer} = useContext(UserContext);
     const gamerID = gamer.userid;
+    console.log(gamerID);
+    console.log(gamer);
     
     useEffect(() => {
         async function fetchData(){
