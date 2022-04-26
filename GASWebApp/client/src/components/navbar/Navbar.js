@@ -23,7 +23,7 @@ const Navbar = ()=>{
               
           </h1>
           <div className="nav-list">
-            {gamer.userid <= 0 &&
+            {gamer == {} &&
             <li><NavLink to="/" className="nav-link">Home</NavLink></li>
             }
             <li><NavLink to="/gameGallery" className="nav-link">Game Gallery</NavLink></li>
@@ -34,7 +34,7 @@ const Navbar = ()=>{
             <li><NavLink to="/Account" className="nav-link">Account</NavLink></li>
             }
             {gamer.userid > 0 &&
-            <li><NavLink to="/" className="nav-link" onClick={setGamer({})}>Log Out</NavLink></li>
+            <li><NavLink to="/" className="nav-link">Log Out</NavLink></li>
             }
           </div>
           

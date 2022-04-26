@@ -11,8 +11,6 @@ const Login = (props)=>{
     const [loginErrors, setloginErrors] = useState('');
     const {gamer,setGamer} = useContext(UserContext);
     const history = useNavigate();
-
-    
         
     const useHandleSubmit = (e) => {
         e.preventDefault();
@@ -21,7 +19,9 @@ const Login = (props)=>{
                 "password": password
             }).then(res => {
             if(res.data.length !== 0){
+                
                 setGamer(res.data[0]);
+                console.log("set gamer " + gamer)
                 history('/gameGallery');
                 setloginErrors("")
             }else{
