@@ -32,7 +32,7 @@ const App = () => {
     <UserContext.Provider value={loggedInUser}>
     <FriendsContextProvider>
     <GamesContextProvider>
-      <CollectionContextProvider>
+    <CollectionContextProvider>
       <Router>
       <Navbar />
         <div className='App'>
@@ -50,7 +50,7 @@ const App = () => {
           </Routes>
         </div>
       </Router>
-      </CollectionContextProvider>
+    </CollectionContextProvider>
     </GamesContextProvider>
     </FriendsContextProvider>
     </UserContext.Provider>

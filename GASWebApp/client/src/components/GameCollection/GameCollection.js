@@ -8,14 +8,14 @@ import { UserContext } from '../../context/UserContext'
 import { useNavigate } from 'react-router-dom';
 
 const GameCollection = (props) => {
-  const{collection, setCollection} = useContext(CollectionContext)
+  const {collection, setCollection} = useContext(CollectionContext)
   const [pageNumber, setPageNumber] = useState(0);
   const [query, setQuery] = useState('');
   const {gamer} = useContext(UserContext)  
   const gamesPerPage = 10;
 
   const pagesVisited = pageNumber * gamesPerPage;
-
+  setCollection = [];
   const displayGames = collection
   .filter(game=>game.title.toLowerCase().includes(query.toLowerCase()))
   .slice(pagesVisited, pagesVisited + gamesPerPage)
@@ -102,67 +102,3 @@ const GameCollection = (props) => {
 }
 
 export default GameCollection;
-
-
-/* <head>
-      <card>
-        <table>
-          <div className="topSearchDisplay">
-            <table className="searchDisplay">
-              <tr>
-                <td>
-                  <input className="searchLocation" value='' type="text" placeholder='Search Game Title'></input>
-                  <select></select>
-                  <input className="search-button" type="submit" value="Search"></input> 
-                </td>
-              </tr>
-              <tr className='customRangeSection_10'>
-              </tr>
-            </table>
-          </div>
-        </table>
-
-        <div className="searchFiltersDisplay">
-          <table>
-            <tr>
-              <td>&nbsp;&nbsp;&nbsp;</td>
-              <td>Keywords
-              </td>
-              <td>&nbsp;&nbsp;&nbsp;</td>
-              <td>Rating
-              </td>
-              <td>&nbsp;&nbsp;&nbsp;</td>
-              <td>Type
-              </td>
-              <td>&nbsp;&nbsp;&nbsp;</td>
-              <td>
-              </td>
-            </tr>
-            <tr>
-              <td>&nbsp;&nbsp;&nbsp;</td>
-              <td>
-                <input className='query' value='' type="text" placeholder=' e.g. survival, fantasy'
-                      title='Enter keywords here'></input>
-
-    </card>
-    </head>
-</div>
-    );
-}
-
-        <form>
-          <table>
-            <tr>
-              <td width='350'>
-                <div className="video-container">
-                  <table className='tableOfVideoContentResults'></table>
-                </div>
-              </td>
-              <td valign='top'>
-                <div className="map-canvas"></div>
-              </td>
-            </tr>
-          </table>
-        </form>
-      </card>
-    </head> */
