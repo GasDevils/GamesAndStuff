@@ -13,21 +13,11 @@ const GameCollection = (props) => {
   const [query, setQuery] = useState('');
   const {gamer} = useContext(UserContext)  
   const gamesPerPage = 10;
+  const [displayGames, setDisplayGames] = useState({})
 
   const pagesVisited = pageNumber * gamesPerPage;
   setCollection = [];
-  const displayGames = collection
-  .filter(game=>game.title.toLowerCase().includes(query.toLowerCase()))
-  .slice(pagesVisited, pagesVisited + gamesPerPage)
-  .map(game => {
-    return(
-      <tr onClick={() => handleGameSelect(game.gameid)} key={game.gameid}>
-      <td><img src={game.imageurl} alt="game-logo"/></td>
-      <td>{game.title}</td>
-      <td>{game.rating}</td>
-      </tr>
-    );
-  });
+  
 
   const pageCount = Math.ceil(collection.length / gamesPerPage);
   
@@ -42,7 +32,22 @@ const GameCollection = (props) => {
         const response = await GameFinder.post('/owns',{
           "userid": gamer.userid
         });
+        console.log(response.data)
         setCollection(response.data)
+        setDisplayGames( 
+          response.data
+          .filter(game=>game.title.toLowerCase().includes(query.toLowerCase()))
+          .slice(pagesVisited, pagesVisited + gamesPerPage)
+          .map(game => {
+            return(
+              <tr onClick={() => handleGameSelect(game.gameid)} key={game.gameid}>
+              <td><img src={game.imageurl} alt="game-logo"/></td>
+              <td>{game.title}</td>
+              <td>{game.rating}</td>
+              </tr>
+            );
+          })
+        );
         
       } catch(err){}
     }
