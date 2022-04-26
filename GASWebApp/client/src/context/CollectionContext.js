@@ -8,7 +8,7 @@ export const CollectionContextProvider = (props) => {
 
     return(
         <CollectionContext.Provider value={{
-            Collection, setCollection,
+            collection, setCollection,
             selectedCollection, setSelectedCollection}}>
             {props.children}
         </CollectionContext.Provider>
