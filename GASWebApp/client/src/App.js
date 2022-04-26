@@ -17,7 +17,8 @@ import GameDetails from './components/gamegallery/GameDetails';
 import Logout from './components/logout/Logout';
 import GameCollection from './components/GameCollection/GameCollection';
 import { CollectionContextProvider } from './context/CollectionContext';
-
+import { WishContextProvider } from './context/WishContext';
+import {Wishlist} from './components/wishlist/Wishlist';
 
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
     <FriendsContextProvider>
     <GamesContextProvider>
     <CollectionContextProvider>
+    <WishContextProvider>
       <Router>
       <Navbar />
         <div className='App'>
@@ -47,9 +49,11 @@ const App = () => {
             <Route path='/LogOut' element={<Logout />} />
             <Route path='/LogOut' element={<Logout />} />
             <Route path="/collection/user/" element={<GameCollection />} />
+            <Route path="/wishlist/user/" element={<Wishlist />} />
           </Routes>
         </div>
       </Router>
+      </WishContextProvider>
     </CollectionContextProvider>
     </GamesContextProvider>
     </FriendsContextProvider>
