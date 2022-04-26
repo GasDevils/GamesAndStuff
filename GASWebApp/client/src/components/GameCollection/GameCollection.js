@@ -16,7 +16,6 @@ const GameCollection = (props) => {
   const [displayGames, setDisplayGames] = useState({})
 
   const pagesVisited = pageNumber * gamesPerPage;
-  setCollection = [];
   
 
   const pageCount = Math.ceil(collection.length / gamesPerPage);
