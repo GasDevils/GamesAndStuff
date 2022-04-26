@@ -7,6 +7,7 @@ import { Navigate, NavLink, useNavigate } from 'react-router-dom';
 
 const Account = () => {
     const {gamer} = useContext(UserContext);
+    
     const [numFriends, setNumFriends] = useState(0);
     const [numGames, setNumGames] = useState(0);
     const [numWishlist, setNumWishlist] = useState(0);
