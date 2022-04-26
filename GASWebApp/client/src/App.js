@@ -43,7 +43,7 @@ const App = () => {
             <Route path="/gameGallery/game/:gameid" element={<GameDetails />} />
             <Route path='/LogOut' element={<Logout />} />
             <Route path='/LogOut' element={<Logout />} />
-            <Route path="/collection/user/:userid" element={<GameCollection />} />
+            <Route path="/collection/user/" element={<GameCollection />} />
           </Routes>
         </div>
       </Router>
