@@ -16,7 +16,7 @@ const GameGallery = (props) => {
   const pagesVisited = pageNumber * gamesPerPage;
 
   const displayGames = games
-  .filter(game=>game.title.toLowerCase().includes(query).includes(game.title.toUpperCase()))
+  .filter(game=>game.title.toLowerCase().includes(query, game.title.toUpperCase()))
   .slice(pagesVisited, pagesVisited + gamesPerPage)
   .map(game => {
     return(
