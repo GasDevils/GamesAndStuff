@@ -25,7 +25,7 @@ const Wishlist = (props) => {
     navigate(`../gameGallery/game/${gameid}`);
   }
 
-  setDisplayGames( 
+  useEffect( () => setDisplayGames( 
     Wish
     .filter(game=>game.title.toLowerCase().includes(query.toLowerCase()))
     .slice(pagesVisited, pagesVisited + gamesPerPage)
@@ -38,7 +38,7 @@ const Wishlist = (props) => {
         </tr>
       );
     })
-  );
+    ))[pageNumber];
 
   useEffect(() => {
     async function fetchData(){

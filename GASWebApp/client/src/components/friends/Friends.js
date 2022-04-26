@@ -13,12 +13,13 @@ import { UserContext } from '../../context/UserContext';
    const [displayFriends, setDisplayFriends] = useState([]);
    
    const gamesPerPage = 10;
+  
    const pagesVisited = pageNumber * gamesPerPage;
 
    const pageCount = Math.ceil(friends.length / gamesPerPage);
 
-   
-   setDisplayFriends( 
+
+   useEffect( () => setDisplayFriends( 
     friends
     .slice(pagesVisited, pagesVisited + gamesPerPage)
     .map(friend => {
@@ -29,7 +30,8 @@ import { UserContext } from '../../context/UserContext';
         </tr>
       );
     })
-  );
+  ))[pageNumber];
+
 
   useEffect(() => {
     const userID = gamer.userid;

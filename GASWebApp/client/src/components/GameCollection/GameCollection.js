@@ -25,7 +25,7 @@ const GameCollection = (props) => {
     navigate(`../gameGallery/game/${gameid}`);
   }
 
-  setDisplayGames( 
+  useEffect( () =>setDisplayGames( 
     collection
     .filter(game=>game.title.toLowerCase().includes(query.toLowerCase()))
     .slice(pagesVisited, pagesVisited + gamesPerPage)
@@ -38,8 +38,8 @@ const GameCollection = (props) => {
         </tr>
       );
     })
-  );
-  
+  ))[pageNumber];
+
   useEffect(() => {
     async function fetchData(){
       try{
