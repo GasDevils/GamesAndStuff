@@ -19,7 +19,7 @@ const Login = (props)=>{
                 "username": username, 
                 "password": password
             }).then(res => {
-            if(!res.data){
+            if(res.data.length !== 0){
                 setGamer(res.data[0]);
                 history('/gameGallery');
                 setloginErrors("")
