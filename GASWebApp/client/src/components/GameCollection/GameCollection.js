@@ -31,10 +31,10 @@ const GameCollection = (props) => {
         const response = await GameFinder.post('/owns',{
           "userid": gamer.userid
         });
-        console.log(response.data)
-        setCollection(response.data)
+        console.log(response.data.rows)
+        setCollection(response.data.rows)
         setDisplayGames( 
-          response.data
+          response.data.rows
           .filter(game=>game.title.toLowerCase().includes(query.toLowerCase()))
           .slice(pagesVisited, pagesVisited + gamesPerPage)
           .map(game => {
