@@ -7,14 +7,14 @@ import ReactPaginate from 'react-paginate';
 
 const GameCollection = () => {
     const {userid} = useParams();
-    const [collectionsGamer,setcollectionsGamer] = useState({}); 
-    const [selectedGames, setSelectedGames] = useState([]);
+    const [collectionsGamer,setcollectionsGamer] = useState([]); 
+    const [colGames, setcolGames] = useState([]);
     const [pageNumber, setPageNumber] = useState(0);
     
     const gamesPerPage = 10;
     const pagesVisited = pageNumber * gamesPerPage;
 
-    const displayGames =(selectedGames
+    const displayGames =(colGames
   .slice(pagesVisited, pagesVisited + gamesPerPage)
   .map(game => {
     return(
@@ -26,17 +26,17 @@ const GameCollection = () => {
     );
   }));
 
-  const pageCount = Math.ceil(selectedGames.length / gamesPerPage);
+  const pageCount = Math.ceil(colGames.length / gamesPerPage);
   const handlePageClick = ({selected}) =>{
     setPageNumber(selected);
-};
+  };
     useEffect(() => {
         async function fetchData(){
             try{
                 GameFinder.post('/user', {"id":userid}).then(res => {   
                     setcollectionsGamer(res.data[0]);
                     GameFinder.post('/owns', {"userid":userid}).then(res => {
-                        setSelectedGames(res.data);
+                        setcolGames(res.data);
                     }).catch(err => {
                         console.log(err);
                     });
@@ -52,36 +52,6 @@ const GameCollection = () => {
         fetchData();
     }, []);
 
-    const showGameDetails = () => {
-        if(gameid < 27076){
-            return(
-                <tr key={selectedGames.gameid}>
-                    <td><img src={selectedGames.imageurl} alt="game-logo"/></td>
-                    <td>{selectedGames.title}</td>
-                    <td>{selectedGames.platform}</td>
-                    <td>{selectedGames.releasedate}</td>
-                    <td>{selectedGames.publisher}</td>
-                    <td>{selectedGames.developer}</td>
-                    <td>{selectedGames.rating}</td>
-                    <td>{selectedGames.numusersrated}</td>
-                </tr>
-            );
-        }
-        if(gameid >= 27076){
-            return(
-            <tr key={selectedGames.gameid}>
-                <td><img src={selectedGames.imageurl} alt="game-logo"/></td>
-                <td>{selectedGames.title}</td>
-                <td>{selectedGames.minplayers}</td>
-                <td>{selectedGames.maxplayers}</td>
-                <td>{selectedGames.minage}</td>
-                <td>{selectedGames.releaseyear}</td>
-                <td>{selectedGames.rating}</td>
-                <td>{selectedGames.numusersrated}</td>
-            </tr>
-            );
-        }
-    }
 
     return(
         <div className="game-gallery">
