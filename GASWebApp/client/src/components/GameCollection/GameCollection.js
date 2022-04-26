@@ -1,12 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import GameFinder from "../../apis/GameFinder";
-import { GamesContext } from "../../context/GamesContext";
 import './gamecollection.css';
 import ReactPaginate from 'react-paginate';
 
 const GameCollection = () => {
-    const {userid} = useParams();
+    //const {gameid} = useParams();
+    
+    const {gamer, setGamer} = useContext(UserContext);
+    const userid = gamer.userid;
     const [collectionsGamer,setcollectionsGamer] = useState([]); 
     const [colGames, setcolGames] = useState([]);
     const [pageNumber, setPageNumber] = useState(0);

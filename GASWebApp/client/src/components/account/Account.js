@@ -58,7 +58,7 @@ const Account = () => {
                     </div>
                     
                     <ul className="data-user">
-                        <li onClick={navigate(`../collection/user/${userID}`)}><a><strong>Games</strong><span>{numGames}</span></a></li>
+                        <li><a><strong>Games</strong><span>{numGames}</span></a></li>
                         <li><a><strong>Wishlist</strong><span>{numWishlist}</span></a></li>
                         <li><a><strong>Friends</strong><span>{numFriends}</span></a></li>
                     </ul>
