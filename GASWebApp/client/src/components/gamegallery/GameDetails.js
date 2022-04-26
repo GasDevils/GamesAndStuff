@@ -12,8 +12,6 @@ const GameDetails = () => {
     const [isWish, setisWish] = useState(false);
     const {gamer} = useContext(UserContext);
     const gamerID = gamer.userid;
-    console.log(gamerID);
-    console.log(gamer);
     
     useEffect(() => {
         async function fetchData(){
@@ -42,12 +40,16 @@ const GameDetails = () => {
             "gameID":gameid
         }).then(res => {
             setisAdded(res.data[0])
+        }).catch(err => {
+            console.log(err);
         });
         GameFinder.post('/checkIfWishlist', {
             "userID":gamerID,
             "gameID":gameid
         }).then(res => {
             setisWish(res.data[0])
+        }).catch(err => {
+            console.log(err);
         });
     });
 
