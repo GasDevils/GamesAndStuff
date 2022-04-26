@@ -37,11 +37,11 @@ const getUserById = (request, response) => {
 const createUser = (request, response) => {
   const {username, password} = request.body
 
-  pool.query('INSERT INTO gamers (userID,username, password,dateCreated) VALUES (DEFAULT,$1, $2,DEFAULT) RETURNING USERID', [username, password], (error, results) => {
+  pool.query('INSERT INTO gamers (userID,username, password,dateCreated) VALUES (DEFAULT,$1, $2,DEFAULT) RETURNING USERID, USERNAME,dateCreated', [username, password], (error, results) => {
     if (error) {
       res.status(500).send('Error 500');
     }
-    response.status(201).send(`User added with ID: ${results.rows[0].userid}`)
+    response.status(200).json(results.rows)
   })
 }
 
