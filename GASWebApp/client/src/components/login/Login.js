@@ -11,7 +11,7 @@ const Login = (props)=>{
     const [loginErrors, setloginErrors] = useState('');
     const {setGamer} = useContext(UserContext);
     const history = useNavigate();
-   
+    setGamer({});
         
     const useHandleSubmit = (e) => {
         e.preventDefault();
