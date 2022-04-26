@@ -8,12 +8,13 @@ import './gamedetails.css';
 const GameDetails = () => {
     const {gameid} = useParams();
     const {selectedGames, setSelectedGames} = useContext(GamesContext);
-    const [isAdded, setisAdded] = useState();
-    const [isWish, setisWish] = useState();
+    const [isAdded, setisAdded] = useState(false);
+    const [isWish, setisWish] = useState(false);
     const [change, setChange] = useState(true);
     const {gamer} = useContext(UserContext);
     const gamerID = gamer.userid;
     
+    console.log("wish" + isWish + " added " + isAdded);
     useEffect(() => {
         async function fetchData(){
             try{
