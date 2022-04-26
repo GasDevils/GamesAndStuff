@@ -42,6 +42,7 @@ button {
   outline:none;
   color:#8a40ff;
   padding: 10px 30px;
+  transition: .5s;
 }
 
 button:hover{
@@ -109,12 +110,12 @@ button:hover{
               0 0 100px #8a40ff;
 }
 
-.login-box a span {
+button span {
   position: absolute;
   display: block;
 }
 
-.login-box a span:nth-child(1) {
+button span:nth-child(1) {
   top: 0;
   left: -100%;
   width: 100%;
@@ -132,7 +133,7 @@ button:hover{
   }
 }
 
-.login-box a span:nth-child(2) {
+button span:nth-child(2) {
   top: -100%;
   right: 0;
   width: 2px;
@@ -151,7 +152,7 @@ button:hover{
   }
 }
 
-.login-box a span:nth-child(3) {
+button span:nth-child(3) {
   bottom: 0;
   right: -100%;
   width: 100%;
@@ -170,7 +171,7 @@ button:hover{
   }
 }
 
-.login-box a span:nth-child(4) {
+button span:nth-child(4) {
   bottom: -100%;
   left: 0;
   width: 2px;
