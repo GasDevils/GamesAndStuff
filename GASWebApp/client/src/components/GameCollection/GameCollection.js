@@ -8,10 +8,12 @@ import ReactPaginate from 'react-paginate';
 const GameCollection = () => {
     const {userid} = useParams();
     const [collectionsGamer,setcollectionsGamer] = useState({}); 
-    const [selectedGames, setSelectedGames] = useState([]);
+    const [selectedGames, setSelectedGames] = useState({});
     const [pageNumber, setPageNumber] = useState(0);
+    
     const gamesPerPage = 10;
     const pagesVisited = pageNumber * gamesPerPage;
+
     const displayGames = selectedGames.length == 0 ? selectedGames : selectedGames
   .slice(pagesVisited, pagesVisited + gamesPerPage)
   .map(game => {
