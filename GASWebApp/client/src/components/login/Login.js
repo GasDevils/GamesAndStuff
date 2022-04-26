@@ -49,16 +49,13 @@ const Login = (props)=>{
 
             <div className="user-box">
             <center>
-                <a href="#">
-                    <center>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <button onSubmit = {useHandleSubmit}>Login</button>
-                    </center>
-                </a>
-
+                <center>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <button onSubmit = {useHandleSubmit}>Login</button>
+                </center>
             </center>
             </div>
             

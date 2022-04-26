@@ -23,7 +23,7 @@ const Navbar = ()=>{
               
           </h1>
           <div className="nav-list">
-            {gamer == {} &&
+            {!(gamer.userid > 0) &&
             <li><NavLink to="/" className="nav-link">Home</NavLink></li>
             }
             <li><NavLink to="/gameGallery" className="nav-link">Game Gallery</NavLink></li>
