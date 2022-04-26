@@ -3,12 +3,12 @@ import ReactPaginate from 'react-paginate';
 import _ from 'lodash';
 import './gamecollection.css'
 import GameFinder from '../../apis/GameFinder'
-import { GamesContext } from '../../context/GamesContext'
+import { CollectionContext } from '../../context/CollectionContext'
 import { UserContext } from '../../context/UserContext'
 import { useNavigate } from 'react-router-dom';
 
 const GameCollection = (props) => {
-  const{games, setGames} = useContext(GamesContext)
+  const{collection, setCollection} = useContext(CollectionContext)
   const [pageNumber, setPageNumber] = useState(0);
   const [query, setQuery] = useState('');
   const {gamer} = useContext(UserContext)  
@@ -16,7 +16,7 @@ const GameCollection = (props) => {
 
   const pagesVisited = pageNumber * gamesPerPage;
 
-  const displayGames = games
+  const displayGames = collection
   .filter(game=>game.title.toLowerCase().includes(query.toLowerCase()))
   .slice(pagesVisited, pagesVisited + gamesPerPage)
   .map(game => {
@@ -29,7 +29,7 @@ const GameCollection = (props) => {
     );
   });
 
-  const pageCount = Math.ceil(games.length / gamesPerPage);
+  const pageCount = Math.ceil(collection.length / gamesPerPage);
   
   let navigate = useNavigate();
   const handleGameSelect = (gameid) => {
@@ -42,7 +42,7 @@ const GameCollection = (props) => {
         const response = await GameFinder.post('/owns',{
           "userid": gamer.userid
         });
-        setGames(response.data)
+        setCollection(response.data)
         
       } catch(err){}
     }

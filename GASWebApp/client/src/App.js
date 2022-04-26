@@ -16,6 +16,8 @@ import { UserContext } from './context/UserContext';
 import GameDetails from './components/gamegallery/GameDetails';
 import Logout from './components/logout/Logout';
 import GameCollection from './components/GameCollection/GameCollection';
+import { CollectionContextProvider } from './context/CollectionContext';
+
 
 
 const App = () => {
@@ -30,6 +32,7 @@ const App = () => {
     <UserContext.Provider value={loggedInUser}>
     <FriendsContextProvider>
     <GamesContextProvider>
+      <CollectionContextProvider>
       <Router>
       <Navbar />
         <div className='App'>
@@ -47,9 +50,11 @@ const App = () => {
           </Routes>
         </div>
       </Router>
+      </CollectionContextProvider>
     </GamesContextProvider>
     </FriendsContextProvider>
     </UserContext.Provider>
+    
     
 );
 }
