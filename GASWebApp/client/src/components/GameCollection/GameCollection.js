@@ -17,8 +17,8 @@ const GameCollection = () => {
     const gamesPerPage = 10;
     const pagesVisited = pageNumber * gamesPerPage;
 
-    const displayGames =(colGames
-  .slice(pagesVisited, pagesVisited + gamesPerPage)
+    const displayGames =colGames
+  // .slice(pagesVisited, pagesVisited + gamesPerPage)
   .map(game => {
     return(
       <tr onClick={() => handleGameSelect(game.gameid)} key={game.gameid}>
@@ -27,7 +27,7 @@ const GameCollection = () => {
       <td>{game.rating}</td>
       </tr>
     );
-  }));
+  });
 
   const pageCount = Math.ceil(colGames.length / gamesPerPage);
   const handlePageClick = ({selected}) =>{
