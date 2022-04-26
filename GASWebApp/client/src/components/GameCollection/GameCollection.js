@@ -30,7 +30,7 @@ const GameCollection = () => {
     );
   });
 
-  const pageCount = Math.ceil(colGames.length / gamesPerPage);
+  const pageCount = Math.ceil(games.length / gamesPerPage);
   const handlePageClick = ({selected}) =>{
     setPageNumber(selected);
   };
