@@ -14,7 +14,7 @@ const GameCollection = () => {
     const gamesPerPage = 10;
     const pagesVisited = pageNumber * gamesPerPage;
 
-    const displayGames = selectedGames.length == 0 ? selectedGames : (selectedGames
+    const displayGames =(selectedGames
   .slice(pagesVisited, pagesVisited + gamesPerPage)
   .map(game => {
     return(
