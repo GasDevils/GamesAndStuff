@@ -32,7 +32,7 @@ const GameCollection = () => {
             try{
                 GameFinder.post('/user', {"id":userid}).then(res => {   
                     setcollectionsGamer(res.data[0]);
-                    GameFinder.post('owns', {"id":userid}).then(res => {
+                    GameFinder.post('/owns', {"userid":userid}).then(res => {
                         setSelectedGames(res.data);
                     }).catch(err => {
                         console.log(err);
