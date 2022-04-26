@@ -101,8 +101,8 @@ const deleteUser = (request, response) => {
 
 
 const addFriend = (request, response) => {
-    const id1 = parseInt(request.body.id1)
-    const id2 = parseInt(request.body.id2)
+    const id1 = parseInt(request.body.userid1)
+    const id2 = parseInt(request.body.userid2)
 
     pool.query('INSERT INTO friendswith (userid1, userid2, dateAdded) values ($1, $2, DEFAULT)', [id1, id2], (error, results) => {
         if (error) {
@@ -113,8 +113,8 @@ const addFriend = (request, response) => {
 }
 
 const removeFriend = (request, response) => {
-    const id1 = parseInt(request.body.id1)
-    const id2 = parseInt(request.body.id2)
+    const id1 = parseInt(request.body.userid1)
+    const id2 = parseInt(request.body.userid2)
 
     pool.query('DELETE FROM friendswith where userid1 = $1 AND userid2 = $2', [id1, id2], (error, results) => {
         if (error) {
@@ -149,7 +149,7 @@ const removeWishlist = (request, response) => {
 }
 
 const getWishlist = (request, response) => {
-    const id = parseInt(request.body.id)
+    const id = parseInt(request.body.userid)
     pool.query('SELECT * FROM wishlist w , game g WHERE userid = $1 AND w.gameID = g.gameID', [id], (error, results) => {
         if (error) {
             response.status(500).send('Error 500');
@@ -159,7 +159,7 @@ const getWishlist = (request, response) => {
 }
 
 const getCollection = (request, response) => {
-    const id = parseInt(request.body.id)
+    const id = parseInt(request.body.userid)
 
     pool.query('SELECT * FROM owns w,game g WHERE userid = $1 AND w.gameID = g.gameID', [id], (error, results) => {
         if (error) {
@@ -170,11 +170,11 @@ const getCollection = (request, response) => {
 }
 
 const addToCollection = (request, response) => {
-    const id = parseInt(request.body.id)
+    const id = parseInt(request.body.userid)
     const gameid = parseInt(request.body.gameid)
     const numcopies = parseInt(request.body.numcopies)
 
-    pool.query('INSERT INTO owns (id, gameid, numcopies) VALUES ($1, $2, $3)', [id, gameid, numcopies], (error, results) => {
+    pool.query('INSERT INTO owns (id, gameid, numcopies) VALUES ($1, $2, $3, DEFAULT)', [id, gameid, numcopies], (error, results) => {
         if (error) {
             response.status(500).send('Error 500');
         }
@@ -183,7 +183,7 @@ const addToCollection = (request, response) => {
 }
 
 const removeFromCollection = (request, response) => {
-    const id = parseInt(request.body.id)
+    const id = parseInt(request.body.userid)
     const gameid = parseInt(request.body.gameid)
 
     pool.query('DELETE FROM owns where userid = $1 and gameid = $2', [id, gameid], (error, results) => {
