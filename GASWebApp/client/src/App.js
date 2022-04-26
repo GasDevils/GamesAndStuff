@@ -14,6 +14,7 @@ import Footer from './components/footer/Footer';
 import { FriendsContextProvider } from './context/FriendsContext';
 import { UserContext } from './context/UserContext';
 import GameDetails from './components/gamegallery/GameDetails';
+import Logout from './components/login/Logout';
 
 
 const App = () => {
@@ -39,6 +40,7 @@ const App = () => {
             <Route path="/Signup" element={<Signup />} />
             <Route path="/notFound" element={<Notfound />} />
             <Route path="/gameGallery/game/:gameid" element={<GameDetails />} />
+            <Route path='/LogOut' element={<Logout />} />
             <Route path="*" element={<Notfound />} />
           </Routes>
         </div>

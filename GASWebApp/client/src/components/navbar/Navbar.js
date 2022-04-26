@@ -34,7 +34,7 @@ const Navbar = ()=>{
             <li><NavLink to="/Account" className="nav-link">Account</NavLink></li>
             }
             {gamer.userid > 0 &&
-            <li><NavLink to="/" className="nav-link">Log Out</NavLink></li>
+            <li><NavLink to="/LogOut" className="nav-link">Log Out</NavLink></li>
             }
           </div>
           
