@@ -1,17 +1,19 @@
-import React from 'react'
+import React, { useContext} from 'react'
 //import { RiMenu3Line, RiCloseLin } from 'react-icons/ri';
 
 //import logo from '../../assets/logo.png'
 
 import './navbar.css';
 import {NavLink} from 'react-router-dom';
+import { UserContext } from '../../context/UserContext';
+
 
 const Navbar = ()=>{
+  const {gamer} = useContext(UserContext);
+
   return(
     <div className="bg-background">
       <nav>
-      
-
         <div className="container">
           <h1 className="gradient shimmer">
               
@@ -21,10 +23,14 @@ const Navbar = ()=>{
               
           </h1>
           <div className="nav-list">
-            <li><NavLink to="/" className="nav-link">Home</NavLink></li>
+            <li><NavLink to="/" className="nav-link">{gamer.userid > 0 ? 'Log Out' : 'Home'}</NavLink></li>
             <li><NavLink to="/gameGallery" className="nav-link">Game Gallery</NavLink></li>
+            {gamer.userid > 0 &&
             <li><NavLink to="/Friends" className="nav-link">Friends</NavLink></li>
+            }
+            {gamer.userid > 0 &&
             <li><NavLink to="/Account" className="nav-link">Account</NavLink></li>
+            }
           </div>
           
 

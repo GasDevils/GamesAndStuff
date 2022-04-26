@@ -63,6 +63,7 @@ const Login = (props)=>{
             <center>
             <p style={{color:"white"}}>Don't have an account?</p>
             <li><NavLink to="/Signup" className="nav-link">Sign up here</NavLink></li>
+            <p style={{color:"red"}}>{loginErrors}</p>
             </center>
 
 
