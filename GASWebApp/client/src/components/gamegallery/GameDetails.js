@@ -8,8 +8,8 @@ import './gamedetails.css';
 const GameDetails = () => {
     const {gameid} = useParams();
     const {selectedGames, setSelectedGames} = useContext(GamesContext);
-    const {isAdded, setisAdded} = useState(false);
-    const {isWish, setisWish} = useState(false);
+    const [isAdded, setisAdded] = useState(false);
+    const [isWish, setisWish] = useState(false);
     const {gamer} = useContext(UserContext);
     const gamerID = gamer.userid;
     
