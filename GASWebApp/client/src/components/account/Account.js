@@ -3,7 +3,7 @@ import Navbar from '../navbar/Navbar'
 import './account.css'
 import GameFinder from '../../apis/GameFinder'
 import { UserContext } from '../../context/UserContext';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate, NavLink, useNavigate } from 'react-router-dom';
 
 const Account = () => {
     const {gamer} = useContext(UserContext);
@@ -57,7 +57,7 @@ const Account = () => {
                     </div>
                     
                     <ul className="data-user">
-                        <li><a onClick={navigate('/collection/user/${gamer.userid}')}><strong>Games</strong><span>{numGames}</span></a></li>
+                        <li><a onClick = {navigate('../collection/user/${userID}')}><strong>Games</strong><span>{numGames}</span></a></li>
                         <li><a><strong>Wishlist</strong><span>{numWishlist}</span></a></li>
                         <li><a><strong>Friends</strong><span>{numFriends}</span></a></li>
                     </ul>
