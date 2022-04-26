@@ -12,12 +12,13 @@ import { UserContext } from '../../context/UserContext';
    const [friends, setFriends] = useState([]);
    const [displayFriends, setDisplayFriends] = useState([]);
    const [pageNumber, setPageNumber] = useState(0);
-   const [pageChange, setPageChange] = useState(false);
+   const [pageCount, setpageCount] = useState(0);
+   const [pageVisited, setpageVisited] = useState(0);
    
    
    const gamesPerPage = 10;
   
-   const pagesVisited = pageNumber * gamesPerPage;
+   setpageVisited(pageNumber * gamesPerPage);
 
    
   
@@ -30,6 +31,8 @@ import { UserContext } from '../../context/UserContext';
         });
         console.log(response);//use response.data to get friends userid2 and dateadded are relevant
         setFriends(response.data.rows);
+        setpageCount(Math.ceil(friends.length / gamesPerPage));
+        setpageVisited(pageNumber * gamesPerPage);
       }catch(err){
       }
     }
@@ -47,16 +50,16 @@ import { UserContext } from '../../context/UserContext';
         </tr>
       );
     })
-  ),[pagesVisited]);
+  ),[pageVisited]);
 
-  const pageCount = Math.ceil(friends.length / gamesPerPage);
+  
 
 
 // Pagination
 
 const handlePageClick = ({selected}) =>{
   setPageNumber(selected);
-
+  setpageVisited(pageNumber * gamesPerPage);
 };
 
  return(
@@ -72,8 +75,6 @@ const handlePageClick = ({selected}) =>{
           </thead>
           <tbody>
              {displayFriends}
-          
-
             {/* <tr>
               <td><img src="https://cf.geekdo-images.com/micro/img/uhYn0Xn8TZ1vzVfyi4VO1UfNTII=/fit-in/64x64/pic347837.jpg" alt="game-logo"/></td>
               <td>Risk (Revised Edition)</td>

@@ -33,8 +33,7 @@ const GameCollection = (props) => {
         });
         console.log(response.data.rows)
         setCollection(response.data.rows)
-       
-        
+      
       } catch(err){}
     }
     fetchData();
@@ -56,7 +55,7 @@ const GameCollection = (props) => {
   ),[pagesVisited]);
 
   const pageCount = Math.ceil(collection.length / gamesPerPage);
-  
+
   // Pagination
 
   const handlePageClick = ({selected}) =>{
