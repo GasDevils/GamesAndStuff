@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 const GameGallery = (props) => {
   const{games, setGames} = useContext(GamesContext)
   const [pageNumber, setPageNumber] = useState(0);
-  const [sorting, setSorting] = useState({field: "", order: ""});
+  const [query, setQuery] = useState('');
   
   const gamesPerPage = 10;
 
@@ -53,7 +53,7 @@ const GameGallery = (props) => {
   };
   //////////////////////////////////////////////////////////////////////////////
   // Searching state
-  const [query, setQuery] = useState('');
+  
     return(
       <div className="game-gallery">
       <div className="container">
