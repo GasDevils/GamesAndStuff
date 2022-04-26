@@ -37,13 +37,13 @@ const GameDetails = () => {
         //check if game is already in collection
         GameFinder.post('/checkIfOwned', {
             "userID":gamerID,
-            "gameid":gameID
+            "gameid":gameid
         }).then(res => {
             setisAdded(res.data[0])
         });
         GameFinder.post('/checkIfWishlist', {
             "userID":gamerID,
-            "gameid":gameID
+            "gameid":gameid
         }).then(res => {
             setisWish(res.data[0])
         });
