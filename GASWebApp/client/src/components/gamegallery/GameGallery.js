@@ -56,7 +56,9 @@ const GameGallery = (props) => {
   
     return(
       <div className="game-gallery">
+        <center>
         <input type="text" placeholder="Search for a game..." className="search" onChange={e=> setQuery(e.target.value)}/>  
+        </center>
       <div className="container">
         <div className="list-group">
           <table className="table table-hover table-dark">
