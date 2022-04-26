@@ -121,25 +121,25 @@ const GameDetails = () => {
 
     const handleCollectionAdd = async () => {
         //add to collection
-        GameFinder.post('/addToCollection', {"gameid": gameid, "userid": gamerID, numCopies: 1});
+        GameFinder.post('/addToCollection', {"gameID": gameid, "userID": gamerID, numCopies: 1});
         //change button to remove from collection
         setisAdded(true);
     }
     const handleRemoveCollection = async () => {
         //add to collection
-        GameFinder.delete('/removeFromCollection', {"gameid": gameid, "userid": gamerID});
+        GameFinder.delete('/removeFromCollection', {"gameID": gameid, "userID": gamerID});
         //change button to remove from collection
         setisAdded(false);
     }
     const handlewishlistAdd = async () => {
         //add to collection
-        GameFinder.post('/addWishlist', {"gameid": gameid, "userid": gamerID});
+        GameFinder.post('/addWishlist', {"gameID": gameid, "userID": gamerID});
         //change button to remove from collection
         setisWish(true);
     }
     const handleRemoveWish = async () => {
         //add to collection
-        GameFinder.delete('/removeWishlist', {"gameid": gameid, "userid": gamerID});
+        GameFinder.delete('/removeWishlist', {"gameID": gameid, "userID": gamerID});
         //change button to remove from collection
         ssetisWish(false);
     }
@@ -160,10 +160,10 @@ const GameDetails = () => {
             </tbody>
           </table> 
 {(gamer.userid > 0) &&
-          <button onClick={!isAdded ? handleRemoveCollection : handleCollectionAdd}>{isAdded ? 'Remove':'Add'} to Collection</button>
+          <button onClick={!isAdded ? handleRemoveCollection : handleCollectionAdd}>{!isAdded ? 'Remove':'Add'} to Collection</button>
 }
 {(gamer.userid > 0) &&
-          <button onClick={!isWish ? handleRemoveWish : handlewishlistAdd}>{isWish ? 'Remove':'Add'} to Wishlist</button>
+          <button onClick={!isWish ? handleRemoveWish : handlewishlistAdd}>{!isWish ? 'Remove':'Add'} to Wishlist</button>
 }
         </div>    
       </div>
