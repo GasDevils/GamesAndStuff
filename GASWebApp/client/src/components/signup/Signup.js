@@ -14,20 +14,26 @@ const Signup = (props)=>{
 
     const useHandleSubmit = (e) => {
         e.preventDefault();
-            GameFinder.post('/getUserInfoByUsername',{
+            GameFinder.post('/getUserInfoByUsername',{//check if username exists
                 "username": username
             }).then(res => {
                 if(res.data.length !== 0){
                     setregisterErrors("Username already exists");
                     console.log(registerErrors);
                 }else{
-                    GameFinder.put('/createUser', {
+                    GameFinder.put('/createUser', {//create new user
                         "username": username, 
                         "password": password
                     }).then(res => {
-                    setGamer(res.data[0]);
-                    history('/gameGallery');//if successful login redirect to gameGallery
-                })
+                        GameFinder.post('/getUserInfoByUsername',{//get user info for context
+                            "username": username
+                        }).then(res => {
+                            setGamer(res.data[0]);
+                            history('/gameGallery');//if successful login redirect to gameGallery
+                        })
+                    }).catch(err => {
+                        console.log(err);
+                    });
             }}).catch(err => {
                 console.log(err)
             });
