@@ -10,13 +10,13 @@ const Logout = (props)=>{
     const useHandleSubmit = (e) => {
         e.preventDefault();
         setGamer({});
-        history('/gameGallery');
+        history('/');
     }
 
     return(
     <div className="login-box">
-    <h2>See ya later G.A.S. User!</h2>
-    <h2>Sign Out to your account.</h2>
+    <h2>See ya later Gamer!</h2>
+    <h2>Sign out from your account.</h2>
             <center>
                 <center>
                 <span></span>
