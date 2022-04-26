@@ -49,6 +49,11 @@ import { UserContext } from '../../context/UserContext';
     fetchData();
   },[])
 
+// Pagination
+
+const handlePageClick = ({selected}) =>{
+  setPageNumber(selected);
+};
 
  return(
     <div className="friends">
@@ -74,6 +79,20 @@ import { UserContext } from '../../context/UserContext';
         </table> 
       </div>  
     </div>
+    <ReactPaginate
+        previousLabel={'<'}
+        nextLabel={'>'}
+        breakLabel={'...'}
+        pageCount={pageCount}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={5}
+        onPageChange={handlePageClick}
+        containerClassName={'paginationBttns'}
+        previousLinkClassName={'previousBttn'}
+        nextLIinkClassName={'nextBttn'}
+        disabledClassName={'paginationDisabled'}
+        activeClassName={'paginationActive'}
+        /> 
     </div>);  
 }
 
