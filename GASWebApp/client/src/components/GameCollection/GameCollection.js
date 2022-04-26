@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import GameFinder from "../../apis/GameFinder";
 import './gamecollection.css';
 import ReactPaginate from 'react-paginate';
+import { UserContext } from "../../context/UserContext";
 
 const GameCollection = () => {
     //const {gameid} = useParams();
