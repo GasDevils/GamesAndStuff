@@ -25,7 +25,7 @@ const Logout = (props)=>{
                 <span></span>
                 <span></span>
                 <span></span>
-                <button onSubmit = {useHandleSubmit}>Logout</button>
+                <button onClick={useHandleSubmit}>Logout</button>
                 </center>
             </center>
     </div>)
