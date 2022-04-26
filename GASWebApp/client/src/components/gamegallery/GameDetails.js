@@ -121,19 +121,19 @@ const GameDetails = () => {
 
     const handleCollectionAdd = async () => {
         //add to collection
-        GameFinder.post('/addToCollection', {"userID": gamerID,"gameid": gameid,  numcopies: 1});
+        GameFinder.post('/addToCollection', {"userID":gamerID,"gameid":gameid, "numcopies":1});
         //change button to remove from collection
         setisAdded(true);
     }
     const handleRemoveCollection = async () => {
         //add to collection
-        GameFinder.delete('/removeFromCollection', {"userid": gamerID, "gameid": gameid });
+        GameFinder.delete('/removeFromCollection', {"userid":gamerID, "gameid":gameid });
         //change button to remove from collection
         setisAdded(false);
     }
     const handlewishlistAdd = async () => {
         //add to collection
-        GameFinder.post('/addWishlist', {"userid": gamerID,"gameid": gameid });
+        GameFinder.post('/addWishlist', {"userid":gamerID,"gameid":gameid });
         //change button to remove from collection
         setisWish(true);
     }
@@ -141,7 +141,7 @@ const GameDetails = () => {
         //add to collection
         GameFinder.delete('/removeWishlist', {"userid": gamerID, "gameid": gameid});
         //change button to remove from collection
-        ssetisWish(false);
+        setisWish(false);
     }
 
 
