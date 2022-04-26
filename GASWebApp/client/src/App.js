@@ -18,7 +18,7 @@ import Logout from './components/logout/Logout';
 import GameCollection from './components/GameCollection/GameCollection';
 import { CollectionContextProvider } from './context/CollectionContext';
 import { WishContextProvider } from './context/WishContext';
-import {Wishlist} from './components/wishlist/Wishlist';
+import {Wishlist} from './components/Wishlist/Wishlist';
 
 
 const App = () => {
