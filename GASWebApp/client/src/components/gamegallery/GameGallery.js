@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 const GameGallery = (props) => {
   const{games, setGames} = useContext(GamesContext)
   const [pageNumber, setPageNumber] = useState(0);
+  const [sorting, setSorting] = useState({field: "", order: ""});
   
   const gamesPerPage = 10;
 
@@ -16,6 +17,7 @@ const GameGallery = (props) => {
 
   const displayGames = games
   .slice(pagesVisited, pagesVisited + gamesPerPage)
+  .filter(game=>game.title.toLowerCase().includes(query))
   .map(game => {
     return(
       <tr onClick={() => handleGameSelect(game.gameid)} key={game.gameid}>
@@ -50,9 +52,12 @@ const GameGallery = (props) => {
       setPageNumber(selected);
   };
   //////////////////////////////////////////////////////////////////////////////
+  // Searching state
+  const [query, setQuery] = useState('');
     return(
       <div className="game-gallery">
       <div className="container">
+        <input type="text" placeholder="Search for a game..." className="search" onChange={e=> setQuery(e.target.value)}/>
         <div className="list-group">
           <table className="table table-hover table-dark">
             <thead>
