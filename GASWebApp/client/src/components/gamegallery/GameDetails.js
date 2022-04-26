@@ -35,10 +35,16 @@ const GameDetails = () => {
 
     useEffect(() => {
         //check if game is already in collection
-        GameFinder.post('/checkIfOwned', {gamerID,gameid}).then(res => {
+        GameFinder.post('/checkIfOwned', {
+            "userID":gamerID,
+            "gameid":gameID
+        }).then(res => {
             setisAdded(res.data[0])
         });
-        GameFinder.post('/checkIfWishlist', {gamerID,gameid}).then(res => {
+        GameFinder.post('/checkIfWishlist', {
+            "userID":gamerID,
+            "gameid":gameID
+        }).then(res => {
             setisWish(res.data[0])
         });
     });
