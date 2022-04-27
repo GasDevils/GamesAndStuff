@@ -71,7 +71,7 @@ const GameDetails = () => {
             }
         }
         fetchData();
-    });
+    },[]);
 
     // const tagList = tags.map((item,index) => 
     //                          <div key={index}>{item}</div>
