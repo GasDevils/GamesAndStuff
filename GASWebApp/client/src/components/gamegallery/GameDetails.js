@@ -10,7 +10,6 @@ const GameDetails = () => {
     const {selectedGames, setSelectedGames} = useContext(GamesContext);
     const [isAdded, setisAdded] = useState(false);
     const [isWish, setisWish] = useState(false);
-    const [change, setChange] = useState(true);
     const {gamer} = useContext(UserContext);
     const gamerID = gamer.userid;
     
@@ -40,7 +39,6 @@ const GameDetails = () => {
                 "userID":gamerID,
                 "gameID":gameid
             }).then(res => {
-         
                 setisAdded(res.data[0].exists)
             }).catch(err => {
                 console.log(err);
@@ -54,10 +52,10 @@ const GameDetails = () => {
             }).catch(err => {
                 console.log(err);
             });
-            setChange(false);
+            
         }
         fetchBooleans();
-    }, [change]);
+    }, []);
 
     const gameColumns = () => {
         if(selectedGames.gameid < 27076){
@@ -128,28 +126,27 @@ const GameDetails = () => {
         GameFinder.post('/addToCollection', {"userid":gamerID,"gameid":gameid, "numcopies":1});
         //change button to remove from collection
         setisAdded(true);
-        setChange(true);
+      
     }
     const handleRemoveCollection = async () => {
         //add to collection
         GameFinder.delete('/removeFromCollection', {"userid":gamerID, "gameid":gameid });
         //change button to remove from collection
         setisAdded(false);
-        setChange(true);
+        
     }
     const handlewishlistAdd = async () => {
         //add to collection
         GameFinder.post('/addWishlist', {"userid":gamerID,"gameid":gameid });
         //change button to remove from collection
         setisWish(true);
-        setChange(true);
+      
     }
     const handleRemoveWish = async () => {
         //add to collection
         GameFinder.delete('/removeWishlist', {"userid": gamerID, "gameid": gameid});
         //change button to remove from collection
         setisWish(false);
-        setChange(true);
     }
 
 
