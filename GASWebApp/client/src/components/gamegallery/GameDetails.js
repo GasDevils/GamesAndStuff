@@ -59,14 +59,13 @@ const GameDetails = () => {
     }, []);
 
     useEffect( () => {
-            try{
-                const response = await GameFinder.post('/getTagsByID', {
+                 GameFinder.post('/getTagsByID', {
                     "gameid": gameid
-                });
+                }).then(res => {
                 setTags(response.data);
-            }catch{
+                }).catch(err => {
                 console.log(err);
-            }
+                })
     },[]);
 
     const tagList = tags.map((item,index) => 
@@ -103,7 +102,7 @@ const GameDetails = () => {
             );
         }
     }
-    //let me love you
+ 
     const showGameDetails = () => {
         if(gameid < 27076){
             return(
