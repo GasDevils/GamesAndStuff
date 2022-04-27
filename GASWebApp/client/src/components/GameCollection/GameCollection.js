@@ -15,8 +15,6 @@ const GameCollection = (props) => {
   const gamesPerPage = 10;
   const [displayGames, setDisplayGames] = useState([])
 
-  const pagesVisited = -1;
-  
 
   
   
@@ -33,12 +31,12 @@ const GameCollection = (props) => {
         });
         console.log(response.data.rows)
         setCollection(response.data.rows)
-        pagesVisited = pageNumber * gamesPerPage;
+        pagesVisited = -1;
       } catch(err){}
     }
     fetchData();
   }, []);
-
+  const pagesVisited = pageNumber * gamesPerPage;
   useEffect( () =>setDisplayGames( 
     collection
     .filter(game=>game.title.toLowerCase().includes(query.toLowerCase()))
