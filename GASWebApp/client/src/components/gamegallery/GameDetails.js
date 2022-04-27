@@ -49,7 +49,6 @@ const GameDetails = () => {
                     "userID":gamerID,
                     "gameID":gameid
                 }).then(res => {
-            
                     setisWish(res.data[0].exists)
                 }).catch(err => {
                     console.log(err);
@@ -74,8 +73,8 @@ const GameDetails = () => {
         fetchData();
     });
 
-    const tagList = tags.map((item) => 
-                             <div>{item}</div>
+    const tagList = tags.map((item,index) => 
+                             <div keys={index}>{item}</div>
                            );
 
     const gameColumns = () => {
