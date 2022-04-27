@@ -15,7 +15,7 @@ const Wishlist = (props) => {
   const gamesPerPage = 10;
   const [displayGames, setDisplayGames] = useState([])
   
-  const pagesVisited = pageNumber * gamesPerPage;
+  const pagesVisited = -1;
   
   let navigate = useNavigate();
   const handleGameSelect = (gameid) => {

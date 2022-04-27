@@ -17,7 +17,7 @@ import { UserContext } from '../../context/UserContext';
    
    const gamesPerPage = 10;
   
-   const pagesVisited = pageNumber * gamesPerPage;
+   const pagesVisited = -1;
 
    
   
