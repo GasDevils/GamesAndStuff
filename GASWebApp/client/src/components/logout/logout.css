@@ -10,14 +10,13 @@ body {
 
 
 .login-box {
-  font-family: sans-serif;
   position: absolute;
   top: 50%;
   left: 50%;
   width: 400px;
   padding: 40px;
   transform: translate(-50%, -50%);
-  background: #1f1e23;
+  background: #000000;
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0,0,0,.6);
   border-radius: 10px;
@@ -37,14 +36,12 @@ body {
 button {
   background-color: Transparent;
   background-repeat:no-repeat;
-  font-size: 16px;
   border: none;
   cursor:pointer;
   overflow: hidden;
   outline:none;
   color:#8a40ff;
   padding: 10px 30px;
-  transition: .5s;
 }
 
 button:hover{
@@ -112,12 +109,12 @@ button:hover{
               0 0 100px #8a40ff;
 }
 
-button span {
+.login-box a span {
   position: absolute;
   display: block;
 }
 
-button span:nth-child(1) {
+.login-box a span:nth-child(1) {
   top: 0;
   left: -100%;
   width: 100%;
@@ -135,7 +132,7 @@ button span:nth-child(1) {
   }
 }
 
-button span:nth-child(2) {
+.login-box a span:nth-child(2) {
   top: -100%;
   right: 0;
   width: 2px;
@@ -154,7 +151,7 @@ button span:nth-child(2) {
   }
 }
 
-button span:nth-child(3) {
+.login-box a span:nth-child(3) {
   bottom: 0;
   right: -100%;
   width: 100%;
@@ -173,7 +170,7 @@ button span:nth-child(3) {
   }
 }
 
-button span:nth-child(4) {
+.login-box a span:nth-child(4) {
   bottom: -100%;
   left: 0;
   width: 2px;

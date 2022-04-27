@@ -2,23 +2,25 @@ import React, {useState, useContext, useEffect} from 'react'
 import ReactPaginate from 'react-paginate';
 import _ from 'lodash';
 import './gamegallery.css'
-import Game from '../../components/game/Game'
 import GameFinder from '../../apis/GameFinder'
 import { GamesContext } from '../../context/GamesContext'
+import { useNavigate } from 'react-router-dom';
 
 const GameGallery = (props) => {
   const{games, setGames} = useContext(GamesContext)
   const [pageNumber, setPageNumber] = useState(0);
+  const [query, setQuery] = useState('');
   
   const gamesPerPage = 10;
 
   const pagesVisited = pageNumber * gamesPerPage;
 
   const displayGames = games
+  .filter(game=>game.title.toLowerCase().includes(query.toLowerCase()))
   .slice(pagesVisited, pagesVisited + gamesPerPage)
   .map(game => {
     return(
-      <tr key={game.gameid}>
+      <tr onClick={() => handleGameSelect(game.gameid)} key={game.gameid}>
       <td><img src={game.imageurl} alt="game-logo"/></td>
       <td>{game.title}</td>
       <td>{game.rating}</td>
@@ -27,7 +29,12 @@ const GameGallery = (props) => {
   });
 
   const pageCount = Math.ceil(games.length / gamesPerPage);
-  //const gamesToShow = _.slice(games, pagesVisited, pagesVisited + gamesPerPage);
+  
+  let navigate = useNavigate();
+  const handleGameSelect = (gameid) => {
+    navigate(`../gameGallery/game/${gameid}`);
+  }
+
   useEffect(() => {
     async function fetchData(){
       try{
@@ -45,8 +52,13 @@ const GameGallery = (props) => {
       setPageNumber(selected);
   };
   //////////////////////////////////////////////////////////////////////////////
+  // Searching state
+  
     return(
       <div className="game-gallery">
+        <center>
+        <input type="text" placeholder="Search for a game..." className="search" onChange={e=> setQuery(e.target.value)}/>  
+        </center>
       <div className="container">
         <div className="list-group">
           <table className="table table-hover table-dark">
@@ -88,6 +100,7 @@ const GameGallery = (props) => {
 
 export default GameGallery;
 
+
 /* <head>
       <card>
         <table>
@@ -128,40 +141,11 @@ export default GameGallery;
                 <input className='query' value='' type="text" placeholder=' e.g. survival, fantasy'
                       title='Enter keywords here'></input>
 
-<<<<<<< Updated upstream
     </card>
     </head>
 </div>
     );
 }
-=======
-              </td>
-              <td>&nbsp;&nbsp;&nbsp;</td>
-              <td>
-                <select className='locRadius' title='Enter the location radius to search on'>
-                  <option value=""selected="selected">None</option>
-                  <option value="0-10">0-10</option>
-                  <option value="10-30">10-30</option>
-                  <option value="40-50">40-50</option>
-                  <option value="60-70">60-70</option>
-                  <option value="70-80">70-80</option>
-                  <option value="90-100">90-100</option>
-                </select>
-              </td>
-              <td>&nbsp;&nbsp;&nbsp;</td>
-              <td>
-                <select className='locRadius' title='Enter the location radius to search on'>
-                  <option value=""selected="selected">All</option>
-                  <option value="Tabletop">Tabletop</option>
-                  <option value="Video Game">Video Game</option>
-                </select>
-              </td>
-            </tr>
-          </table>
-          <table>
-          </table>
-        </div>
->>>>>>> Stashed changes
 
         <form>
           <table>
