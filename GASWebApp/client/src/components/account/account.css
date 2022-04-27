@@ -146,7 +146,55 @@
   .profile-user-page .data-user li a:hover span {
     color: #3498db; 
   }
+
+
+
+
+
+
+
+  .profile-user-page .data-user li:first-child nav-link {
+    border-bottom-left-radius: 0.3rem; 
+    }
+  .profile-user-page .data-user li:last-child nav-link {
+    border-bottom-right-radius: 0.3rem; 
+  }
+  .profile-user-page .data-user li nav-link, .profile-user-page .data-user li strong {
+    display: block; 
+  }
+  .profile-user-page .data-user li nav-link {
+    background-color: #000000;
+    border-top: 1px solid rgba(242,242,242,0.5);
+    border-bottom: .2em solid #f7f7f7;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.4),0 1px 1px rgba(255,255,255,0.4);
+    padding: .93em 0;
+    color: #46494c; 
+  }
+  .profile-user-page .data-user li nav-link strong, .profile-user-page .data-user li nav-link span {
+    font-weight: 600;
+    line-height: 1; 
+  }
+  .profile-user-page .data-user li nav-link strong {
+    font-size: 2em; 
+  }
+  .profile-user-page .data-user li nav-link span {
+    color: #717a7e; 
+  }
+  .profile-user-page .data-user li nav-link:hover {
+    background: rgba(0, 0, 0, 0.05);
+    border-bottom: .2em solid #3498db;
+    color: #3498db; 
+  }
+  .profile-user-page .data-user li nav-link:hover span {
+    color: #3498db; 
+  }
   
+
+
+
+
+
+
   footer h4 {
     display: block;
     text-align: center;

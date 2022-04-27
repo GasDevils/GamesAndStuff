@@ -58,8 +58,10 @@ const Account = () => {
                     </div>
                     
                     <ul className="data-user">
-                        <li><a href="https://gasgames.tk/collection/user/"><strong>Games</strong><span>{numGames}</span></a></li>
-                        <li><a href="https://gasgames.tk/wishlist/user/"><strong>Wishlist</strong><span>{numWishlist}</span></a></li>
+                        {/*<li><a href="https://gasgames.tk/collection/user/"><strong>Games</strong><span>{numGames}</span></a></li>
+                        <li><a href="https://gasgames.tk/wishlist/user/"><strong>Wishlist</strong><span>{numWishlist}</span></a></li>*/}
+                        <li><NavLink to="/collection/user/" className="nav-link"><strong>Games</strong><span>{numGames}</span></NavLink></li>
+                        <li><NavLink to="wishlist/user/" className="nav-link"><strong>Wishlist</strong><span>{numWishlist}</span></NavLink></li>
                         {/*<li><a><strong>Friends</strong><span>{numFriends}</span></a></li>*/}
                     </ul>
                 </div>
