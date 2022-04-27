@@ -12,6 +12,7 @@ const GameDetails = () => {
     const [isWish, setisWish] = useState(false);
     const {gamer} = useContext(UserContext);
     const gamerID = gamer.userid;
+    const [tags, setTags] = useState([]);
     
     useEffect(() => {
         async function fetchData(){
@@ -57,6 +58,25 @@ const GameDetails = () => {
         }
         fetchBooleans();
     }, []);
+
+    useEffect( () => {
+        async function fetchData(){
+            try{
+                const response = await GameFinder.post('/getTagsByID', {
+                    "gameid": gameid
+                });
+                //console.log(response.data[0]);
+                setTags(response.data);
+            }catch{
+                console.log(err);
+            }
+        }
+        fetchData();
+    });
+
+    const tagList = itemList.map((item) => 
+                             <div>{item}</div>
+                           );
 
     const gameColumns = () => {
         if(selectedGames.gameid < 27076){
@@ -173,12 +193,14 @@ const GameDetails = () => {
 
             </tbody>
           </table> 
+          {tagList}
 {(gamer.userid > 0) &&
           <button onClick={isAdded ? handleRemoveCollection : handleCollectionAdd} className="addButton">{isAdded ? 'Remove from':'Add to'} Collection</button>
 }
 {(gamer.userid > 0) &&
           <button onClick={isWish ? handleRemoveWish : handlewishlistAdd} className="addButton">{isWish ? 'Remove from':'Add to'} Wishlist</button>
 }
+            
         </div>    
       </div>
     </div>    

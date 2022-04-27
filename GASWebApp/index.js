@@ -196,6 +196,8 @@ app.post('/api/checkIfOwned', db.checkIfOwned)
 app.post('/api/checkIfWishlist', db.checkIfWishList)
 app.post('/api/checkIfFriends', db.checkIfFriends)
 
+app.post('/api/getTagsByID', db.getTagsByID)
+
 app.get('/', (req, res) => res.send('this is an update'));
 app.listen(port);
 

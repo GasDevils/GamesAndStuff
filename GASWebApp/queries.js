@@ -549,8 +549,20 @@ return;
     })
 }
 
+const getTagsByID = (request, response) => {
+    const gameid = parseInt(request.body.gameid)
+    pool.query('SELECT tag FROM tags t, hasDescription h where h.gameid = $1 AND h.tagID = t.tagID ', [gameid], (error, results) => {
+        if (error) {
+            response.status(500).send('Error 500');
+            return;
+        }
+        response.status(200).json(results.rows);
+    })
+}
+
 
 module.exports = {
+  getTagsByID,
   getUsers,
   getUserById,
   createUser,
