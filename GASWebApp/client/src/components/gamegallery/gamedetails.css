@@ -1,8 +1,10 @@
 .addButton{
     align-items: center;
+    text-align: center;
+    margin: auto;
+    font-weight: bold;
     width: 200px;
     padding: 20px 20px;
     color: white;
     background-color: #1f1e23;
-    border: 2px solid #8a40ff;
 }
