@@ -33,7 +33,7 @@ const GameCollection = (props) => {
         });
         console.log(response.data.rows)
         setCollection(response.data.rows)
-      
+        pagesVisited = pageNumber * gamesPerPage;
       } catch(err){}
     }
     fetchData();
@@ -60,6 +60,7 @@ const GameCollection = (props) => {
 
   const handlePageClick = ({selected}) =>{
       setPageNumber(selected);
+      set
   };
   //////////////////////////////////////////////////////////////////////////////
   // Searching state

@@ -15,7 +15,7 @@ const Wishlist = (props) => {
   const gamesPerPage = 10;
   const [displayGames, setDisplayGames] = useState([])
 
- 
+  const pagesVisited = pageNumber * gamesPerPage;
   
   let navigate = useNavigate();
   const handleGameSelect = (gameid) => {
@@ -30,12 +30,13 @@ const Wishlist = (props) => {
         });
         console.log(response.data.rows)
         setWish(response.data.rows)
+        pagesVisited = pageNumber * gamesPerPage;
       } catch(err){}
     }
     fetchData();
   }, []);
 
-  const pagesVisited = pageNumber * gamesPerPage;
+  
 
   const pageCount = Math.ceil(Wish.length / gamesPerPage);
   useEffect( () => setDisplayGames( 
@@ -51,7 +52,7 @@ const Wishlist = (props) => {
         </tr>
       );
     })
-    ),[pagesVisited]);
+    ),[pageNumber]);
 
   
 
