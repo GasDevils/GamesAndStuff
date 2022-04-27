@@ -34,25 +34,26 @@ const GameDetails = () => {
 
     useEffect(() => {
         async function fetchBooleans(){
+            if(gamerID > 0){
             //check if game is already in collection
-            GameFinder.post('/checkIfOwned', {
-                "userID":gamerID,
-                "gameID":gameid
-            }).then(res => {
-                setisAdded(res.data[0].exists)
-            }).catch(err => {
-                console.log(err);
-            });
-            GameFinder.post('/checkIfWishlist', {
-                "userID":gamerID,
-                "gameID":gameid
-            }).then(res => {
-           
-                setisWish(res.data[0].exists)
-            }).catch(err => {
-                console.log(err);
-            });
+                GameFinder.post('/checkIfOwned', {
+                    "userID":gamerID,
+                    "gameID":gameid
+                }).then(res => {
+                    setisAdded(res.data[0].exists)
+                }).catch(err => {
+                    console.log(err);
+                });
+                GameFinder.post('/checkIfWishlist', {
+                    "userID":gamerID,
+                    "gameID":gameid
+                }).then(res => {
             
+                    setisWish(res.data[0].exists)
+                }).catch(err => {
+                    console.log(err);
+                });
+            }
         }
         fetchBooleans();
     }, []);
