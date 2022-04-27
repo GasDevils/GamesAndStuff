@@ -174,10 +174,10 @@ const GameDetails = () => {
             </tbody>
           </table> 
 {(gamer.userid > 0) &&
-          <button onClick={isAdded ? handleRemoveCollection : handleCollectionAdd}>{isAdded ? 'Remove from':'Add to'} Collection</button>
+          <button onClick={isAdded ? handleRemoveCollection : handleCollectionAdd} className="addButton">{isAdded ? 'Remove from':'Add to'} Collection</button>
 }
 {(gamer.userid > 0) &&
-          <button onClick={isWish ? handleRemoveWish : handlewishlistAdd}>{isWish ? 'Remove from':'Add to'} Wishlist</button>
+          <button onClick={isWish ? handleRemoveWish : handlewishlistAdd} className="addButton">{isWish ? 'Remove from':'Add to'} Wishlist</button>
 }
         </div>    
       </div>
