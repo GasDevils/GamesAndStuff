@@ -1,5 +1,6 @@
 .addButton{
-    display: inline-block;
+    display: none;
+    float: left;
     align-items: center;
     text-align: center;
     margin: 4px 10px;
