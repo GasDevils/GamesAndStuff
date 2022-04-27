@@ -27,7 +27,7 @@ const GameDetails = () => {
                     setSelectedGames(response.data[0]);
                 }
             }catch{
-                console.log(err);
+                console.log("error");
             }
         }
         fetchData();
