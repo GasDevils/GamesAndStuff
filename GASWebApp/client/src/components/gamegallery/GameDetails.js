@@ -13,6 +13,7 @@ const GameDetails = () => {
     const {gamer} = useContext(UserContext);
     const gamerID = gamer.userid;
     const [tags, setTags] = useState([]);
+    const [order, setOrder] = useState("ASC");
     
     useEffect(() => {
         async function fetchData(){

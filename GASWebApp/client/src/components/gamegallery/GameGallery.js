@@ -10,7 +10,26 @@ const GameGallery = (props) => {
   const{games, setGames} = useContext(GamesContext)
   const [pageNumber, setPageNumber] = useState(0);
   const [query, setQuery] = useState('');
+  const [order, setOrder] = useState("ASC");
   
+  // Sorting
+  const sorting =(col)=>{
+    if(order === "ASC"){
+      const sorted = [...games].sort((a,b)=>
+        a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1
+      )
+    }
+    setGames(sorted);
+    setOrder("DSC");
+    if(order === "DSC"){
+      const sorted = [...games].sort((a,b)=>
+        a[col].toLowerCase() < b[col].toLowerCase() ? 1 : -1
+      )
+    }
+    setGames(sorted);
+    setOrder("ASC");
+  }
+  ////////////////////////////////
   const gamesPerPage = 10;
 
   const pagesVisited = pageNumber * gamesPerPage;
@@ -53,7 +72,7 @@ const GameGallery = (props) => {
   };
   //////////////////////////////////////////////////////////////////////////////
   // Searching state
-  
+
     return(
       <div className="game-gallery">
         <center>
@@ -65,8 +84,8 @@ const GameGallery = (props) => {
             <thead>
               <tr>
                 <th scope="col">Image</th>
-                <th scope="col">Name</th>
-                <th scope="col">Rating</th>
+                <th onClick={()=>sorting("title")}scope="col">Name</th>
+                <th onClick={()=>sorting("rating")}scope="col">Rating</th>
               </tr>
             </thead>
             <tbody>
