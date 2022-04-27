@@ -1,4 +1,7 @@
 .addButton{
-    background-color: white;
+    width: 100px;
+    padding: 20px 0px;
+    color: white;
+    background-color: $table-dark-bg;
     border: 2px solid #8a40ff;
 }
