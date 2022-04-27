@@ -135,7 +135,7 @@ const GameDetails = () => {
     const handleRemoveCollection = async () => {
         //add to collection
         console.log(gamerID + " " + gameid);
-        GameFinder.delete('/removeFromCollection', {
+        GameFinder.post('/removeFromCollection', {
             "userid":gamerID,
             "gameid":gameid 
         });
@@ -152,7 +152,7 @@ const GameDetails = () => {
     }
     const handleRemoveWish = async () => {
         //add to collection
-        GameFinder.delete('/removeWishlist', {"userid": gamerID, "gameid": gameid});
+        GameFinder.post('/removeWishlist', {"userid": gamerID, "gameid": gameid});
         //change button to remove from collection
         setisWish(false);
     }
@@ -173,10 +173,10 @@ const GameDetails = () => {
             </tbody>
           </table> 
 {(gamer.userid > 0) &&
-          <button onClick={isAdded ? handleRemoveCollection : handleCollectionAdd}>{isAdded ? 'Remove':'Add'} to Collection</button>
+          <button onClick={isAdded ? handleRemoveCollection : handleCollectionAdd}>{isAdded ? 'Remove from':'Add to'} Collection</button>
 }
 {(gamer.userid > 0) &&
-          <button onClick={isWish ? handleRemoveWish : handlewishlistAdd}>{isWish ? 'Remove':'Add'} to Wishlist</button>
+          <button onClick={isWish ? handleRemoveWish : handlewishlistAdd}>{isWish ? 'Remove from':'Add to'} Wishlist</button>
 }
         </div>    
       </div>

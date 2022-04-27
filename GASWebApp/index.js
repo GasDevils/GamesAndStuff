@@ -91,7 +91,7 @@ app.post('/api/addWishlist', db.addWishlist)
 //body {userid: int, gameid: int}
 //@returns id of userID if successful
 //@returns error otherwise
-app.delete('/api/removeWishlist', db.removeWishlist)
+app.post('/api/removeWishlist', db.removeWishlist)
 
 //adds game from user's collection
 //body {userid: int, gameid: int, numcopies: int}
@@ -101,7 +101,7 @@ app.post('/api/addToCollection', db.addToCollection)
 //removes game from user's collection
 //body {userid: int, gameid: int}
 //@returns gameid of game if successful
-app.delete('/api/removeFromCollection', db.removeFromCollection)
+app.post('/api/removeFromCollection', db.removeFromCollection)
 
 //gets 50 games 
 app.post('/api/game/', db.getGame)
