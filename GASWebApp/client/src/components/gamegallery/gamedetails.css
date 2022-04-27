@@ -1,4 +1,5 @@
 .addButton{
+    display: none;
     float: left;
     align-items: center;
     text-align: center;
