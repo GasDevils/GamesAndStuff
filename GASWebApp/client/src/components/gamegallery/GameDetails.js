@@ -106,10 +106,8 @@ const GameDetails = () => {
               </tr>
             );
         }
-
-        
     }
-
+    //let me love you
     const showGameDetails = () => {
         if(gameid < 27076){
             return(
