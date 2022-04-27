@@ -28,7 +28,6 @@ const Wishlist = (props) => {
         const response = await GameFinder.post('/wishlist',{
           "userid": gamer.userid
         });
-        console.log(response.data.rows)
         setWish(response.data.rows)
         pagesVisited = pageNumber * gamesPerPage;
       } catch(err){}
@@ -52,7 +51,7 @@ const Wishlist = (props) => {
         </tr>
       );
     })
-    ),[pagesVisited,query]);
+    ),[pagesVisited,query, Wish]);
 
   
 
