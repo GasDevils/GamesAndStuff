@@ -123,14 +123,22 @@ const GameDetails = () => {
 
     const handleCollectionAdd = async () => {
         //add to collection
-        GameFinder.post('/addToCollection', {"userid":gamerID,"gameid":gameid, "numcopies":1});
+        GameFinder.post('/addToCollection', {
+            "userid":gamerID,
+            "gameid":gameid, 
+            "numcopies":1}
+            );
         //change button to remove from collection
         setisAdded(true);
       
     }
     const handleRemoveCollection = async () => {
         //add to collection
-        GameFinder.delete('/removeFromCollection', {"userid":gamerID, "gameid":gameid });
+        console.log(gamerID + " " + gameid);
+        GameFinder.delete('/removeFromCollection', {
+            "userid":gamerID,
+            "gameid":gameid 
+        });
         //change button to remove from collection
         setisAdded(false);
         
