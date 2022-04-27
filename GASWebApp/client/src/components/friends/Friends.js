@@ -9,7 +9,7 @@ import { UserContext } from '../../context/UserContext';
  //////////////////////////////////////////////////////////////////////////////
  const Friends = () => {
    const {gamer} = useContext(UserContext);
-   const [friends, setFriends] = useState([]);
+   const {friends, setFriends} = useContext(FriendsContext);
    const [displayFriends, setDisplayFriends] = useState([]);
    const [pageNumber, setPageNumber] = useState(0);
    const [pageCount, setpageCount] = useState(0);
