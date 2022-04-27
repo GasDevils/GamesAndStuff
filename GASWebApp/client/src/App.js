@@ -5,6 +5,7 @@ import Login from './components/login/Login';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'; //BrowserRouter is the router for the entire application 
 
 import GameGallery from './components/gamegallery/GameGallery';
+import Friends from './components/friends/Friends';
 import Account from './components/account/Account';
 import Notfound from './components/notfound/Notfound';
 import { GamesContextProvider } from './context/GamesContext';
