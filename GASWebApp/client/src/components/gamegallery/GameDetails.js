@@ -63,6 +63,7 @@ const GameDetails = () => {
                     "gameid": gameid
                 }).then(res => {
                     setTags(res.data);
+                    console.log(res.data)
                 }).catch(err => {
                     console.log(err);
                 })
