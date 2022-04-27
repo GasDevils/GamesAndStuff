@@ -28,7 +28,6 @@ import { UserContext } from '../../context/UserContext';
         const response = await GameFinder.post("/getFriendUserInfo", {
           "userid": userID//fill in with actual value from login
         });
-        console.log(response.data.rows);
         console.log(response.data);//use response.data to get friends userid2 and dateadded are relevant
         setFriends(response.data);
         setpageCount(Math.ceil(friends.length / gamesPerPage));
@@ -44,6 +43,9 @@ import { UserContext } from '../../context/UserContext';
     friends
     .slice(pagesVisited, pagesVisited + gamesPerPage)
     .map(friend => {
+      console.log(friend)
+      console.log(friend.username)
+      console.log(friend.dateadded)
       return(
         <tr /*onClick={() => handleGameSelect(game.gameid)} key={game.gameid}*/>
         <td>{friend.username}</td>
