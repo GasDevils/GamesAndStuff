@@ -185,14 +185,19 @@ const GameDetails = () => {
 
             </tbody>
           </table> 
+<<<<<<< HEAD
          {/* <div>{tagList}</div>  */}
+=======
+         <div>{tagList}</div> 
+         <center>
+>>>>>>> 0fcce78d76dc941ed9ea21fac05c053b4bd27749
 {(gamer.userid > 0) &&
           <button onClick={isAdded ? handleRemoveCollection : handleCollectionAdd} className="addButton">{isAdded ? 'Remove from':'Add to'} Collection</button>
 }
 {(gamer.userid > 0) &&
           <button onClick={isWish ? handleRemoveWish : handlewishlistAdd} className="addButton">{isWish ? 'Remove from':'Add to'} Wishlist</button>
 }
-            
+        </center>    
         </div>    
       </div>
     </div>    
