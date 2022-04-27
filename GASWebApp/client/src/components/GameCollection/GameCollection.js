@@ -60,7 +60,6 @@ const GameCollection = (props) => {
 
   const handlePageClick = ({selected}) =>{
       setPageNumber(selected);
-      set
   };
   //////////////////////////////////////////////////////////////////////////////
   // Searching state

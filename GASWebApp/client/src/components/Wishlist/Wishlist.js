@@ -14,8 +14,8 @@ const Wishlist = (props) => {
   const {gamer} = useContext(UserContext)  
   const gamesPerPage = 10;
   const [displayGames, setDisplayGames] = useState([])
-
-
+  
+  const pagesVisited = pageNumber * gamesPerPage;
   
   let navigate = useNavigate();
   const handleGameSelect = (gameid) => {
@@ -52,7 +52,7 @@ const Wishlist = (props) => {
         </tr>
       );
     })
-    ),[pageNumber]);
+    ),[pagesVisited]);
 
   
 
@@ -60,7 +60,6 @@ const Wishlist = (props) => {
 
   const handlePageClick = ({selected}) =>{
       setPageNumber(selected);
-      
   };
   //////////////////////////////////////////////////////////////////////////////
   // Searching state

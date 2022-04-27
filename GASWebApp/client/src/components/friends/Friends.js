@@ -13,12 +13,11 @@ import { UserContext } from '../../context/UserContext';
    const [displayFriends, setDisplayFriends] = useState([]);
    const [pageNumber, setPageNumber] = useState(0);
    const [pageCount, setpageCount] = useState(0);
-   const [pageVisited, setpageVisited] = useState(0);
    
    
    const gamesPerPage = 10;
   
-   
+   const pagesVisited = pageNumber * gamesPerPage;
 
    
   
@@ -32,7 +31,8 @@ import { UserContext } from '../../context/UserContext';
         console.log(response);//use response.data to get friends userid2 and dateadded are relevant
         setFriends(response.data.rows);
         setpageCount(Math.ceil(friends.length / gamesPerPage));
-        setpageVisited(pageNumber * gamesPerPage);
+        pagesVisited = pageNumber * gamesPerPage;
+        
       }catch(err){
       }
     }
@@ -41,7 +41,7 @@ import { UserContext } from '../../context/UserContext';
 
    useEffect( () => setDisplayFriends( 
     friends
-    .slice(pageVisited, pageVisited + gamesPerPage)
+    .slice(pagesVisited, pageVsisited + gamesPerPage)
     .map(friend => {
       return(
         <tr /*onClick={() => handleGameSelect(game.gameid)} key={game.gameid}*/>
@@ -50,7 +50,7 @@ import { UserContext } from '../../context/UserContext';
         </tr>
       );
     })
-  ),[pageVisited]);
+  ),[pagesVisited]);
 
   
 
@@ -59,7 +59,6 @@ import { UserContext } from '../../context/UserContext';
 
 const handlePageClick = ({selected}) =>{
   setPageNumber(selected);
-  setpageVisited(pageNumber * gamesPerPage);
 };
 
  return(
