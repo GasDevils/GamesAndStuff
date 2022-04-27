@@ -73,9 +73,9 @@ const GameDetails = () => {
         fetchData();
     });
 
-    const tagList = tags.map((item,index) => 
-                             <div key={index}>{item}</div>
-                           );
+    // const tagList = tags.map((item,index) => 
+    //                          <div key={index}>{item}</div>
+    //                        );
 
     const gameColumns = () => {
         if(selectedGames.gameid < 27076){
@@ -192,7 +192,7 @@ const GameDetails = () => {
 
             </tbody>
           </table> 
-         <div>{tagList}</div> 
+         {/* <div>{tagList}</div>  */}
 {(gamer.userid > 0) &&
           <button onClick={isAdded ? handleRemoveCollection : handleCollectionAdd} className="addButton">{isAdded ? 'Remove from':'Add to'} Collection</button>
 }
