@@ -28,8 +28,9 @@ import { UserContext } from '../../context/UserContext';
         const response = await GameFinder.post("/getFriendUserInfo", {
           "userid": userID//fill in with actual value from login
         });
-        console.log(response);//use response.data to get friends userid2 and dateadded are relevant
-        setFriends(response.data.rows);
+        console.log(response.data.rows);
+        console.log(response.data);//use response.data to get friends userid2 and dateadded are relevant
+        setFriends(response.data);
         setpageCount(Math.ceil(friends.length / gamesPerPage));
         pagesVisited = pageNumber * gamesPerPage;
         
