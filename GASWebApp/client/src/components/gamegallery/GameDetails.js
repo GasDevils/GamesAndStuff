@@ -40,6 +40,7 @@ const GameDetails = () => {
                 "userID":gamerID,
                 "gameID":gameid
             }).then(res => {
+                console.log(res.data);
                 setisAdded(res.data[0])
             }).catch(err => {
                 console.log(err);
@@ -48,6 +49,7 @@ const GameDetails = () => {
                 "userID":gamerID,
                 "gameID":gameid
             }).then(res => {
+                console.log(res.data);
                 setisWish(res.data[0])
             }).catch(err => {
                 console.log(err);
