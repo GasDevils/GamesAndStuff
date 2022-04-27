@@ -70,7 +70,7 @@ const GameDetails = () => {
     },[]);
 
      const tagList = tags.map((item) => 
-                            item.tag + " "
+                            item.tag + "; "
      );
                            
                         
