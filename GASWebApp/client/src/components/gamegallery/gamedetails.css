@@ -1,11 +1,11 @@
 .addButton{
-    display: flex;
+    display: inline-block;
     align-items: center;
     text-align: center;
-    margin: auto;
+    margin: 4px 10px;
     font-weight: bold;
     width: 200px;
     color: white;
-    padding: 16px 32px;
     background-color: #1f1e23;
+    border-radius: 8px;
 }
