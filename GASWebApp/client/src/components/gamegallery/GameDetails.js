@@ -71,7 +71,7 @@ const GameDetails = () => {
 
      const tagList = tags.map((item) => 
                             item.tag + " "
-                           ).trim();
+     );
                            
                         
 
@@ -87,6 +87,7 @@ const GameDetails = () => {
                     <th scope="col">Developer</th>
                     <th scope="col">Rating</th>
                     <th scope="col">Users Rated</th>
+                    <th scope="col">Tags</th>
                   </tr>
             );
         } 
@@ -101,6 +102,7 @@ const GameDetails = () => {
                 <th scope="col">Release Year</th>
                 <th scope="col">Rating</th>
                 <th scope="col">Users Rated</th>
+                <th scope="col">Tags</th>
               </tr>
             );
         }
@@ -118,6 +120,7 @@ const GameDetails = () => {
                     <td>{selectedGames.developer}</td>
                     <td>{selectedGames.rating}</td>
                     <td>{selectedGames.numusersrated}</td>
+                    <td>{tagList}</td>
                 </tr>
             );
         }
@@ -132,6 +135,7 @@ const GameDetails = () => {
                 <td>{selectedGames.releaseyear}</td>
                 <td>{selectedGames.rating}</td>
                 <td>{selectedGames.numusersrated}</td>
+                <td>{tagList}</td>
             </tr>
             );
         }
