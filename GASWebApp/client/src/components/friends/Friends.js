@@ -41,7 +41,7 @@ import { UserContext } from '../../context/UserContext';
 
    useEffect( () => setDisplayFriends( 
     friends
-    .slice(pagesVisited, pagesVisited + gamesPerPage)
+    .slice(pageVisited, pageVisited + gamesPerPage)
     .map(friend => {
       return(
         <tr /*onClick={() => handleGameSelect(game.gameid)} key={game.gameid}*/>
