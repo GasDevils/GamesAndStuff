@@ -14,7 +14,6 @@ const GameDetails = () => {
     const {gamer} = useContext(UserContext);
     const gamerID = gamer.userid;
     
-    console.log("wish" + isWish + " added " + isAdded);
     useEffect(() => {
         async function fetchData(){
             try{

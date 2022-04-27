@@ -518,7 +518,7 @@ return;
 
 const getFriendUserInfo = (request, response) => {
     const userid = parseInt(request.body.userid)
-    pool.query('SELECT g.userid, g.username, f.dateAdded from gamers g, friendsWith f where f.userid = $1 and g.userId = f.userID2', [userid], (error, results) => {
+    pool.query('SELECT g.userid, g.username, f.dateAdded from gamers g, friendsWith f where f.userid1 = $1 and g.userId = f.userID2', [userid], (error, results) => {
         if (error) {
             response.status(500).send('Error 500');
 return;

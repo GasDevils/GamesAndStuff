@@ -26,8 +26,8 @@ import { UserContext } from '../../context/UserContext';
     const userID = gamer.userid;
     const fetchData = async () => {
       try{
-        const response = await GameFinder.post("/friends", {
-          "id": userID//fill in with actual value from login
+        const response = await GameFinder.post("/getFriendUserInfo", {
+          "userid": userID//fill in with actual value from login
         });
         console.log(response);//use response.data to get friends userid2 and dateadded are relevant
         setFriends(response.data.rows);
@@ -46,7 +46,7 @@ import { UserContext } from '../../context/UserContext';
       return(
         <tr /*onClick={() => handleGameSelect(game.gameid)} key={game.gameid}*/>
         <td>{friend.username}</td>
-        <td>{friend.dateAdded}</td>
+        <td>{friend.dateadded}</td>
         </tr>
       );
     })
