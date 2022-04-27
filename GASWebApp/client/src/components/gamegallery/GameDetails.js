@@ -62,9 +62,9 @@ const GameDetails = () => {
                  GameFinder.post('/getTagsByID', {
                     "gameid": gameid
                 }).then(res => {
-                setTags(response.data);
+                    setTags(res.data);
                 }).catch(err => {
-                console.log(err);
+                    console.log(err);
                 })
     },[]);
 
@@ -185,7 +185,6 @@ const GameDetails = () => {
 
             </tbody>
           </table> 
-         <div>{tagList}</div> 
 {(gamer.userid > 0) &&
           <button onClick={isAdded ? handleRemoveCollection : handleCollectionAdd} className="addButton">{isAdded ? 'Remove from':'Add to'} Collection</button>
 }
