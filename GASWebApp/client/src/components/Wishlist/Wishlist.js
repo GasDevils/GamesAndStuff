@@ -52,7 +52,7 @@ const Wishlist = (props) => {
         </tr>
       );
     })
-    ),[pagesVisited]);
+    ),[pagesVisited,query]);
 
   
 

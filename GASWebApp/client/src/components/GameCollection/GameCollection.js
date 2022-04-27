@@ -52,7 +52,7 @@ const GameCollection = (props) => {
         </tr>
       );
     })
-  ),[pagesVisited]);
+  ),[pagesVisited,query]);
 
   const pageCount = Math.ceil(collection.length / gamesPerPage);
 

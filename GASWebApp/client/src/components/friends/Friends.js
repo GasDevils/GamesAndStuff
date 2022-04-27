@@ -30,9 +30,9 @@ import { UserContext } from '../../context/UserContext';
         });
         console.log(response.data);//use response.data to get friends userid2 and dateadded are relevant
         setFriends(response.data);
+        console.log(friends)
         setpageCount(Math.ceil(friends.length / gamesPerPage));
         pagesVisited = pageNumber * gamesPerPage;
-        
       }catch(err){
       }
     }
