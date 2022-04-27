@@ -186,7 +186,7 @@ const GameDetails = () => {
 
             </tbody>
           </table> 
-         <div>{tagList}</div> 
+         {/*<div>{tagList}</div>*/}
 {(gamer.userid > 0) &&
           <button onClick={isAdded ? handleRemoveCollection : handleCollectionAdd} className="addButton">{isAdded ? 'Remove from':'Add to'} Collection</button>
 }
