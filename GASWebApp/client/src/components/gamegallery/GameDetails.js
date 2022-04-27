@@ -74,7 +74,7 @@ const GameDetails = () => {
         fetchData();
     });
 
-    const tagList = itemList.map((item) => 
+    const tagList = tags.map((item) => 
                              <div>{item}</div>
                            );
 
