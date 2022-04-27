@@ -74,7 +74,7 @@ const GameDetails = () => {
     });
 
     const tagList = tags.map((item,index) => 
-                             <div keys={index}>{item}</div>
+                             <div key={index}>{item}</div>
                            );
 
     const gameColumns = () => {
@@ -192,7 +192,7 @@ const GameDetails = () => {
 
             </tbody>
           </table> 
-          {tagList}
+         <div>{tagList}</div> 
 {(gamer.userid > 0) &&
           <button onClick={isAdded ? handleRemoveCollection : handleCollectionAdd} className="addButton">{isAdded ? 'Remove from':'Add to'} Collection</button>
 }
