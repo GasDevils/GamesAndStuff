@@ -59,18 +59,14 @@ const GameDetails = () => {
     }, []);
 
     useEffect( () => {
-        async function fetchData(){
             try{
                 const response = await GameFinder.post('/getTagsByID', {
                     "gameid": gameid
                 });
-                //console.log(response.data[0]);
                 setTags(response.data);
             }catch{
                 console.log(err);
             }
-        }
-        fetchData();
     },[]);
 
     // const tagList = tags.map((item,index) => 
