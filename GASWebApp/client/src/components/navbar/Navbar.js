@@ -27,9 +27,9 @@ const Navbar = ()=>{
             <li><NavLink to="/" className="nav-link">Home</NavLink></li>
             }
             <li><NavLink to="/gameGallery" className="nav-link">Game Gallery</NavLink></li>
-            {gamer.userid > 0 &&
+            {/* {gamer.userid > 0 &&
             <li><NavLink to="/Friends" className="nav-link">Friends</NavLink></li>
-            }
+            } */}
             {gamer.userid > 0 &&
             <li><NavLink to="/Account" className="nav-link">Account</NavLink></li>
             }
