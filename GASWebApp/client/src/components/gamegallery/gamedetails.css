@@ -1,4 +1,4 @@
-button:active{
+.game-gallery button:active{
     background-color: white;
     border: 2px solid #8a40ff;
 }
