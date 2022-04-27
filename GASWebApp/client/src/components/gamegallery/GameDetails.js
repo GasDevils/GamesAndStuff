@@ -68,9 +68,9 @@ const GameDetails = () => {
                 })
     },[]);
 
-    const tagList = tags.map((item,index) => 
-                             <div key={index}>{item}</div>
-                           );
+    // const tagList = tags.map((item,index) => 
+    //                          <div key={index}>{item}</div>
+    //                        );
 
     const gameColumns = () => {
         if(selectedGames.gameid < 27076){
